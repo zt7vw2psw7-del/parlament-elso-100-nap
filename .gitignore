@@ -1,0 +1,21 @@
+# Környezeti változók és titkok
+.env
+.env.*
+*.pem
+*.key
+id_rsa*
+
+# Adatok és nagy bináris fájlok
+data/
+*.db
+*.db.bak
+*.sqlite3
+*.zip
+
+# Rendszerfájlok és Python cache
+.DS_Store
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/

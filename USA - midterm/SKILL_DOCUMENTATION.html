@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Election Tracker Skill Specifikáció</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: #0f172a;
+      background: #f8fafc;
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .doc-card {
+      background: #ffffff;
+      padding: 3rem;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+    h1 { color: #1e3a8a; border-bottom: 2px solid #3b82f6; padding-bottom: 0.5rem; }
+    h2 { color: #0f172a; margin-top: 2rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.3rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+    th, td { border: 1px solid #cbd5e1; padding: 0.75rem 1rem; text-align: left; }
+    th { background: #f1f5f9; font-weight: 700; }
+    .badge { background: #eff6ff; color: #1d4ed8; padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 700; font-size: 0.85rem; }
+    pre { background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px; overflow-x: auto; font-size: 0.9rem; }
+    @media print {
+      body { background: #ffffff; padding: 0; }
+      .doc-card { border: none; box-shadow: none; padding: 0; }
+      .no-print { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="no-print" style="margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+    <a href="ELECTION_TRACKER_SKILL.pdf" target="_blank" style="background: #2563eb; color: #ffffff; padding: 0.6rem 1.2rem; text-decoration: none; border-radius: 6px; font-weight: 700;">
+      📥 Közvetlen PDF Megnyitása / Letöltése
+    </a>
+    <button onclick="window.print()" style="background: #0f172a; color: #ffffff; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 700; cursor: pointer;">
+      🖨️ Nyomtatás / Mentés PDF-ként
+    </button>
+  </div>
+  <div class="doc-card">
+    <h1>🗳️ Election Tracker Skill — Hivatalos Specifikáció</h1>
+    <p><strong>Verzió:</strong> 2.0 (Nemzetközi Rendszer) | <strong>Elérési út:</strong> <code>.agent/skills/election-tracker</code></p>
+    
+    <h2>1. A Skill Áttekintése</h2>
+    <p>Az <code>election-tracker</code> egy újrafelhasználható Antigravity AI képességcsomag, amely bármely célország választási rendszeréhez professzionális, interaktív és szigorúan hiteles adatvezérelt információs portált épít fel.</p>
+    
+    <h2>2. Nemzetközi Parlamenti Adatbázis</h2>
+    <table>
+      <thead>
+        <tr><th>Ország</th><th>Törvényhozás</th><th>Összes Mandátum</th><th>Többségi Küszöb</th><th>Rendszer</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>USA</strong></td><td>Szenátus / Képviselőház</td><td>100 / 435</td><td>51 / 218</td><td>Kétkamarás elnöki</td></tr>
+        <tr><td><strong>Németország</strong></td><td>Bundestag</td><td>630</td><td>316</td><td>Arányos (5% bejutási küszöb)</td></tr>
+        <tr><td><strong>Egyesült Királyság</strong></td><td>House of Commons</td><td>650</td><td>326</td><td>Westminsteri egyéni (FPTP)</td></tr>
+        <tr><td><strong>Magyarország</strong></td><td>Országgyűlés</td><td>199</td><td>100 (133 kétharmad)</td><td>Vegyes (106 egyéni + 93 lista)</td></tr>
+        <tr><td><strong>Franciaország</strong></td><td>Assemblée Nationale</td><td>577</td><td>289</td><td>Kétfordulós egyéni</td></tr>
+      </tbody>
+    </table>
+
+    <h2>3. Hiteles Forrás Kritériumok</h2>
+    <ul>
+      <li><strong>Közvélemény-kutatók:</strong> Csak auditált módszertanú, A+, A vagy B+ minősítésű intézetek mérései engedélyezettek.</li>
+      <li><strong>Média:</strong> Kizárólag nemzeti és nemzetközi Tier-1 hírügynökségek (AP, Reuters, DPA, BBC, Telex, 24.hu).</li>
+    </ul>
+
+    <h2>4. Parancssori Generálás</h2>
+    <pre>python3 .agent/skills/election-tracker/scripts/scaffold_country.py --country hungary --output ~/Desktop/Valasztas-HU
+python3 .agent/skills/election-tracker/scripts/scaffold_country.py --country germany --output ~/Desktop/Bundestag2025</pre>
+  </div>
+</body>
+</html>

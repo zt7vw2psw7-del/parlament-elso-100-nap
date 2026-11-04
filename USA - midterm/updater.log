@@ -1,0 +1,59 @@
+[2026-10-03 09:11:40] === Starting US Midterms Daily Data Update ===
+[2026-10-03 09:11:40] Projections data timestamp updated successfully.
+[2026-10-03 09:11:40] Polls database verified: 10 polls active.
+[2026-10-03 09:11:40] Notice: Live feed fetch for Politico (<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1129)>). Falling back to curated feeds.
+[2026-10-03 09:11:40] Notice: Live feed fetch for BBC News (<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1129)>). Falling back to curated feeds.
+[2026-10-03 09:11:40] Notice: Live feed fetch for NPR Politics (<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1129)>). Falling back to curated feeds.
+[2026-10-03 09:11:40] News feed updated with 6 articles.
+[2026-10-03 09:11:40] === Daily Data Update Completed Successfully ===
+[2026-10-03 09:36:04] === Starting US Midterms Daily Data Update ===
+[2026-10-03 09:36:04] Projections data timestamp updated successfully.
+[2026-10-03 09:36:04] Polls database verified: 10 polls active.
+[2026-10-03 09:36:04] Notice: Live feed fetch for Politico (HTTP Error 400: Bad Request). Falling back to curated feeds.
+[2026-10-03 09:36:04] Notice: Live feed fetch for BBC News (HTTP Error 400: Bad Request). Falling back to curated feeds.
+[2026-10-03 09:36:04] Notice: Live feed fetch for NPR Politics (HTTP Error 400: Bad Request). Falling back to curated feeds.
+[2026-10-03 09:36:04] News feed updated with 6 articles.
+[2026-10-03 09:36:04] Trump Tracker data synchronized successfully.
+[2026-10-03 09:36:04] === Daily Data Update Completed Successfully ===
+[2026-10-03 09:36:46] === Starting US Midterms Daily Data Update ===
+[2026-10-03 09:36:46] Projections data timestamp updated successfully.
+[2026-10-03 09:36:46] Polls database verified: 10 polls active.
+[2026-10-03 09:36:46] Notice: Live feed fetch for Politico (HTTP Error 400: Bad Request). Falling back to curated feeds.
+[2026-10-03 09:36:46] Notice: Live feed fetch for BBC News (HTTP Error 400: Bad Request). Falling back to curated feeds.
+[2026-10-03 09:36:46] Notice: Live feed fetch for NPR Politics (HTTP Error 400: Bad Request). Falling back to curated feeds.
+[2026-10-03 09:36:46] News feed updated with 6 articles.
+[2026-10-03 09:36:46] === Daily Data Update Completed Successfully ===
+[2026-10-04 20:51:47] === Starting US Midterms Daily Data Update ===
+[2026-10-04 20:51:47] Projections data timestamp updated successfully.
+[2026-10-04 20:51:47] Polls database verified: 10 polls active.
+[2026-10-04 20:51:48] Discovered 14 new live articles from trusted RSS.
+[2026-10-04 20:51:48] News feed updated with 15 articles.
+[2026-10-04 20:51:48] Trump Tracker data synchronized successfully.
+[2026-10-04 20:51:48] === Daily Data Update Completed Successfully ===
+[2026-10-04 20:59:07] === Starting US Midterms Daily Data Update ===
+[2026-10-04 20:59:07] Projections data timestamp updated successfully.
+[2026-10-04 20:59:07] Polls database verified: 10 polls active.
+[2026-10-04 20:59:07] Discovered 13 new live articles from trusted RSS.
+[2026-10-04 20:59:07] News feed updated with 15 articles.
+[2026-10-04 20:59:07] Synchronizing full Trump Truth Social archive from live feed...
+[2026-10-04 20:59:10] Truth Social Archive synced successfully: 36703 posts stored.
+[2026-10-04 20:59:10] Trump Tracker data synchronized successfully.
+[2026-10-04 20:59:10] === Daily Data Update Completed Successfully ===
+[2026-10-12 10:16:59] === Starting US Midterms Daily Data Update ===
+[2026-10-12 10:16:59] Projections data timestamp updated successfully.
+[2026-10-12 10:16:59] Polls database verified: 10 polls active.
+[2026-10-12 10:17:00] Discovered 13 new live articles from trusted RSS.
+[2026-10-12 10:17:00] News feed updated with 15 articles.
+[2026-10-12 10:17:00] Synchronizing full Trump Truth Social archive from live feed...
+[2026-10-12 10:17:02] Truth Social Archive synced successfully: 36804 posts stored.
+[2026-10-12 10:17:02] Trump Tracker data synchronized successfully.
+[2026-10-12 10:17:02] === Daily Data Update Completed Successfully ===
+[2026-11-04 17:02:33] === Starting US Midterms Daily Data Update ===
+[2026-11-04 17:02:33] Projections data timestamp updated successfully.
+[2026-11-04 17:02:33] Polls database verified: 10 polls active.
+[2026-11-04 17:02:34] Discovered 18 new live articles from trusted RSS.
+[2026-11-04 17:02:34] News feed updated with 15 articles.
+[2026-11-04 17:02:34] Synchronizing full Trump Truth Social archive from live feed...
+[2026-11-04 17:02:55] Truth Social Archive synced successfully: 37948 posts stored.
+[2026-11-04 17:02:55] Trump Tracker data synchronized successfully.
+[2026-11-04 17:02:55] === Daily Data Update Completed Successfully ===

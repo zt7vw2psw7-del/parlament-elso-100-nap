@@ -1,0 +1,40 @@
+[
+  {
+    "id": "2010_K_0001",
+    "period_id": "2010",
+    "document_number": "K/45",
+    "question_type": "interpellacio",
+    "title": "Milyen lépéseket tesz a kormány a devizahitelesek védelmében?",
+    "submitter_name": "Vona Gábor",
+    "submitter_group_code": "JOBBIK",
+    "target_person": "Orbán Viktor miniszterelnök",
+    "target_ministry": "Miniszterelnökség",
+    "submission_date": "2010-06-01",
+    "answered_date": "2010-06-07",
+    "question_text": "Tisztelt Miniszterelnök Úr! Családok százezrei sodródtak a csőd szélére a svájci frank alapú hitelek árfolyamrobbanása miatt. Követeljük a kilakoltatási moratórium azonnali meghosszabbítását és az árfolyam rögzítését!",
+    "answer_text": "Tisztelt Képviselő Úr! A kormány azonnal elrendelte a kilakoltatási moratóriumot, bevezeti a bankadót, és nem engedi, hogy a bankok a veszteségeiket a magyar családokra hárítsák.",
+    "responder_name": "Matolcsy György nemzetgazdasági miniszter",
+    "accepted_by_submitter": 0,
+    "accepted_by_parliament": 1,
+    "source_url": "https://www.parlament.hu/irom39/00045/00045.htm"
+  },
+  {
+    "id": "2026_K_0001",
+    "period_id": "2026",
+    "document_number": "K/12",
+    "question_type": "azonnali_kerdes",
+    "title": "Mikor érkeznek meg a visszatartott uniós források a magyar gazdaságba?",
+    "submitter_name": "Orbán Viktor",
+    "submitter_group_code": "FIDESZ",
+    "target_person": "Magyar Péter miniszterelnök",
+    "target_ministry": "Miniszterelnökség",
+    "submission_date": "2026-05-18",
+    "answered_date": "2026-05-20",
+    "question_text": "Tisztelt Miniszterelnök Úr! A választási kampányban azzal hitegették a választókat, hogy a kormányváltás után azonnal megérkeznek az uniós milliárdok. Mikor lát ebből egyetlen centet is a magyar költségvetés, és milyen szuverenitási árat fizetnek érte Brüsszelnek?",
+    "answer_text": "Tisztelt Frakcióvezető Úr! Az Európai Ügyészséghez való csatlakozással és a független igazságszolgáltatás helyreállításával a zárolt források első 3 milliárd eurós részlete már a nyáron lehívhatóvá válik. A szuverenitást nem mi adjuk fel, Önök zálogosították el az országot az értelmetlen korrupciós küzdelmekkel.",
+    "responder_name": "Magyar Péter miniszterelnök",
+    "accepted_by_submitter": 0,
+    "accepted_by_parliament": 1,
+    "source_url": "https://www.parlament.hu/irom42/00012/00012.htm"
+  }
+]

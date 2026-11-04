@@ -1,0 +1,2754 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parlamenti Elemzés: 2010 vs 2026 Első 100 Nap (CAP Master Codebook Taxonómia)</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: #f8fafc;
+        color: #0f172a;
+        margin: 0;
+        padding: 24px;
+        line-height: 1.5;
+    }
+    .container {
+        max-width: 1250px;
+        margin: 0 auto;
+    }
+    header {
+        background: linear-gradient(135deg, #1e293b, #0f172a);
+        color: white;
+        padding: 36px;
+        border-radius: 16px;
+        margin-bottom: 28px;
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+    h1 { margin: 0 0 10px 0; font-size: 28px; font-weight: 800; }
+    .subtitle { color: #94a3b8; font-size: 16px; margin: 0; }
+    
+    .grid-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+    .card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .card-title {
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #64748b;
+        margin-bottom: 8px;
+    }
+    .card-value {
+        font-size: 28px;
+        font-weight: 700;
+        color: #1e3a8a;
+    }
+    .card-desc {
+        font-size: 13px;
+        color: #64748b;
+        margin-top: 4px;
+    }
+    
+    .section-title {
+        font-size: 22px;
+        font-weight: 700;
+        margin: 36px 0 16px 0;
+        color: #1e293b;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .chart-container {
+        position: relative;
+        height: 420px;
+        margin-bottom: 24px;
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+        background: white;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        margin-bottom: 24px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+    }
+    th, td {
+        padding: 12px 16px;
+        text-align: left;
+        border-bottom: 1px solid #e2e8f0;
+    }
+    th {
+        background-color: #f1f5f9;
+        font-weight: 600;
+        color: #334155;
+    }
+    tr:hover { background-color: #f8fafc; }
+
+    .badge {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+    .badge-2010 { background: #fed7aa; color: #9a3412; }
+    .badge-2026 { background: #bfdbfe; color: #1e40af; }
+    .badge-gov { background: #dcfce7; color: #166534; }
+    .badge-opp { background: #fee2e2; color: #991b1b; }
+
+    .quote-box {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-left: 4px solid #ea580c;
+        padding: 14px 18px;
+        margin-bottom: 12px;
+        border-radius: 0 8px 8px 0;
+    }
+    .quote-meta {
+        font-size: 13px;
+        font-weight: 600;
+        color: #475569;
+        margin-bottom: 6px;
+    }
+    .quote-text {
+        font-style: italic;
+        color: #1e293b;
+        font-size: 14px;
+    }
+
+    .search-input {
+        width: 100%;
+        max-width: 400px;
+        padding: 10px 14px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        font-size: 14px;
+        margin-bottom: 12px;
+        box-sizing: border-box;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>🏛️ Parlamenti Törvényhozás és Beszédek Összehasonlítása</h1>
+        <p class="subtitle">A 2010-es és a 2026-os kormányváltás utáni első 100 nap – Comparative Agendas Project (CAP) Master Codebook (21 főtéma, 209 altéma)</p>
+    </header>
+
+    <div class="grid-cards">
+        <div class="card">
+            <div class="card-title">Benyújtott Törvényjavaslatok</div>
+            <div class="card-value">127 db</div>
+            <div class="card-desc">2010: 66 db | 2026: 61 db</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Elfogadott Törvények</div>
+            <div class="card-value" style="color: #166534;">71 db</div>
+            <div class="card-desc">2010: 56 db (84.8%) | 2026: 15 db (24.6%)</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Felszólalások (≥ 200 szó, szűrt)</div>
+            <div class="card-value">3,873 db</div>
+            <div class="card-desc">2010: 2,334 db | 2026: 1,539 db</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Kérdések & Interpellációk</div>
+            <div class="card-value">2,025 db</div>
+            <div class="card-desc">2010: 659 db | 2026: 1,366 db</div>
+        </div>
+    </div>
+
+    <!-- TÖRVÉNYHOZÁSI BLOKK -->
+    <div class="section-title">📜 1. Törvényjavaslatok és Jogalkotási Döntések</div>
+    <div class="grid-cards">
+        <div class="card">
+            <div class="card-title">2010 Törvényhozási Sikeresség</div>
+            <div class="card-value" style="color: #ea580c;">84.8%</div>
+            <div class="card-desc">66 javaslatból 56 törvény lett (2 elutasítva, 8 folyamatban)</div>
+        </div>
+        <div class="card">
+            <div class="card-title">2026 Törvényhozási Sikeresség</div>
+            <div class="card-value" style="color: #2563eb;">24.6%</div>
+            <div class="card-desc">61 javaslatból 15 törvény lett (0 elutasítva, 46 folyamatban)</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Ellenzéki Javaslatok Sorsa (Mindkét Év)</div>
+            <div class="card-value" style="color: #991b1b;">0% Elfogadva</div>
+            <div class="card-desc">2010: 8 ellenzéki javaslatból 0 átment | 2026: 17 ellenzéki javaslatból 0 átment</div>
+        </div>
+    </div>
+
+    <h3 style="margin-top: 24px; color: #334155;">👥 Kik és mennyi törvényjavaslatot nyújtottak be? (Frakciók szerinti eredményesség)</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Korszak</th>
+                    <th>Benyújtó Frakció / Szerv</th>
+                    <th>Kormányzati Szerep</th>
+                    <th>Benyújtott Javaslat</th>
+                    <th>Elfogadott Törvény</th>
+                    <th>Elutasított</th>
+                    <th>Folyamatban</th>
+                    <th>Elfogadási Arány</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge badge-gov">Kormánypárt</span></td>
+            <td><strong>28</strong> db</td>
+            <td style="color: #166534; font-weight: bold;">27 db</td>
+            <td style="color: #991b1b;">0 db</td>
+            <td style="color: #64748b;">1 db</td>
+            <td style="font-weight: 700; color: #166534;">96.4%</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>FIDESZ-KDNP</strong></td>
+            <td><span class="badge badge-gov">Kormánypárt</span></td>
+            <td><strong>15</strong> db</td>
+            <td style="color: #166534; font-weight: bold;">15 db</td>
+            <td style="color: #991b1b;">0 db</td>
+            <td style="color: #64748b;">0 db</td>
+            <td style="font-weight: 700; color: #166534;">100.0%</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge badge-gov">Kormánypárt</span></td>
+            <td><strong>12</strong> db</td>
+            <td style="color: #166534; font-weight: bold;">11 db</td>
+            <td style="color: #991b1b;">0 db</td>
+            <td style="color: #64748b;">1 db</td>
+            <td style="font-weight: 700; color: #166534;">91.7%</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>FÜGGETLEN</strong></td>
+            <td><span class="badge badge-opp">Ellenzék</span></td>
+            <td><strong>5</strong> db</td>
+            <td style="color: #166534; font-weight: bold;">0 db</td>
+            <td style="color: #991b1b;">0 db</td>
+            <td style="color: #64748b;">5 db</td>
+            <td style="font-weight: 700; color: #991b1b;">0.0%</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>KDNP</strong></td>
+            <td><span class="badge badge-gov">Kormánypárt</span></td>
+            <td><strong>3</strong> db</td>
+            <td style="color: #166534; font-weight: bold;">3 db</td>
+            <td style="color: #991b1b;">0 db</td>
+            <td style="color: #64748b;">0 db</td>
+            <td style="font-weight: 700; color: #166534;">100.0%</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>LMP</strong></td>
+            <td><span class="badge badge-opp">Ellenzék</span></td>
+            <td><strong>2</strong> db</td>
+            <td style="color: #166534; font-weight: bold;">0 db</td>
+            <td style="color: #991b1b;">1 db</td>
+            <td style="color: #64748b;">1 db</td>
+            <td style="font-weight: 700; color: #991b1b;">0.0%</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>MSZP</strong></td>
+            <td><span class="badge badge-opp">Ellenzék</span></td>
+            <td><strong>1</strong> db</td>
+            <td style="color: #166534; font-weight: bold;">0 db</td>
+            <td style="color: #991b1b;">1 db</td>
+            <td style="color: #64748b;">0 db</td>
+            <td style="font-weight: 700; color: #991b1b;">0.0%</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge badge-gov">Kormánypárt</span></td>
+            <td><strong>31</strong> db</td>
+            <td style="color: #166534; font-weight: bold;">7 db</td>
+            <td style="color: #991b1b;">0 db</td>
+            <td style="color: #64748b;">24 db</td>
+            <td style="font-weight: 700; color: #b45309;">22.6%</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong>MI_HAZANK</strong></td>
+            <td><span class="badge badge-opp">Ellenzék</span></td>
+            <td><strong>13</strong> db</td>
+            <td style="color: #166534; font-weight: bold;">0 db</td>
+            <td style="color: #991b1b;">0 db</td>
+            <td style="color: #64748b;">13 db</td>
+            <td style="font-weight: 700; color: #991b1b;">0.0%</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong>TISZA</strong></td>
+            <td><span class="badge badge-gov">Kormánypárt</span></td>
+            <td><strong>13</strong> db</td>
+            <td style="color: #166534; font-weight: bold;">8 db</td>
+            <td style="color: #991b1b;">0 db</td>
+            <td style="color: #64748b;">5 db</td>
+            <td style="font-weight: 700; color: #166534;">61.5%</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong>KDNP</strong></td>
+            <td><span class="badge badge-opp">Ellenzék</span></td>
+            <td><strong>2</strong> db</td>
+            <td style="color: #166534; font-weight: bold;">0 db</td>
+            <td style="color: #991b1b;">0 db</td>
+            <td style="color: #64748b;">2 db</td>
+            <td style="font-weight: 700; color: #991b1b;">0.0%</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge badge-opp">Ellenzék</span></td>
+            <td><strong>1</strong> db</td>
+            <td style="color: #166534; font-weight: bold;">0 db</td>
+            <td style="color: #991b1b;">0 db</td>
+            <td style="color: #64748b;">1 db</td>
+            <td style="font-weight: 700; color: #991b1b;">0.0%</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong>FIDESZ-KDNP</strong></td>
+            <td><span class="badge badge-opp">Ellenzék</span></td>
+            <td><strong>1</strong> db</td>
+            <td style="color: #166534; font-weight: bold;">0 db</td>
+            <td style="color: #991b1b;">0 db</td>
+            <td style="color: #64748b;">1 db</td>
+            <td style="font-weight: 700; color: #991b1b;">0.0%</td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+
+    <h3 style="margin-top: 24px; color: #334155;">📂 Milyen szakpolitikai témákban születtek a javaslatok? (CAP Taxonómia)</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Szakpolitikai Főterület</th>
+                    <th>2010 Benyújtott</th>
+                    <th>2010 Elfogadott (Arány)</th>
+                    <th>2026 Benyújtott</th>
+                    <th>2026 Elfogadott (Arány)</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td><span class="badge" style="background: #e2e8f0; color: #1e293b;">CAP 20</span> <strong>Kormányzati működés, alkotmányosság és választások</strong></td>
+            <td>31 db</td>
+            <td style="color: #166534; font-weight: 600;">27/31 (87%)</td>
+            <td>20 db</td>
+            <td style="color: #1d4ed8; font-weight: 600;">4/20 (20%)</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #e2e8f0; color: #1e293b;">CAP 1</span> <strong>Makrogazdaság</strong></td>
+            <td>7 db</td>
+            <td style="color: #166534; font-weight: 600;">5/7 (71%)</td>
+            <td>7 db</td>
+            <td style="color: #1d4ed8; font-weight: 600;">1/7 (14%)</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #e2e8f0; color: #1e293b;">CAP 12</span> <strong>Jog, igazságszolgáltatás és közbiztonság</strong></td>
+            <td>4 db</td>
+            <td style="color: #166534; font-weight: 600;">4/4 (100%)</td>
+            <td>7 db</td>
+            <td style="color: #1d4ed8; font-weight: 600;">2/7 (29%)</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #e2e8f0; color: #1e293b;">CAP 6</span> <strong>Oktatás</strong></td>
+            <td>6 db</td>
+            <td style="color: #166534; font-weight: 600;">5/6 (83%)</td>
+            <td>5 db</td>
+            <td style="color: #1d4ed8; font-weight: 600;">3/5 (60%)</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #e2e8f0; color: #1e293b;">CAP 13</span> <strong>Szociálpolitika és jólét</strong></td>
+            <td>4 db</td>
+            <td style="color: #166534; font-weight: 600;">4/4 (100%)</td>
+            <td>6 db</td>
+            <td style="color: #1d4ed8; font-weight: 600;">1/6 (17%)</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #e2e8f0; color: #1e293b;">CAP 3</span> <strong>Egészségügy</strong></td>
+            <td>2 db</td>
+            <td style="color: #166534; font-weight: 600;">1/2 (50%)</td>
+            <td>4 db</td>
+            <td style="color: #1d4ed8; font-weight: 600;">1/4 (25%)</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #e2e8f0; color: #1e293b;">CAP 4</span> <strong>Mezőgazdaság</strong></td>
+            <td>3 db</td>
+            <td style="color: #166534; font-weight: 600;">2/3 (67%)</td>
+            <td>2 db</td>
+            <td style="color: #1d4ed8; font-weight: 600;">0/2 (0%)</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #e2e8f0; color: #1e293b;">CAP 17</span> <strong>Technológia, média és távközlés</strong></td>
+            <td>1 db</td>
+            <td style="color: #166534; font-weight: 600;">0/1 (0%)</td>
+            <td>3 db</td>
+            <td style="color: #1d4ed8; font-weight: 600;">0/3 (0%)</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #e2e8f0; color: #1e293b;">CAP 8</span> <strong>Energiaügy</strong></td>
+            <td>2 db</td>
+            <td style="color: #166534; font-weight: 600;">2/2 (100%)</td>
+            <td>2 db</td>
+            <td style="color: #1d4ed8; font-weight: 600;">1/2 (50%)</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #e2e8f0; color: #1e293b;">CAP 10</span> <strong>Közlekedés</strong></td>
+            <td>1 db</td>
+            <td style="color: #166534; font-weight: 600;">1/1 (100%)</td>
+            <td>1 db</td>
+            <td style="color: #1d4ed8; font-weight: 600;">1/1 (100%)</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #e2e8f0; color: #1e293b;">CAP 15</span> <strong>Belkereskedelem és pénzügyi szektor</strong></td>
+            <td>1 db</td>
+            <td style="color: #166534; font-weight: 600;">1/1 (100%)</td>
+            <td>1 db</td>
+            <td style="color: #1d4ed8; font-weight: 600;">1/1 (100%)</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #e2e8f0; color: #1e293b;">CAP 23</span> <strong>Kultúra</strong></td>
+            <td>1 db</td>
+            <td style="color: #166534; font-weight: 600;">1/1 (100%)</td>
+            <td>1 db</td>
+            <td style="color: #1d4ed8; font-weight: 600;">0/1 (0%)</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #e2e8f0; color: #1e293b;">CAP 5</span> <strong>Munkaügy</strong></td>
+            <td>1 db</td>
+            <td style="color: #166534; font-weight: 600;">1/1 (100%)</td>
+            <td>1 db</td>
+            <td style="color: #1d4ed8; font-weight: 600;">0/1 (0%)</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #e2e8f0; color: #1e293b;">CAP 9</span> <strong>Bevándorlás és állampolgárság</strong></td>
+            <td>1 db</td>
+            <td style="color: #166534; font-weight: 600;">1/1 (100%)</td>
+            <td>1 db</td>
+            <td style="color: #1d4ed8; font-weight: 600;">0/1 (0%)</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #e2e8f0; color: #1e293b;">CAP 21</span> <strong>Állami földek és vízgazdálkodás</strong></td>
+            <td>1 db</td>
+            <td style="color: #166534; font-weight: 600;">1/1 (100%)</td>
+            <td>0 db</td>
+            <td style="color: #1d4ed8; font-weight: 600;">-</td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+
+    <h3 style="margin-top: 24px; color: #334155;">⚖️ Mely törvényeket módosították vagy alkották meg? (Törvények szerinti bontás)</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Korszak</th>
+                    <th>Érintett vagy Módosított Törvény Hivatalos Neve</th>
+                    <th>Jelleg</th>
+                    <th>Benyújtott Javaslatok</th>
+                    <th>Eredmény</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>Új önálló törvény</strong></td>
+            <td><span class="badge" style="background: #e0e7ff; color: #3730a3;">új törvény</span></td>
+            <td><strong>10</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">9/10 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>Ágazati törvénymódosítás</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>8</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">7/8 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>1949. évi XX. törvény (A Magyar Köztársaság Alkotmánya)</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>7</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">6/7 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>Több ágazati törvény egyidejű módosítása (salátatörvény)</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>6</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">4/6 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>1993. évi LXXIX. törvény (A közoktatásról)</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>4</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">3/4 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>1997. évi C. törvény</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>2</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">2/2 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>2007. évi CXXVII. törvény (Általános forgalmi adóról - Áfa tv.)</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>2</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">1/2 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>2009. évi CXX. törvény</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>2</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">1/2 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>2009. évi CXXX. törvény</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>2</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">2/2 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>1978. évi IV. törvény (Büntető Törvénykönyv - korábbi Btk.)</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>1</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">1/1 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>1988. évi I. törvény</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>1</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">1/1 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>1989. évi XXXII. törvény</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>1</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">1/1 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>1990. évi LXV. törvény (Helyi önkormányzatokról - korábbi Ötv.)</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>1</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">1/1 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>1991. évi XLIX. törvény</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>1</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">1/1 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>1991. évi XX. törvény</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>1</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">1/1 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>1992. évi XXXVIII. törvény</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>1</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">1/1 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>1993. évi LV. törvény (A magyar állampolgárságról)</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>1</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">1/1 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>1994. évi LIII. törvény (Bírósági végrehajtásról)</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>1</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">1/1 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>1995. évi CXXV. törvény (A nemzetbiztonsági szolgálatokról)</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>1</strong> javaslat</td>
+            <td><span style="color: #64748b;">0/1 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>1996. évi LVII. törvény</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>1</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">1/1 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>1996. évi XLV. törvény</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>1</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">1/1 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>1998. évi LXXXIV. törvény (Családok támogatásáról - Cst.)</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>1</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">1/1 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>2000. évi XXXIX. törvény</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>1</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">1/1 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>2001. évi LXIV. törvény</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>1</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">1/1 elfogadva</span></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>2003. évi CXXIX. törvény</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #475569;">módosító</span></td>
+            <td><strong>1</strong> javaslat</td>
+            <td><span style="color: #166534; font-weight: 600;">1/1 elfogadva</span></td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+
+    <h3 style="margin-top: 24px; color: #334155;">📋 Az összes törvényjavaslat tételes listája szavazati arányokkal</h3>
+    <input type="text" id="billSearch" class="search-input" placeholder="🔎 Keresés törvényre, benyújtóra vagy témára..." onkeyup="filterBills()">
+    <div class="table-wrapper" style="max-height: 500px; overflow-y: auto;">
+        <table id="billsTable">
+            <thead>
+                <tr>
+                    <th>Év</th>
+                    <th>Irományszám</th>
+                    <th>Rövid Cím</th>
+                    <th>Érintett Törvény</th>
+                    <th>Előterjesztő</th>
+                    <th>Téma</th>
+                    <th>Státusz</th>
+                    <th>Szavazatok</th>
+                    <th>Dátum</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00009/00009.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/9</a></strong></td>
+            <td><strong>Magyar Köztársaság Alkotmányáról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1949. évi XX. törvény (A Magyar Köztársaság Alkotmánya)</td>
+            <td><strong>FIDESZ-KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2011">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 306, Nem: 16, Tartózkodás: 35'><strong>306</strong> igen / 16 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-05-20</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00011/00011.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/11</a></strong></td>
+            <td><strong>Magyar Köztársaság minisztériumainak felsorolásáról</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>FIDESZ-KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2002">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 297, Nem: 7, Tartózkodás: 51'><strong>297</strong> igen / 7 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-05-20</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00017/00017.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/17</a></strong></td>
+            <td><strong>központi államigazgatási szervekről, valamint a Kormány tagjai és az áll...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>FIDESZ-KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2002">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 307, Nem: 51, Tartózkodás: 1'><strong>307</strong> igen / 51 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-05-20</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00021/00021.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/21</a></strong></td>
+            <td><strong>családok támogatásáról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1998. évi LXXXIV. törvény (Családok támogatásáról - Cst.)</td>
+            <td><strong>FIDESZ-KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 352, Nem: 1, Tartózkodás: 3'><strong>352</strong> igen / 1 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-21</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00023/00023.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/23</a></strong></td>
+            <td><strong>közoktatásról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1993. évi LXXIX. törvény (A közoktatásról)</td>
+            <td><strong>KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 602">CAP 6: Oktatás</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 295, Nem: 43, Tartózkodás: 14'><strong>295</strong> igen / 43 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-08</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00024/00024.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/24</a></strong></td>
+            <td><strong>közterületi parkolás jogi feltételeinek megteremtése érdekében a helyi ö...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Ágazati törvénymódosítás</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2001">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 314, Nem: 43, Tartózkodás: 0'><strong>314</strong> igen / 43 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-01</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00025/00025.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/25</a></strong></td>
+            <td><strong>Büntető Törvénykönyvről</strong></td>
+            <td style="font-size: 12px; color: #475569;">1978. évi IV. törvény (Büntető Törvénykönyv - korábbi Btk.)</td>
+            <td><strong>FIDESZ-KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1210">CAP 12: Jog, igazságszolgáltatás és közbiztonság</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 253, Nem: 61, Tartózkodás: 45'><strong>253</strong> igen / 61 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-08</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00027/00027.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/27</a></strong></td>
+            <td><strong>közterületi parkolás jogi feltételeinek megteremtése érdekében a közúti ...</strong></td>
+            <td style="font-size: 12px; color: #475569;">1988. évi I. törvény</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1005">CAP 10: Közlekedés</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 271, Nem: 0, Tartózkodás: 89'><strong>271</strong> igen / 0 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-01</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00029/00029.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/29</a></strong></td>
+            <td><strong>magyar állampolgárságról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1993. évi LV. törvény (A magyar állampolgárságról)</td>
+            <td><strong>FIDESZ-KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 900">CAP 9: Bevándorlás és állampolgárság</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 344, Nem: 3, Tartózkodás: 5'><strong>344</strong> igen / 3 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-05-26</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00032/00032.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/32</a></strong></td>
+            <td><strong>helyi önkormányzati képviselők és polgármesterek választásáról</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2012">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 259, Nem: 94, Tartózkodás: 0'><strong>259</strong> igen / 94 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-08</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00035/00035.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/35</a></strong></td>
+            <td><strong>állami vagyonnal való felelős gazdálkodás érdekében szükséges törvények</strong></td>
+            <td style="font-size: 12px; color: #475569;">Ágazati törvénymódosítás</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1308">CAP 13: Szociálpolitika és jólét</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 257, Nem: 108, Tartózkodás: 0'><strong>257</strong> igen / 108 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-08</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00038/00038.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/38</a></strong></td>
+            <td><strong>2011. évi népszámlálásról</strong></td>
+            <td style="font-size: 12px; color: #475569;">2009. évi CXXXIX. törvény</td>
+            <td><strong>FIDESZ-KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 311, Nem: 37, Tartózkodás: 0'><strong>311</strong> igen / 37 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-01</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00039/00039.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/39</a></strong></td>
+            <td><strong>Nemzeti Összetartozás melletti tanúságtételről</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>FIDESZ-KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2030">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 302, Nem: 55, Tartózkodás: 12'><strong>302</strong> igen / 55 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-05-31</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00042/00042.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/42</a></strong></td>
+            <td><strong>helyi önkormányzatokról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1990. évi LXV. törvény (Helyi önkormányzatokról - korábbi Ötv.)</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2001">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 260, Nem: 69, Tartózkodás: 41'><strong>260</strong> igen / 69 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-28</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00043/00043.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/43</a></strong></td>
+            <td><strong>Magyar Köztársaság Alkotmányáról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1949. évi XX. törvény (A Magyar Köztársaság Alkotmánya)</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2011">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 260, Nem: 109, Tartózkodás: 0'><strong>260</strong> igen / 109 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-28</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00044/00044.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/44</a></strong></td>
+            <td><strong>helyi önkormányzatok és szerveik, a köztársasági megbízottak, valamint e...</strong></td>
+            <td style="font-size: 12px; color: #475569;">1991. évi XX. törvény</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2001">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 312, Nem: 44, Tartózkodás: 3'><strong>312</strong> igen / 44 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-01</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00045/00045.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/45</a></strong></td>
+            <td><strong>kormánytisztviselők jogállásáról</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>FIDESZ-KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 253, Nem: 96, Tartózkodás: 0'><strong>253</strong> igen / 96 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-21</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00058/00058.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/58</a></strong></td>
+            <td><strong>választási eljárásról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1997. évi C. törvény</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2012">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 257, Nem: 99, Tartózkodás: 0'><strong>257</strong> igen / 99 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-21</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00059/00059.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/59</a></strong></td>
+            <td><strong>közoktatásról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1993. évi LXXIX. törvény (A közoktatásról)</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 602">CAP 6: Oktatás</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 317, Nem: 41, Tartózkodás: 0'><strong>317</strong> igen / 41 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-21</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00089/00089.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/89</a></strong></td>
+            <td><strong>kisebbségi önkormányzati képviselők számának csökkentése érdekében szüks...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Ágazati törvénymódosítás</td>
+            <td><strong>KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2001">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 302, Nem: 55, Tartózkodás: 0'><strong>302</strong> igen / 55 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-21</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00096/00096.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/96</a></strong></td>
+            <td><strong>közoktatásról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1993. évi LXXIX. törvény (A közoktatásról)</td>
+            <td><strong>KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 602">CAP 6: Oktatás</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 301, Nem: 61, Tartózkodás: 0'><strong>301</strong> igen / 61 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-05</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00187/00187.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/187</a></strong></td>
+            <td><strong>Magyar Köztársaság Kormánya és Románia Kormánya között a magyar-román ál...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 803">CAP 8: Energiaügy</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 323, Nem: 0, Tartózkodás: 47'><strong>323</strong> igen / 0 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-14</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00189/00189.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/189</a></strong></td>
+            <td><strong>Magyar Köztársaság Alkotmányáról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1949. évi XX. törvény (A Magyar Köztársaság Alkotmánya)</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2011">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 261, Nem: 90, Tartózkodás: 0'><strong>261</strong> igen / 90 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-28</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00190/00190.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/190</a></strong></td>
+            <td><strong>Alkotmánybíróságról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1989. évi XXXII. törvény</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2011">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 259, Nem: 87, Tartózkodás: 0'><strong>259</strong> igen / 87 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-28</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00284/00284.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/284</a></strong></td>
+            <td><strong>helyi iparűzési adóval kapcsolatos egyes törvények</strong></td>
+            <td style="font-size: 12px; color: #475569;">Több ágazati törvény egyidejű módosítása (salátatörvény)</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 107">CAP 1: Makrogazdaság</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 313, Nem: 47, Tartózkodás: 0'><strong>313</strong> igen / 47 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-21</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00317/00317.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/317</a></strong></td>
+            <td><strong>kulturális örökség védelméről</strong></td>
+            <td style="font-size: 12px; color: #475569;">2001. évi LXIV. törvény</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2300">CAP 23: Kultúra</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 316, Nem: 47, Tartózkodás: 0'><strong>316</strong> igen / 47 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-05</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00318/00318.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/318</a></strong></td>
+            <td><strong>előadó-művészeti szervezetek támogatásáról és sajátos foglalkoztatási sz...</strong></td>
+            <td style="font-size: 12px; color: #475569;">2008. évi XCIX. törvény</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1201">CAP 12: Jog, igazságszolgáltatás és közbiztonság</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 319, Nem: 2, Tartózkodás: 42'><strong>319</strong> igen / 2 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-05</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00329/00329.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/329</a></strong></td>
+            <td><strong>földgázellátásról</strong></td>
+            <td style="font-size: 12px; color: #475569;">2008. évi XL. törvény</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 803">CAP 8: Energiaügy</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 303, Nem: 0, Tartózkodás: 20'><strong>303</strong> igen / 0 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-14</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00336/00336.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/336</a></strong></td>
+            <td><strong>egyszerűsített foglalkoztatásról</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 505">CAP 5: Munkaügy</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 303, Nem: 48, Tartózkodás: 13'><strong>303</strong> igen / 48 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-05</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00337/00337.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/337</a></strong></td>
+            <td><strong>érettségi vizsga és a felsőoktatási intézménybe való felvétel egyes szab...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Ágazati törvénymódosítás</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 602">CAP 6: Oktatás</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 351, Nem: 0, Tartózkodás: 13'><strong>351</strong> igen / 0 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-05</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00351/00351.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/351</a></strong></td>
+            <td><strong>csődeljárásról és a felszámolási eljárásról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1991. évi XLIX. törvény</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 313, Nem: 48, Tartózkodás: 0'><strong>313</strong> igen / 48 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-21</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00359/00359.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/359</a></strong></td>
+            <td><strong>Magyar Köztársaság Alkotmányáról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1949. évi XX. törvény (A Magyar Köztársaság Alkotmánya)</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2011">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 262, Nem: 66, Tartózkodás: 43'><strong>262</strong> igen / 66 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-28</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00360/00360.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/360</a></strong></td>
+            <td><strong>médiát és a hírközlést szabályozó egyes törvények</strong></td>
+            <td style="font-size: 12px; color: #475569;">Több ágazati törvény egyidejű módosítása (salátatörvény)</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1308">CAP 13: Szociálpolitika és jólét</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 260, Nem: 86, Tartózkodás: 0'><strong>260</strong> igen / 86 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-22</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00369/00369.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/369</a></strong></td>
+            <td><strong>tisztességtelen piaci magatartás és a versenykorlátozás tilalmáról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1996. évi LVII. törvény</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 260, Nem: 92, Tartózkodás: 11'><strong>260</strong> igen / 92 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-05</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00371/00371.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/371</a></strong></td>
+            <td><strong>választási eljárásról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1997. évi C. törvény</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2012">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 259, Nem: 98, Tartózkodás: 0'><strong>259</strong> igen / 98 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-21</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00372/00372.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/372</a></strong></td>
+            <td><strong>általános forgalmi adóról</strong></td>
+            <td style="font-size: 12px; color: #475569;">2007. évi CXXVII. törvény (Általános forgalmi adóról - Áfa tv.)</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 107">CAP 1: Makrogazdaság</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 318, Nem: 0, Tartózkodás: 0'><strong>318</strong> igen / 0 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-14</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00386/00386.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/386</a></strong></td>
+            <td><strong>Polgári Törvénykönyvről</strong></td>
+            <td style="font-size: 12px; color: #475569;">2009. évi CXX. törvény</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 311, Nem: 42, Tartózkodás: 0'><strong>311</strong> igen / 42 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-05</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00389/00389.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/389</a></strong></td>
+            <td><strong>közbeszerzésekhez kapcsolódó kifizetési szabályok</strong></td>
+            <td style="font-size: 12px; color: #475569;">Ágazati törvénymódosítás</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 355, Nem: 2, Tartózkodás: 13'><strong>355</strong> igen / 2 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-28</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00415/00415.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/415</a></strong></td>
+            <td><strong>kis- és középvállalkozásokról, fejlődésük támogatásáról</strong></td>
+            <td style="font-size: 12px; color: #475569;">2004. évi XXXIV. törvény</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 319, Nem: 31, Tartózkodás: 1'><strong>319</strong> igen / 31 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-22</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00416/00416.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/416</a></strong></td>
+            <td><strong>egyenlő bánásmódról és az esélyegyenlőség előmozdításáról</strong></td>
+            <td style="font-size: 12px; color: #475569;">2003. évi CXXV. törvény</td>
+            <td><strong>FIDESZ-KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1308">CAP 13: Szociálpolitika és jólét</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 314, Nem: 50, Tartózkodás: 0'><strong>314</strong> igen / 50 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-12</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00420/00420.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/420</a></strong></td>
+            <td><strong>Magyar Köztársaság 2010. évi költségvetéséről</strong></td>
+            <td style="font-size: 12px; color: #475569;">2009. évi CXXX. törvény</td>
+            <td><strong>FIDESZ-KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 105">CAP 1: Makrogazdaság</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 346, Nem: 15, Tartózkodás: 1'><strong>346</strong> igen / 15 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-12</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00468/00468.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/468</a></strong></td>
+            <td><strong>nemzeti agrárkár-enyhítési rendszerről és a kárenyhítési hozzájárulásról</strong></td>
+            <td style="font-size: 12px; color: #475569;">2008. évi Cl. törvény</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 402">CAP 4: Mezőgazdaság</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 318, Nem: 0, Tartózkodás: 0'><strong>318</strong> igen / 0 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-28</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00510/00510.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/510</a></strong></td>
+            <td><strong>államháztartásról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1992. évi XXXVIII. törvény</td>
+            <td><strong>FIDESZ-KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 105">CAP 1: Makrogazdaság</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 304, Nem: 60, Tartózkodás: 1'><strong>304</strong> igen / 60 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-05</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00572/00572.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/572</a></strong></td>
+            <td><strong>2007. április 25-én és 30-án aláírt, az egyrészről az Amerikai Egyesült ...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Ágazati törvénymódosítás</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1308">CAP 13: Szociálpolitika és jólét</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 348, Nem: 10, Tartózkodás: 2'><strong>348</strong> igen / 10 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-12</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00573/00573.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/573</a></strong></td>
+            <td><strong>Sporttal</strong></td>
+            <td style="font-size: 12px; color: #475569;">Több ágazati törvény egyidejű módosítása (salátatörvény)</td>
+            <td><strong>FIDESZ-KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1526">CAP 15: Belkereskedelem és pénzügyi szektor</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 317, Nem: 2, Tartózkodás: 28'><strong>317</strong> igen / 2 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-22</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00577/00577.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/577</a></strong></td>
+            <td><strong>Egyes egészségügyi és szociális tárgyú törvények</strong></td>
+            <td style="font-size: 12px; color: #475569;">Több ágazati törvény egyidejű módosítása (salátatörvény)</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 322">CAP 3: Egészségügy</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 307, Nem: 47, Tartózkodás: 0'><strong>307</strong> igen / 47 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-22</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00578/00578.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/578</a></strong></td>
+            <td><strong>Nemzeti Földalapról</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2104">CAP 21: Állami földek és vízgazdálkodás</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 320, Nem: 33, Tartózkodás: 0'><strong>320</strong> igen / 33 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-22</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00579/00579.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/579</a></strong></td>
+            <td><strong>Magyar Köztársaság Alkotmányáról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1949. évi XX. törvény (A Magyar Köztársaság Alkotmánya)</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2011">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 307, Nem: 47, Tartózkodás: 1'><strong>307</strong> igen / 47 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-22</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00580/00580.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/580</a></strong></td>
+            <td><strong>közbiztonság javítása érdekében szükséges egyes törvénymódosításokról</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1201">CAP 12: Jog, igazságszolgáltatás és közbiztonság</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 261, Nem: 46, Tartózkodás: 0'><strong>261</strong> igen / 46 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-22</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00581/00581.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/581</a></strong></td>
+            <td><strong>Egyes gazdasági és pénzügyi tárgyú törvények megalkotásáról, illetve</strong></td>
+            <td style="font-size: 12px; color: #475569;">Ágazati törvénymódosítás</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 402">CAP 4: Mezőgazdaság</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 301, Nem: 12, Tartózkodás: 1'><strong>301</strong> igen / 12 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-22</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00582/00582.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/582</a></strong></td>
+            <td><strong>közbeszerzésekről</strong></td>
+            <td style="font-size: 12px; color: #475569;">2003. évi CXXIX. törvény</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 307, Nem: 49, Tartózkodás: 0'><strong>307</strong> igen / 49 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-22</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00616/00616.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/616</a></strong></td>
+            <td><strong>katonai és rendvédelmi felsőoktatási intézmények vezetőinek, oktatóinak ...</strong></td>
+            <td style="font-size: 12px; color: #475569;">1996. évi XLV. törvény</td>
+            <td><strong>FIDESZ-KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 602">CAP 6: Oktatás</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 351, Nem: 3, Tartózkodás: 0'><strong>351</strong> igen / 3 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-22</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00648/00648.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/648</a></strong></td>
+            <td><strong>bírósági végrehajtásról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1994. évi LIII. törvény (Bírósági végrehajtásról)</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1204">CAP 12: Jog, igazságszolgáltatás és közbiztonság</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 351, Nem: 0, Tartózkodás: 0'><strong>351</strong> igen / 0 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-22</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00657/00657.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/657</a></strong></td>
+            <td><strong>Magyar Köztársaság 2010. évi költségvetéséről</strong></td>
+            <td style="font-size: 12px; color: #475569;">2009. évi CXXX. törvény</td>
+            <td><strong>FIDESZ-KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 105">CAP 1: Makrogazdaság</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 320, Nem: 15, Tartózkodás: 17'><strong>320</strong> igen / 15 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-22</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00676/00676.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/676</a></strong></td>
+            <td><strong>Magyar Köztársaság Alkotmányáról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1949. évi XX. törvény (A Magyar Köztársaság Alkotmánya)</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2011">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 262, Nem: 86, Tartózkodás: 0'><strong>262</strong> igen / 86 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-22</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00795/00795.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/795</a></strong></td>
+            <td><strong>köztársasági elnök, a miniszterelnök, az Országgyűlés elnöke, az Alkotmá...</strong></td>
+            <td style="font-size: 12px; color: #475569;">2000. évi XXXIX. törvény</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2011">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 275, Nem: 74, Tartózkodás: 1'><strong>275</strong> igen / 74 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-07-22</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00013/00013.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/13</a></strong></td>
+            <td><strong>nemzetbiztonsági szolgálatokról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1995. évi CXXV. törvény (A nemzetbiztonsági szolgálatokról)</td>
+            <td><strong>LMP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-opp">✗ Elutasítva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 16, Nem: 351, Tartózkodás: 2'><strong>16</strong> igen / 351 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-14</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00030/00030.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/30</a></strong></td>
+            <td><strong>kampányfinanszírozás átláthatóvá tételével kapcsolatos törvények</strong></td>
+            <td style="font-size: 12px; color: #475569;">Ágazati törvénymódosítás</td>
+            <td><strong>LMP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2012">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-05-14</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00212/00212.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/212</a></strong></td>
+            <td><strong>nemzeti agrárkár-enyhítési rendszerről és a kárenyhítési hozzájárulásról</strong></td>
+            <td style="font-size: 12px; color: #475569;">2008. évi CI. törvény</td>
+            <td><strong>MSZP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 402">CAP 4: Mezőgazdaság</span></td>
+            <td><span class="badge badge-opp">✗ Elutasítva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 108, Nem: 256, Tartózkodás: 0'><strong>108</strong> igen / 256 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-06-14</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00363/00363.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/363</a></strong></td>
+            <td><strong>sajtószabadságról és a médiatartalmak alapvető szabályairól</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1707">CAP 17: Technológia, média és távközlés</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-05-14</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00385/00385.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/385</a></strong></td>
+            <td><strong>Egyes adótörvényeknek a sport támogatásával</strong></td>
+            <td style="font-size: 12px; color: #475569;">Több ágazati törvény egyidejű módosítása (salátatörvény)</td>
+            <td><strong>FÜGGETLEN</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 107">CAP 1: Makrogazdaság</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-05-14</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00391/00391.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/391</a></strong></td>
+            <td><strong>Polgári Törvénykönyvről</strong></td>
+            <td style="font-size: 12px; color: #475569;">2009. évi CXX. törvény</td>
+            <td><strong>FÜGGETLEN</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-05-14</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00505/00505.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/505</a></strong></td>
+            <td><strong>közoktatásról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1993. évi LXXIX. törvény (A közoktatásról)</td>
+            <td><strong>FÜGGETLEN</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 602">CAP 6: Oktatás</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-05-14</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00649/00649.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/649</a></strong></td>
+            <td><strong>Magyar Köztársaság Alkotmányáról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1949. évi XX. törvény (A Magyar Köztársaság Alkotmánya)</td>
+            <td><strong>FÜGGETLEN</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2011">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-05-14</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00658/00658.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/658</a></strong></td>
+            <td><strong>általános forgalmi adóról</strong></td>
+            <td style="font-size: 12px; color: #475569;">2007. évi CXXVII. törvény (Általános forgalmi adóról - Áfa tv.)</td>
+            <td><strong>FÜGGETLEN</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 107">CAP 1: Makrogazdaság</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-05-14</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong><a href="https://www.parlament.hu/irom39/00791/00791.pdf" target="_blank" style="color: #2563eb; text-decoration: none;">T/791</a></strong></td>
+            <td><strong>egyes egészségügyi és szociális tárgyú törvények jogharmonizációs célú</strong></td>
+            <td style="font-size: 12px; color: #475569;">Több ágazati törvény egyidejű módosítása (salátatörvény)</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 322">CAP 3: Egészségügy</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">2010-05-14</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22ba27e812-72de-4356-b016-544523819585%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/7</a></strong></td>
+            <td><strong>Magyarország minisztériumainak felsorolásáról</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>TISZA</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2002">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 141, Nem: 2, Tartózkodás: 53'><strong>141</strong> igen / 2 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2026-05-09</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22e58df1b6-043b-4cd0-8981-bf8be6b046bf%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/8</a></strong></td>
+            <td><strong>Ukrajna területén fennálló fegyveres konfliktusra tekintettel kihirdetet...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>TISZA</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1201">CAP 12: Jog, igazságszolgáltatás és közbiztonság</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 190, Nem: 6, Tartózkodás: 0'><strong>190</strong> igen / 6 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2026-05-09</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22bf4d53c4-01dc-4ff9-8b04-0f8029057cbc%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/51</a></strong></td>
+            <td><strong>Magyarország Alaptörvényének tizenhatodik módosítása</strong></td>
+            <td style="font-size: 12px; color: #475569;">Magyarország Alaptörvénye</td>
+            <td><strong>TISZA</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2011">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 135, Nem: 50, Tartózkodás: 6'><strong>135</strong> igen / 50 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2026-06-15</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%229c91608f-e5e9-4441-85b8-5f4b49fb4d2c%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/52</a></strong></td>
+            <td><strong>Egyes tisztességtelen fogyasztói szerződések jogkövetkezményeit rendező ...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>TISZA</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1308">CAP 13: Szociálpolitika és jólét</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 183, Nem: 0, Tartózkodás: 0'><strong>183</strong> igen / 0 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2026-06-08</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%2228646ed4-36b8-4b6e-865d-8b682da999e5%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/53</a></strong></td>
+            <td><strong>Országgyűlés vizsgálóbizottságai munkájának hatékonyabbá tételéről</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>TISZA</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 145, Nem: 38, Tartózkodás: 0'><strong>145</strong> igen / 38 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2026-06-23</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%223ea1454a-068a-4451-8195-bb3ddfab923b%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/71</a></strong></td>
+            <td><strong>Egyesült Nemzetek Diplomáciai Konferenciája által, a Nemzetközi Büntetőb...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1201">CAP 12: Jog, igazságszolgáltatás és közbiztonság</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 133, Nem: 37, Tartózkodás: 5'><strong>133</strong> igen / 37 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2026-05-27</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%222edca884-7b7e-4be5-8e96-5e94e47d7781%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/100</a></strong></td>
+            <td><strong>Országgyűlésről</strong></td>
+            <td style="font-size: 12px; color: #475569;">2012. évi XXXVI. törvény (Az Országgyűlésről - Ogytv.)</td>
+            <td><strong>TISZA</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2011">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 189, Nem: 0, Tartózkodás: 0'><strong>189</strong> igen / 0 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2026-06-08</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%221a59c253-2b96-4d79-b673-1ad6f8f1f072%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/168</a></strong></td>
+            <td><strong>pedagógusok teljesítményértékelésének megújításához szükséges törvényi r...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>TISZA</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 602">CAP 6: Oktatás</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 135, Nem: 0, Tartózkodás: 53'><strong>135</strong> igen / 0 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2026-07-07</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22db721d37-c87f-487b-8ed1-256cb188f2c3%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/229</a></strong></td>
+            <td><strong>egyes felsőoktatási, családügyi és kulturális tárgyú törvények</strong></td>
+            <td style="font-size: 12px; color: #475569;">2024. évi LXXVI. törvény</td>
+            <td><strong>TISZA</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 602">CAP 6: Oktatás</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 123, Nem: 30, Tartózkodás: 6'><strong>123</strong> igen / 30 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2026-06-23</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%2271d97873-a189-4963-9e70-e05c737c974c%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/245</a></strong></td>
+            <td><strong>árak megállapításáról</strong></td>
+            <td style="font-size: 12px; color: #475569;">1990. évi LXXXVII. törvény</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 803">CAP 8: Energiaügy</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 130, Nem: 36, Tartózkodás: 5'><strong>130</strong> igen / 36 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2026-06-23</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22a807d914-174a-4aaa-b113-7c05a5e43f74%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/304</a></strong></td>
+            <td><strong>közösségi közlekedés versenyképességének és hatékonyságának javításával</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1005">CAP 10: Közlekedés</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 134, Nem: 1, Tartózkodás: 31'><strong>134</strong> igen / 1 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2026-07-21</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%227e655b58-7feb-43bf-92d2-590d3ce271b9%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/305</a></strong></td>
+            <td><strong>kriptoeszköz-átváltási szolgáltatást érintő egyes törvényi rendelkezések...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1501">CAP 15: Belkereskedelem és pénzügyi szektor</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 143, Nem: 46, Tartózkodás: 1'><strong>143</strong> igen / 46 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2026-07-28</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22798bf251-3214-4de3-9c0f-73a2f9a75414%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/366</a></strong></td>
+            <td><strong>veszélyhelyzet megszűnésével</strong></td>
+            <td style="font-size: 12px; color: #475569;">2020. évi LVIII. törvény</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 321">CAP 3: Egészségügy</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 145, Nem: 44, Tartózkodás: 0'><strong>145</strong> igen / 44 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2026-08-11</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22d85f3d97-7757-45a9-a4ae-5ff5c01fde92%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/385</a></strong></td>
+            <td><strong>Egyes törvényeknek az iskolakezdési támogatás bevezetésével</strong></td>
+            <td style="font-size: 12px; color: #475569;">Több ágazati törvény egyidejű módosítása (salátatörvény)</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 602">CAP 6: Oktatás</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 180, Nem: 0, Tartózkodás: 0'><strong>180</strong> igen / 0 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2026-07-21</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22d11bf161-cbe0-4f1e-916a-98daf35346ab%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/465</a></strong></td>
+            <td><strong>általános forgalmi adóról</strong></td>
+            <td style="font-size: 12px; color: #475569;">2007. évi CXXVII. törvény (Általános forgalmi adóról - Áfa tv.)</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 107">CAP 1: Makrogazdaság</span></td>
+            <td><span class="badge badge-gov">✓ Elfogadva</span></td>
+            <td style="font-size: 13px;"><span title='Igen: 178, Nem: 0, Tartózkodás: 0'><strong>178</strong> igen / 0 nem</span></td>
+            <td style="font-size: 12px; color: #64748b;">2026-08-11</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22aafa739f-ee30-4507-aaa5-a441052fe1a1%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/9</a></strong></td>
+            <td><strong>Magyarország Alaptörvényének tizenhatodik módosítása</strong></td>
+            <td style="font-size: 12px; color: #475569;">Magyarország Alaptörvénye</td>
+            <td><strong>MI_HAZANK</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2011">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22f40a26d6-b1d4-4263-87fd-15fcd816e262%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/10</a></strong></td>
+            <td><strong>veszélyhelyzet megszüntetéséről</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>MI_HAZANK</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%220c6f6f0c-a6f2-4200-bd9c-d59e29706082%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/48</a></strong></td>
+            <td><strong>gyermekek digitális eszközök káros hatásai elleni további védelméről</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22d37e7e04-62ad-460a-81f1-34e571d73db4%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/59</a></strong></td>
+            <td><strong>ukrán gabona behozatali tilalmának ismételt elrendeléséről</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>FIDESZ-KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 402">CAP 4: Mezőgazdaság</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%228be13705-97d3-40d3-9f83-93a7ee239a5b%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/122</a></strong></td>
+            <td><strong>gyűlöletkeltésre alkalmas politikai reklámok visszaszorításáról, a gazda...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Ágazati törvénymódosítás</td>
+            <td><strong>TISZA</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1707">CAP 17: Technológia, média és távközlés</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%2225a54177-c894-4a1f-8dc4-77a3dd5734d5%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/123</a></strong></td>
+            <td><strong>Szuverenitásvédelmi Hivatal megszüntetéséről</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>TISZA</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2011">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%229e39cfff-d98a-4870-b5b3-43fdc3403e43%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/171</a></strong></td>
+            <td><strong>Magyar Köztársaság Kormánya és a Szlovák Köztársaság Kormánya között a k...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Ágazati törvénymódosítás</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%229fd013f9-48ca-4032-8059-b09fac22f680%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/172</a></strong></td>
+            <td><strong>Magyar Köztársaság Kormánya és a Szlovák Köztársaság Kormánya között a k...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Ágazati törvénymódosítás</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22628be717-f7fa-45c5-a535-9e059a03235f%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/173</a></strong></td>
+            <td><strong>Egyes pénzügyi szektort érintő törvények jogharmonizációs célú</strong></td>
+            <td style="font-size: 12px; color: #475569;">Több ágazati törvény egyidejű módosítása (salátatörvény)</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1308">CAP 13: Szociálpolitika és jólét</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22e96fbf08-86f7-4630-a742-ac27df16dd0f%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/174</a></strong></td>
+            <td><strong>európai uniós forrásokhoz való hozzáférés érdekében szükséges egyes törv...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Több ágazati törvény egyidejű módosítása (salátatörvény)</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1308">CAP 13: Szociálpolitika és jólét</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%220a3e7a5f-25af-490b-8772-c62c0e28d885%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/188</a></strong></td>
+            <td><strong>gyermekvédelmi szakellátásban nevelkedő sértett sérelmére elkövetett bűn...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Ágazati törvénymódosítás</td>
+            <td><strong>MI_HAZANK</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1210">CAP 12: Jog, igazságszolgáltatás és közbiztonság</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%220ce166c0-3349-4c07-ba01-598b717bfa40%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/189</a></strong></td>
+            <td><strong>gyermekvédelmi szakellátásban nevelkedő személyekre vonatkozó egyes bünt...</strong></td>
+            <td style="font-size: 12px; color: #475569;">2012. évi C. törvény (Büntető Törvénykönyv - Btk.)</td>
+            <td><strong>MI_HAZANK</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1210">CAP 12: Jog, igazságszolgáltatás és közbiztonság</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%221cf0f0d2-810d-4c37-b70e-260f374d3d0b%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/200</a></strong></td>
+            <td><strong>médiaszolgáltatásokról és a tömegkommunikációról</strong></td>
+            <td style="font-size: 12px; color: #475569;">2010. évi CLXXXV. törvény (Médiaszolgáltatásokról és a tömegkommunikációról)</td>
+            <td><strong>TISZA</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1707">CAP 17: Technológia, média és távközlés</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22c0e26780-9aa6-48d4-ba24-c5be3cc3526f%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/205</a></strong></td>
+            <td><strong>tűzoltók diszkriminatív munkaidő-beosztásának rendezése céljából a rendv...</strong></td>
+            <td style="font-size: 12px; color: #475569;">2015. évi XLII. törvény</td>
+            <td><strong>MI_HAZANK</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 505">CAP 5: Munkaügy</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%225940ab35-d189-464b-b139-e08de5af324d%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/253</a></strong></td>
+            <td><strong>Magyarország helyi önkormányzatairól</strong></td>
+            <td style="font-size: 12px; color: #475569;">2011. évi CLXXXIX. törvény (Magyarország helyi önkormányzatairól - Mötv.)</td>
+            <td><strong>TISZA</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2001">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%221c525aa6-0d60-4765-8b38-7f978615e069%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/272</a></strong></td>
+            <td><strong>kötelező egészségbiztosítás ellátásairól</strong></td>
+            <td style="font-size: 12px; color: #475569;">1997. évi LXXXIII. törvény (Kötelező egészségbiztosítás ellátásairól - Ebtv.)</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 302">CAP 3: Egészségügy</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22218fd3ba-6271-48c1-8446-2bbd10d6cdf2%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/273</a></strong></td>
+            <td><strong>egyes adókötelezettségekről és egyes adótörvények</strong></td>
+            <td style="font-size: 12px; color: #475569;">2025. évi LIV. törvény</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 107">CAP 1: Makrogazdaság</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%225029ffbc-e9b6-4e6e-b1d3-d03fbf2567df%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/274</a></strong></td>
+            <td><strong>elmúlt rendszer titkosszolgálati tevékenységének feltárásáról és az Álla...</strong></td>
+            <td style="font-size: 12px; color: #475569;">2003. évi III. törvény</td>
+            <td><strong>TISZA</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22a03ae690-eab7-43e1-ab64-9519dfac2e96%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/289</a></strong></td>
+            <td><strong>Magyar Fejlesztési Bank Részvénytársaságról</strong></td>
+            <td style="font-size: 12px; color: #475569;">2001. évi XX. törvény (Magyar Fejlesztési Bank Részvénytársaságról)</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2001">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22587bf2f5-1ff3-459a-a436-d0c9c83ac1be%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/294</a></strong></td>
+            <td><strong>egyes szexuális és nemi irányultságokra, illetve az azokat képviselő pol...</strong></td>
+            <td style="font-size: 12px; color: #475569;">2011. évi CCII. törvény</td>
+            <td><strong>MI_HAZANK</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1308">CAP 13: Szociálpolitika és jólét</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%227313ce5c-a203-4cc2-9057-b40a595d203d%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/303</a></strong></td>
+            <td><strong>mezőgazdasági termelést érintő időjárási és más természeti kockázatok ke...</strong></td>
+            <td style="font-size: 12px; color: #475569;">2011. évi CLXVIII. törvény</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 402">CAP 4: Mezőgazdaság</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22309a7016-4932-469f-949d-49c03e457304%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/324</a></strong></td>
+            <td><strong>Magyarország Alaptörvényének tizenhetedik módosítása</strong></td>
+            <td style="font-size: 12px; color: #475569;">Magyarország Alaptörvénye</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2011">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%226269560d-507d-43ff-9c40-6068313cd8a9%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/339</a></strong></td>
+            <td><strong>Egyes egészségügyi adatkezelést érintő törvények</strong></td>
+            <td style="font-size: 12px; color: #475569;">Több ágazati törvény egyidejű módosítása (salátatörvény)</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 322">CAP 3: Egészségügy</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%2279598f33-ed0e-4479-919e-fcf8eff5bf01%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/340</a></strong></td>
+            <td><strong>közneveléssel kapcsolatos egyes törvények</strong></td>
+            <td style="font-size: 12px; color: #475569;">Több ágazati törvény egyidejű módosítása (salátatörvény)</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 602">CAP 6: Oktatás</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22136e5ce7-621f-4821-b7b2-cb6f6ce8e4be%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/341</a></strong></td>
+            <td><strong>Egyes törvényeknek a rendészeti feladatellátás racionalizálásával</strong></td>
+            <td style="font-size: 12px; color: #475569;">Több ágazati törvény egyidejű módosítása (salátatörvény)</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1201">CAP 12: Jog, igazságszolgáltatás és közbiztonság</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22d2d0f4ad-714b-47b3-b1bb-c52c74e44f24%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/342</a></strong></td>
+            <td><strong>gyógyszerek általános forgalmi adójának csökkentéséről</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>FIDESZ</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 107">CAP 1: Makrogazdaság</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22eb4def45-e631-42f4-9d00-9593b917a661%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/357</a></strong></td>
+            <td><strong>Nemzeti Vagyonvisszaszerzési és Vagyonvédelmi Hivatalról</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1202">CAP 12: Jog, igazságszolgáltatás és közbiztonság</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%2234aaf60b-79eb-4e04-ab6d-fd458f2df45c%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/359</a></strong></td>
+            <td><strong>Magyarország Helyreállítási és Ellenállóképességi Tervében szereplő ener...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Ágazati törvénymódosítás</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 803">CAP 8: Energiaügy</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%224c6b15dc-2ebf-414d-8eab-5fc9141bff2f%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/370</a></strong></td>
+            <td><strong>Magyar Agrár-, Élelmiszergazdasági és Vidékfejlesztési Kamaráról</strong></td>
+            <td style="font-size: 12px; color: #475569;">2012. évi C. törvény (Büntető Törvénykönyv - Btk.)</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1210">CAP 12: Jog, igazságszolgáltatás és közbiztonság</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%229b5c33ab-f193-4150-b0d8-1ac37eb23cd3%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/371</a></strong></td>
+            <td><strong>közpénzügyi reformokkal összefüggésben egyes államháztartási szabályok</strong></td>
+            <td style="font-size: 12px; color: #475569;">Ágazati törvénymódosítás</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 105">CAP 1: Makrogazdaság</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22928fe047-e374-4f04-8378-55f90b8e9163%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/372</a></strong></td>
+            <td><strong>Magyarország 2026. évi központi költségvetéséről</strong></td>
+            <td style="font-size: 12px; color: #475569;">2025. évi LXIX. törvény</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 105">CAP 1: Makrogazdaság</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22d4568c47-df0e-4a72-b516-948b30cb26fb%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/387</a></strong></td>
+            <td><strong>Helyreállítási és Ellenállóképességi Terv, egyes kormányprogrampontok és...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Ágazati törvénymódosítás</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 107">CAP 1: Makrogazdaság</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22e20e27bb-498a-4715-a934-711fc2b5e30e%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/404</a></strong></td>
+            <td><strong>elmúlt rendszer titkosszolgálati tevékenységének teljes körű feltárásáró...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%226252b657-651f-4ed9-be7b-adb0bc07bd79%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/405</a></strong></td>
+            <td><strong>megye és a kormánymegbízott elnevezés alkalmazásával</strong></td>
+            <td style="font-size: 12px; color: #475569;">Több ágazati törvény egyidejű módosítása (salátatörvény)</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1308">CAP 13: Szociálpolitika és jólét</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22d9000b37-ccfc-4222-b329-803e2a6428c1%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/438</a></strong></td>
+            <td><strong>szakképzésről</strong></td>
+            <td style="font-size: 12px; color: #475569;">2019. évi LXXX. törvény (Szakképzésről)</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 602">CAP 6: Oktatás</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%225bc30ebc-292e-474b-b003-3b04a7cb94b0%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/441</a></strong></td>
+            <td><strong>országgyűlési képviselőket megillető mentelmi jog korlátozása érdekében,...</strong></td>
+            <td style="font-size: 12px; color: #475569;">2012. évi XXXVI. törvény (Az Országgyűlésről - Ogytv.)</td>
+            <td><strong>MI_HAZANK</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2011">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%226dc3c2e8-bd20-4ee3-8441-376fc51e67c1%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/442</a></strong></td>
+            <td><strong>Országgyűlés vizsgálóbizottságai tényfeltáró munkájának hatékonyabbá tét...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>MI_HAZANK</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22f6d803f7-7334-47f9-8f48-b5f1ce91186f%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/459</a></strong></td>
+            <td><strong>életkorhoz kötötten kötelező védőoltások elmaradása jogkövetkezményeinek...</strong></td>
+            <td style="font-size: 12px; color: #475569;">1991. évi XI. törvény</td>
+            <td><strong>MI_HAZANK</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 322">CAP 3: Egészségügy</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%2282bea78e-2304-45f2-ae27-7e09f1d01786%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/491</a></strong></td>
+            <td><strong>hozzátartozói vagyonnyilatkozatok nyilvánossága érdekében az Országgyűlé...</strong></td>
+            <td style="font-size: 12px; color: #475569;">2012. évi XXXVI. törvény (Az Országgyűlésről - Ogytv.)</td>
+            <td><strong>MI_HAZANK</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2011">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%228c06e54a-4d9e-436b-8d86-9f93c7e7bc57%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/492</a></strong></td>
+            <td><strong>mesterséges intelligencia alkalmazásával létrehozott, személyazonosságot...</strong></td>
+            <td style="font-size: 12px; color: #475569;">2012. évi C. törvény (Büntető Törvénykönyv - Btk.)</td>
+            <td><strong>MI_HAZANK</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1709">CAP 17: Technológia, média és távközlés</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22df6887b8-d3c3-42a0-93c5-a7e3c01e0201%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/493</a></strong></td>
+            <td><strong>képviselők állampolgárságának nyilvánosságra hozataláról</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>MI_HAZANK</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 900">CAP 9: Bevándorlás és állampolgárság</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%221cabbec9-fdcf-4792-b033-629ecfa45d2f%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/494</a></strong></td>
+            <td><strong>önkényes lakásfoglalókkal szembeni fellépésről</strong></td>
+            <td style="font-size: 12px; color: #475569;">Új önálló törvény</td>
+            <td><strong>MI_HAZANK</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2000">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22cb173350-c5e3-4479-b9da-c966f39fadd5%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/500</a></strong></td>
+            <td><strong>Karácsony vigíliájának munkaszüneti nappá nyilvánítása érdekében a munka...</strong></td>
+            <td style="font-size: 12px; color: #475569;">2012. évi I. törvény</td>
+            <td><strong>KDNP</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2300">CAP 23: Kultúra</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%2243a921df-ae48-46c1-a096-a0cef0aad404%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/503</a></strong></td>
+            <td><strong>Egyes igazságügyi tárgyú törvények</strong></td>
+            <td style="font-size: 12px; color: #475569;">Ágazati törvénymódosítás</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 1308">CAP 13: Szociálpolitika és jólét</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22510704ee-ebf7-4513-b796-18ab80e7e167%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/504</a></strong></td>
+            <td><strong>általános forgalmi adóról</strong></td>
+            <td style="font-size: 12px; color: #475569;">2007. évi CXXVII. törvény (Általános forgalmi adóról - Áfa tv.)</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 107">CAP 1: Makrogazdaság</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong><a href="https://www.parlament.hu/web/guest/iromanyok_mobil?iromany=%7B%22id%22%3A%22ce57be0f-d62c-418a-b230-f19370199c59%22%7D" target="_blank" style="color: #2563eb; text-decoration: none;">T/505</a></strong></td>
+            <td><strong>Magyarország Alaptörvényének tizenhetedik módosításával összefüggésben a...</strong></td>
+            <td style="font-size: 12px; color: #475569;">Magyarország Alaptörvénye</td>
+            <td><strong>KORMANY</strong></td>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;" title="Altéma kód: 2011">CAP 20: Kormányzati működés, alkotmányosság és választások</span></td>
+            <td><span class="badge" style="background: #e2e8f0; color: #475569;">⧗ Folyamatban</span></td>
+            <td style="font-size: 13px;"><span style='color: #94a3b8;'>-</span></td>
+            <td style="font-size: 12px; color: #64748b;">-</td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+
+    <!-- FELSZÓLALÁSOK ÉS VITÁK BLOKK -->
+    <div class="section-title">📊 2. Parlamenti Felszólalások és Kérdések Témái (CAP Taxonómia)</div>
+    <div class="chart-container">
+        <canvas id="topicsChart"></canvas>
+    </div>
+
+    <h3 style="margin-top: 24px; color: #334155;">❓ Kérdések és Interpellációk Szakpolitikai Témái (CAP Master Codebook)</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Szakpolitikai Főterület</th>
+                    <th>2010 Kérdések & Interpellációk</th>
+                    <th>2026 Kérdések & Interpellációk</th>
+                    <th>Összesen</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 20</span> <strong>Kormányzati működés, alkotmányosság és választások</strong></td>
+            <td>374 db</td>
+            <td>941 db</td>
+            <td><strong>1315 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 12</span> <strong>Jog, igazságszolgáltatás és közbiztonság</strong></td>
+            <td>69 db</td>
+            <td>59 db</td>
+            <td><strong>128 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 4</span> <strong>Mezőgazdaság</strong></td>
+            <td>20 db</td>
+            <td>63 db</td>
+            <td><strong>83 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 10</span> <strong>Közlekedés</strong></td>
+            <td>14 db</td>
+            <td>47 db</td>
+            <td><strong>61 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 19</span> <strong>Nemzetközi kapcsolatok és külügyek</strong></td>
+            <td>27 db</td>
+            <td>29 db</td>
+            <td><strong>56 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 6</span> <strong>Oktatás</strong></td>
+            <td>14 db</td>
+            <td>40 db</td>
+            <td><strong>54 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 1</span> <strong>Makrogazdaság</strong></td>
+            <td>21 db</td>
+            <td>25 db</td>
+            <td><strong>46 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 13</span> <strong>Szociálpolitika és jólét</strong></td>
+            <td>23 db</td>
+            <td>23 db</td>
+            <td><strong>46 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 3</span> <strong>Egészségügy</strong></td>
+            <td>12 db</td>
+            <td>34 db</td>
+            <td><strong>46 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 15</span> <strong>Belkereskedelem és pénzügyi szektor</strong></td>
+            <td>29 db</td>
+            <td>8 db</td>
+            <td><strong>37 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 16</span> <strong>Honvédelem és katonapolitika</strong></td>
+            <td>12 db</td>
+            <td>22 db</td>
+            <td><strong>34 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 23</span> <strong>Kultúra</strong></td>
+            <td>21 db</td>
+            <td>4 db</td>
+            <td><strong>25 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 9</span> <strong>Bevándorlás és állampolgárság</strong></td>
+            <td>4 db</td>
+            <td>19 db</td>
+            <td><strong>23 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 8</span> <strong>Energiaügy</strong></td>
+            <td>0 db</td>
+            <td>19 db</td>
+            <td><strong>19 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 14</span> <strong>Lakásügy és településfejlesztés</strong></td>
+            <td>7 db</td>
+            <td>5 db</td>
+            <td><strong>12 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 17</span> <strong>Technológia, média és távközlés</strong></td>
+            <td>2 db</td>
+            <td>9 db</td>
+            <td><strong>11 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 7</span> <strong>Környezetvédelem</strong></td>
+            <td>0 db</td>
+            <td>9 db</td>
+            <td><strong>9 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 21</span> <strong>Állami földek és vízgazdálkodás</strong></td>
+            <td>4 db</td>
+            <td>4 db</td>
+            <td><strong>8 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 2</span> <strong>Polgári jogok és kisebbségek</strong></td>
+            <td>3 db</td>
+            <td>3 db</td>
+            <td><strong>6 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 5</span> <strong>Munkaügy</strong></td>
+            <td>1 db</td>
+            <td>3 db</td>
+            <td><strong>4 db</strong></td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge" style="background: #f1f5f9; color: #334155;">CAP 18</span> <strong>Külkereskedelem</strong></td>
+            <td>2 db</td>
+            <td>0 db</td>
+            <td><strong>2 db</strong></td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+
+    <!-- MÚLTBÍRÁLAT BLOKK -->
+    <div class="section-title">🔍 3. Kormánypárti Múltbírálati Szűrő ("Elmúlt 8 év" vs "Elmúlt 16 év")</div>
+    <div class="grid-cards">
+        <div class="card">
+            <div class="card-title">2010 Fidesz Múltbírálat</div>
+            <div class="card-value" style="color: #ea580c;">20.8%</div>
+            <div class="card-desc">807 beszédből 168 alkalommal (260 fordulat)</div>
+        </div>
+        <div class="card">
+            <div class="card-title">2010 KDNP Múltbírálat</div>
+            <div class="card-value" style="color: #ea580c;">20.5%</div>
+            <div class="card-desc">220 beszédből 45 alkalommal (66 fordulat)</div>
+        </div>
+        <div class="card">
+            <div class="card-title">2026 TISZA Múltbírálat</div>
+            <div class="card-value" style="color: #2563eb;">27.0%</div>
+            <div class="card-desc">774 beszédből 209 alkalommal (364 fordulat)</div>
+        </div>
+    </div>
+
+    <h3 style="margin-top: 24px; color: #334155;">🏆 Kik beszéltek a legtöbbet a korábbi időkről negatívan?</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Korszak</th>
+                    <th>Képviselő</th>
+                    <th>Frakció</th>
+                    <th>Összes Beszéde</th>
+                    <th>Negatív Visszautalások Száma</th>
+                    <th>Átlagos Intenzitás</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong>Magyar Péter</strong></td>
+            <td>Tisztelet és Szabadság Párt</td>
+            <td>29</td>
+            <td style="color: #ea580c; font-weight: bold;">84 említés</td>
+            <td>0.64 / 1.0</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong>Bujdosó Andrea Anna</strong></td>
+            <td>Tisztelet és Szabadság Párt</td>
+            <td>9</td>
+            <td style="color: #ea580c; font-weight: bold;">20 említés</td>
+            <td>0.64 / 1.0</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong>Kármán András</strong></td>
+            <td>Tisztelet és Szabadság Párt</td>
+            <td>8</td>
+            <td style="color: #ea580c; font-weight: bold;">17 említés</td>
+            <td>0.73 / 1.0</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>Harrach Péter</strong></td>
+            <td>Kereszténydemokrata Néppárt</td>
+            <td>9</td>
+            <td style="color: #ea580c; font-weight: bold;">15 említés</td>
+            <td>0.58 / 1.0</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong>Melléthei-Barna Márton</strong></td>
+            <td>Tisztelet és Szabadság Párt</td>
+            <td>6</td>
+            <td style="color: #ea580c; font-weight: bold;">15 említés</td>
+            <td>0.67 / 1.0</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong>Tompa Enikő</strong></td>
+            <td>Tisztelet és Szabadság Párt</td>
+            <td>10</td>
+            <td style="color: #ea580c; font-weight: bold;">14 említés</td>
+            <td>0.48 / 1.0</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>Dr. Ángyán József</strong></td>
+            <td>Fidesz - Magyar Polgári Szövetség</td>
+            <td>9</td>
+            <td style="color: #ea580c; font-weight: bold;">13 említés</td>
+            <td>0.46 / 1.0</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong>Dr. Hantosi István</strong></td>
+            <td>Tisztelet és Szabadság Párt</td>
+            <td>6</td>
+            <td style="color: #ea580c; font-weight: bold;">13 említés</td>
+            <td>0.74 / 1.0</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>Orbán Viktor</strong></td>
+            <td>Fidesz - Magyar Polgári Szövetség</td>
+            <td>4</td>
+            <td style="color: #ea580c; font-weight: bold;">12 említés</td>
+            <td>0.68 / 1.0</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong>Dr. Stumpf Péter</strong></td>
+            <td>Tisztelet és Szabadság Párt</td>
+            <td>7</td>
+            <td style="color: #ea580c; font-weight: bold;">12 említés</td>
+            <td>0.6 / 1.0</td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+
+    <h3 style="margin-top: 24px; color: #334155;">💬 Konkrét Idézetek a Kormánypárti Beszédekből</h3>
+    
+        <div class="quote-box">
+            <div class="quote-meta"><span class="badge badge-2026">2026 (TISZA)</span> <strong>Magyar Péter</strong> (Tisztelet és Szabadság Párt) &bull; Célzott időszak: <em>2010-2026 (Fidesz-NER korszak)</em></div>
+            <div class="quote-text">„A belügyminisztériumi egyeztetésen, amelyet összehívott, a volt belügyminiszter elégedetlenül nyugtázta, hogy a számára az Orbán-kormány részéről kiadott feladat, a vitnyéd-csermajori migránstábor kialakítása nem azzal a tempóval halad, amit tőle elvárnak. | Arról az 500 fős menekültbefogadó táborról van szó, amelynek a megépítéséről az Orbán-kormány döntött teljes titokban, a magyar embereket, köztük a saját szavazóikat is átverve. | Most hétvégén, kedves képviselőtársaim, bemutattam az Orbán-kormány által készített azon dokumentumokat, amelyek egyértelműen bizonyítják, hogy ez a bukott kormány két évvel ezelőtt titokban, suttyomban 500 fős migránstábort tervezett létesíteni a magyar-osztrák határ közelében.”</div>
+        </div>
+        
+        <div class="quote-box">
+            <div class="quote-meta"><span class="badge badge-2026">2026 (TISZA)</span> <strong>Magyar Péter</strong> (Tisztelet és Szabadság Párt) &bull; Célzott időszak: <em>2010-2026 (Fidesz-NER korszak)</em></div>
+            <div class="quote-text">„Felülvizsgáltuk a diplomata-útlevelek kiadását, bemutattuk, hogy hogyan osztogatta ezen útleveleket a haveroknak az Orbán-kormány. | Nem csak a jelenlegi hőség következményeit kezeljük, a bukott Orbán-kormány elmúlt 16 évnyi mulasztását is kell kezelni. | A magyar emberektől és ettől a csodálatos országtól a bukott Orbán-kormány elrabolt 16 évet, elődeikkel együtt évtizedeket.”</div>
+        </div>
+        
+        <div class="quote-box">
+            <div class="quote-meta"><span class="badge badge-2010">2010 (Fidesz)</span> <strong>Orbán Viktor</strong> (Fidesz - Magyar Polgári Szövetség) &bull; Célzott időszak: <em>2002-2010 (MSZP-SZDSZ kormányok)</em></div>
+            <div class="quote-text">„A társadalmi szerződés hiánya végül oda vezetett, hogy az elmúlt nyolc év során a kormányzati hatalom felfogása és gyakorlása teljesen eltorzult, elvesztette eredeti demokratikus értelmét és célját, szembefordult azokkal, akiktől ered, vagyis az emberekkel. | Az elmúlt nyolc évben se szeri, se száma nem volt a hangzatos programoknak, reformötleteknek. | Az elmúlt nyolc évben a választott vezetők kisajátították a nép által rájuk ruházott hatalmat, azzal visszaélve nem az emberek döntését és akaratát, hanem a saját magánérdekeiket képviselték.”</div>
+        </div>
+        
+        <div class="quote-box">
+            <div class="quote-meta"><span class="badge badge-2026">2026 (TISZA)</span> <strong>Magyar Péter</strong> (Tisztelet és Szabadság Párt) &bull; Célzott időszak: <em>2010-2026 (Fidesz-NER korszak)</em></div>
+            <div class="quote-text">„Az Orbán-kormánytól ránk hagyott örökség súlyos: történelmi költségvetési hiány, meggyengült, szétzilált közszolgáltatások, eladósodott intézmények, leszakadó térségek, bizalmukat vesztett állampolgárok és egymással szembefordított társadalmi csoportok. | A jogot az Orbán-kormány kiváltságok bebetonozására, vagyonok kimentésére és politikai ellenfelei ellehetetlenítésére használta. | Megígérhetem önöknek, hogy amíg mi vezetjük az országot, a jog feladata a közösség védelme, a hatalom korlátozása, az alapvető jogok biztosítása és az elszámoltathatóság megteremtése lesz.”</div>
+        </div>
+        
+        <div class="quote-box">
+            <div class="quote-meta"><span class="badge badge-2026">2026 (TISZA)</span> <strong>Bujdosó Andrea Anna</strong> (Tisztelet és Szabadság Párt) &bull; Célzott időszak: <em>2010-2026 (Fidesz-NER korszak)</em></div>
+            <div class="quote-text">„április 12-én, illetve az elmúlt 16 évben. | Önök úgy beszélnek, mintha az elmúlt 16 évben mi itt egy normális helyzetben, egy normálisan működő országban éltünk volna, és 2026. | A valóság az, hogy az elmúlt 16 év folyamatainak eredményeként Magyarország letért a demokrácia útjáról, és kialakult itt egy másfajta rendszer.”</div>
+        </div>
+        
+        <div class="quote-box">
+            <div class="quote-meta"><span class="badge badge-2010">2010 (Fidesz)</span> <strong>Balog Zoltán</strong> (Fidesz - Magyar Polgári Szövetség) &bull; Célzott időszak: <em>2002-2010 (MSZP-SZDSZ kormányok)</em></div>
+            <div class="quote-text">„Gyurcsány Ferenc ideállt, hátat fordított, majd a fenekét fordította felém akkor, amikor szerényen és kedvesen megkérdeztem tőle, hogy ő mit gondol ezekről az eseményekről. | Tehát itt most ez borult ki, és ezzel önöknek szembesülni kell, mint ahogyan mi szembesültünk folyamatosan az elmúlt nyolc évben azzal, ahogy önök ezeket az ügyeket megpróbálták háttérbe szorítani. | Én azt gondolom, az egy nagyon lényeges dolog, és minden tisztelet mellett Pörzse Sándornak mondanám, és egy korábbi hozzászólásra mondanám azt, hogy a fokos, meg hogy Gyurcsány Ferenc védje meg saját magát, ezzel én érzelmileg teljesen azonosulni tudok.”</div>
+        </div>
+        
+
+    <!-- FRAKCIÓK ÖSSZESÍTŐJE -->
+    <div class="section-title">❓ 4. Felszólalások Frakciók Szerint</div>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Korszak</th>
+                    <th>Frakció</th>
+                    <th>Státusz</th>
+                    <th>Felszólalások Száma</th>
+                    <th>Összes Elhangzott Szó</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>Fidesz - Magyar Polgári Szövetség</strong></td>
+            <td><span class="badge badge-gov">Kormánypárt</span></td>
+            <td>807 db</td>
+            <td>457,423 szó</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>Jobbik Magyarországért Mozgalom</strong></td>
+            <td><span class="badge badge-opp">Ellenzék</span></td>
+            <td>534 db</td>
+            <td>320,347 szó</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>Magyar Szocialista Párt</strong></td>
+            <td><span class="badge badge-opp">Ellenzék</span></td>
+            <td>449 db</td>
+            <td>248,527 szó</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>Lehet Más a Politika</strong></td>
+            <td><span class="badge badge-opp">Ellenzék</span></td>
+            <td>260 db</td>
+            <td>154,794 szó</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>Kereszténydemokrata Néppárt</strong></td>
+            <td><span class="badge badge-gov">Kormánypárt</span></td>
+            <td>220 db</td>
+            <td>123,250 szó</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2010">2010</span></td>
+            <td><strong>None</strong></td>
+            <td><span class="badge badge-opp">Ellenzék</span></td>
+            <td>64 db</td>
+            <td>31,058 szó</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong>Tisztelet és Szabadság Párt</strong></td>
+            <td><span class="badge badge-gov">Kormánypárt</span></td>
+            <td>774 db</td>
+            <td>440,218 szó</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong>Fidesz - Magyar Polgári Szövetség</strong></td>
+            <td><span class="badge badge-opp">Ellenzék</span></td>
+            <td>298 db</td>
+            <td>192,330 szó</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong>Mi Hazánk Mozgalom</strong></td>
+            <td><span class="badge badge-opp">Ellenzék</span></td>
+            <td>192 db</td>
+            <td>132,125 szó</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong>Kereszténydemokrata Néppárt</strong></td>
+            <td><span class="badge badge-opp">Ellenzék</span></td>
+            <td>186 db</td>
+            <td>118,606 szó</td>
+        </tr>
+        
+        <tr>
+            <td><span class="badge badge-2026">2026</span></td>
+            <td><strong>None</strong></td>
+            <td><span class="badge badge-opp">Ellenzék</span></td>
+            <td>89 db</td>
+            <td>58,312 szó</td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    // Témák diagramja
+    const ctx = document.getElementById('topicsChart').getContext('2d');
+    const topicsData = [{"tema": "CAP 20: Kormányzati működés, alkotmányosság és választások", "c2010": 1220, "c2026": 739}, {"tema": "CAP 12: Jog, igazságszolgáltatás és közbiztonság", "c2010": 275, "c2026": 143}, {"tema": "CAP 1: Makrogazdaság", "c2010": 141, "c2026": 110}, {"tema": "CAP 4: Mezőgazdaság", "c2010": 128, "c2026": 74}, {"tema": "CAP 17: Technológia, média és távközlés", "c2010": 110, "c2026": 80}, {"tema": "CAP 13: Szociálpolitika és jólét", "c2010": 99, "c2026": 85}, {"tema": "CAP 6: Oktatás", "c2010": 90, "c2026": 71}, {"tema": "CAP 3: Egészségügy", "c2010": 34, "c2026": 61}, {"tema": "CAP 15: Belkereskedelem és pénzügyi szektor", "c2010": 66, "c2026": 19}, {"tema": "CAP 19: Nemzetközi kapcsolatok és külügyek", "c2010": 21, "c2026": 32}, {"tema": "CAP 10: Közlekedés", "c2010": 8, "c2026": 41}, {"tema": "CAP 9: Bevándorlás és állampolgárság", "c2010": 34, "c2026": 13}, {"tema": "CAP 23: Kultúra", "c2010": 26, "c2026": 10}, {"tema": "CAP 8: Energiaügy", "c2010": 9, "c2026": 27}, {"tema": "CAP 5: Munkaügy", "c2010": 32, "c2026": 3}, {"tema": "CAP 21: Állami földek és vízgazdálkodás", "c2010": 23, "c2026": 2}, {"tema": "CAP 16: Honvédelem és katonapolitika", "c2010": 7, "c2026": 16}, {"tema": "CAP 2: Polgári jogok és kisebbségek", "c2010": 5, "c2026": 5}, {"tema": "CAP 14: Lakásügy és településfejlesztés", "c2010": 3, "c2026": 5}, {"tema": "CAP 7: Környezetvédelem", "c2010": 2, "c2026": 3}, {"tema": "CAP 18: Külkereskedelem", "c2010": 1, "c2026": 0}];
+    
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: topicsData.map(t => t.tema),
+            datasets: [
+                {
+                    label: '2010-es kormányváltás (felszólalások)',
+                    data: topicsData.map(t => t.c2010),
+                    backgroundColor: '#fb923c'
+                },
+                {
+                    label: '2026-os kormányváltás (felszólalások)',
+                    data: topicsData.map(t => t.c2026),
+                    backgroundColor: '#60a5fa'
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: { stacked: false },
+                y: { beginAtZero: true }
+            }
+        }
+    });
+
+    // Kereső a törvényjavaslati táblázathoz
+    function filterBills() {
+        const input = document.getElementById("billSearch");
+        const filter = input.value.toLowerCase();
+        const table = document.getElementById("billsTable");
+        const trs = table.getElementsByTagName("tr");
+
+        for (let i = 1; i < trs.length; i++) {
+            const text = trs[i].textContent.toLowerCase();
+            trs[i].style.display = text.indexOf(filter) > -1 ? "" : "none";
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>USA Időközi Választások 2026 | Előrejelzések, Közvélemény-kutatások és Hírek</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗳️</text></svg>">
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header>
+    <div class="header-container">
+      <div class="logo-area">
+        <span class="flag-badge">🇺🇸</span>
+        <div class="logo-text">
+          <h1>USA MIDTERM 2026 TRACKER</h1>
+          <p id="last-updated-text">Időközi Választások Figyelő | Napi automatikus frissítés</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="countdown-box" title="A 2026. november 3-i választás napjáig">
+          <span class="countdown-icon">⏳</span>
+          <span id="election-countdown">Számítás...</span>
+        </div>
+
+        <a href="ELECTION_TRACKER_SKILL.pdf" target="_blank" class="btn btn-outline" style="text-decoration: none;" title="Skill specifikáció megnyitása / letöltése PDF formátumban">
+          📄 Skill PDF
+        </a>
+
+        <button id="refresh-btn" class="btn btn-outline" title="Legfrissebb adatok lekérése">
+          🔄 Frissítés most
+        </button>
+
+        <button id="theme-toggle-btn" class="btn btn-outline" title="Téma váltása">
+          ☀️ Világos mód
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Live Quick Stats Bar -->
+  <div class="ticker-bar">
+    <div class="ticker-content">
+      <span class="ticker-item">
+        <span class="ticker-badge live">ÉLŐ MODELL</span>
+        <span>2026. November 3. Voksolás</span>
+      </span>
+      <span>•</span>
+      <span class="ticker-item">
+        <strong>Országos Szavazat (Generic Ballot):</strong> 
+        <span class="ticker-badge dem">Dem 50.6% (+8.3)</span> vs <span class="ticker-badge rep">Rep 42.3%</span>
+      </span>
+      <span>•</span>
+      <span class="ticker-item">
+        <strong>Felsőház (Szenátus):</strong> 50 Dem / 50 Rep (5 Csatatér)
+      </span>
+      <span>•</span>
+      <span class="ticker-item">
+        <strong>Alsóház (Képviselőház):</strong> 229 Dem / 206 Rep (Demokrata többség várható)
+      </span>
+    </div>
+  </div>
+
+  <main>
+    <!-- Navigation Tabs -->
+    <nav class="tabs-nav">
+      <button class="tab-btn active" data-tab="overview">
+        📊 Összesített Előrejelzés
+      </button>
+      <button class="tab-btn" data-tab="senate">
+        🏛️ Felsőház (Szenátus)
+      </button>
+      <button class="tab-btn" data-tab="house">
+        🏛️ Alsóház (Képviselőház)
+      </button>
+      <button class="tab-btn" data-tab="polls">
+        📈 Közvélemény-kutatások
+      </button>
+      <button class="tab-btn" data-tab="news">
+        📰 Hiteles Hírfolyam
+      </button>
+      <button class="tab-btn" data-tab="trump">
+        🔴 Trump Figyelő
+      </button>
+      <button class="tab-btn" data-tab="methodology">
+        🛡️ Források & Módszertan
+      </button>
+    </nav>
+
+    <!-- Trust Banner -->
+    <div class="trust-banner">
+      <div class="trust-info">
+        <div class="trust-icon">🛡️</div>
+        <div class="trust-text">
+          <h3>Kizárólag Hiteles & Független Források</h3>
+          <p>Csak a legmagasabb minősítésű közvélemény-kutatók (A+, A besorolás) és a vezető nemzetközi hírügynökségek adatai alapján összesítve.</p>
+        </div>
+      </div>
+      <div class="trust-sources-pills">
+        <span class="source-pill">Associated Press</span>
+        <span class="source-pill">Reuters</span>
+        <span class="source-pill">The New York Times</span>
+        <span class="source-pill">Siena College (A+)</span>
+        <span class="source-pill">Marist Poll (A)</span>
+        <span class="source-pill">RealClearPolling</span>
+        <span class="source-pill">538 / ABC News</span>
+      </div>
+    </div>
+
+    <!-- TAB 1: OVERVIEW -->
+    <div id="tab-overview" class="tab-pane">
+      <!-- Generic Ballot Section -->
+      <section class="generic-ballot-card">
+        <div class="gb-top">
+          <div>
+            <h2 style="font-size: 1.15rem; font-weight: 700;">Országos Pártpreferencia Átlag (Generic Congressional Ballot)</h2>
+            <p id="gb-trend-text" style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">
+              Demokrata növekedés — Forrás: RealClearPolling, 538, Decision Desk HQ
+            </p>
+          </div>
+          <span class="gb-badge" id="gb-spread-badge">+8.3 Dem</span>
+        </div>
+
+        <div class="gb-comparison">
+          <div class="gb-dem">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--dem-blue-light);">DEMOKRATA PÁRT</div>
+            <div class="gb-percent" id="gb-dem-val">50.6%</div>
+          </div>
+          <div class="gb-vs">VS</div>
+          <div class="gb-rep">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--rep-red-light);">REPUBLIKÁNUS PÁRT</div>
+            <div class="gb-percent" id="gb-rep-val">42.3%</div>
+          </div>
+        </div>
+
+        <div class="gb-bar">
+          <div id="gb-bar-dem" class="gb-bar-dem" style="width: 50.6%;"></div>
+          <div class="gb-bar-gap" style="width: 7.1%;"></div>
+          <div id="gb-bar-rep" class="gb-bar-rep" style="width: 42.3%;"></div>
+        </div>
+      </section>
+
+      <!-- Side by Side Visual Comparison: Senate vs House -->
+      <div class="grid-2">
+        <!-- SENATE PROJECTION CARD -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h2><span>🏛️</span> Felsőház (Szenátus)</h2>
+              <p>100 mandátum • 51 szükséges a többséghez</p>
+            </div>
+            <span class="card-badge senate">50-50 Csatatér</span>
+          </div>
+
+          <div class="projection-summary">
+            <div class="party-stat dem">
+              <span class="party-name">Demokraták</span>
+              <span class="seat-count" id="sen-dem-proj">50</span>
+              <span class="seat-range" id="sen-dem-range">Várható sáv: 49 - 52</span>
+            </div>
+
+            <div class="chamber-threshold">
+              <div>Többségi küszöb</div>
+              <div class="threshold-number">51 Mandátum</div>
+            </div>
+
+            <div class="party-stat rep">
+              <span class="party-name">Republikánusok</span>
+              <span class="seat-count" id="sen-rep-proj">50</span>
+              <span class="seat-range" id="sen-rep-range">Várható sáv: 48 - 51</span>
+            </div>
+          </div>
+
+          <!-- Senate Hemicycle Visualization -->
+          <div class="hemicycle-container" id="senate-hemicycle-chart">
+            <!-- Rendered by charts.js -->
+          </div>
+
+          <!-- Interactive Senate Seat Inspector -->
+          <div id="senate-seat-inspector" class="seat-inspector">
+            <!-- Dynamically populated by charts.js -->
+          </div>
+
+          <div id="senate-balance-bar" style="margin-top: 1.5rem;">
+            <!-- Rendered by charts.js -->
+          </div>
+
+          <div class="probability-box">
+            <div class="prob-header">
+              <span>Többségszerzési esély (Dem): <strong id="sen-prob-dem" style="color: var(--dem-blue-light);">54.2%</strong></span>
+              <span>Republikánus: <strong id="sen-prob-rep" style="color: var(--rep-red-light);">45.8%</strong></span>
+            </div>
+            <div class="prob-bar-container">
+              <div id="sen-prob-dem-bar" class="prob-dem" style="width: 54.2%;"></div>
+              <div id="sen-prob-rep-bar" class="prob-rep" style="width: 45.8%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOUSE PROJECTION CARD -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h2><span>🏛️</span> Alsóház (Képviselőház)</h2>
+              <p>435 mandátum • 218 szükséges a többséghez</p>
+            </div>
+            <span class="card-badge house">Demokrata előny</span>
+          </div>
+
+          <div class="projection-summary">
+            <div class="party-stat dem">
+              <span class="party-name">Demokraták</span>
+              <span class="seat-count" id="house-dem-proj">229</span>
+              <span class="seat-range" id="house-dem-range">Várható sáv: 224 - 235</span>
+            </div>
+
+            <div class="chamber-threshold">
+              <div>Többségi küszöb</div>
+              <div class="threshold-number">218 Mandátum</div>
+            </div>
+
+            <div class="party-stat rep">
+              <span class="party-name">Republikánusok</span>
+              <span class="seat-count" id="house-rep-proj">206</span>
+              <span class="seat-range" id="house-rep-range">Várható sáv: 200 - 211</span>
+            </div>
+          </div>
+
+          <!-- House Balance Bar Visualization -->
+          <div style="margin: 2.5rem 0;" id="house-balance-bar">
+            <!-- Rendered by charts.js -->
+          </div>
+
+          <div class="probability-box" style="margin-top: 3.5rem;">
+            <div class="prob-header">
+              <span>Többségszerzési esély (Dem): <strong id="house-prob-dem" style="color: var(--dem-blue-light);">78.5%</strong></span>
+              <span>Republikánus: <strong id="house-prob-rep" style="color: var(--rep-red-light);">21.5%</strong></span>
+            </div>
+            <div class="prob-bar-container">
+              <div id="house-prob-dem-bar" class="prob-dem" style="width: 78.5%;"></div>
+              <div id="house-prob-rep-bar" class="prob-rep" style="width: 21.5%;"></div>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.5rem; font-size: 0.82rem; color: var(--text-muted); background: var(--bg-secondary); padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            💡 <strong>Kulcs összefoglaló:</strong> A Képviselőházban a demokraták felé billen a mérleg: a történelmi félidős elnöki pártveszteségek és az erős generic ballot adatok miatt a jelenlegi modell 78.5%-os eséllyel vetíti előre a demokrata többséget.
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Battlegrounds Section -->
+      <section style="margin-top: 2.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.25rem;">
+          <div>
+            <h2 style="font-size: 1.3rem; font-weight: 700;">🔥 Kulcsfontosságú Szenátusi Csatatér Államok</h2>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Ezek a versenyek döntik el a Felsőház irányítását 2026-ban</p>
+          </div>
+        </div>
+        <div class="battleground-cards" id="battleground-container">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+    </div>
+
+    <!-- TAB 2: SENATE DEEP DIVE -->
+    <div id="tab-senate" class="tab-pane" style="display: none;">
+      <div class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 0.5rem;">Felsőház (Szenátus): Részletes Elemzés és Mandátumeloszlás</h2>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.5rem;">
+          Az Egyesült Államok Szenátusában 100 mandátum található (államonként 2 szenátor). A 2026-os félidős választáson a 2. osztályú (Class II) 33 szenátori hely, valamint 2 rendkívüli választás (összesen 35 hely) kerül megmérettetésre.
+        </p>
+
+        <div class="grid-3" style="margin-bottom: 1.5rem;">
+          <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Jelenlegi Összetétel</div>
+            <div style="font-size: 1.4rem; font-weight: 800; margin-top: 0.2rem;">
+              <span style="color: var(--rep-red-light);">53 Rep</span> - <span style="color: var(--dem-blue-light);">47 Dem</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">Republikánus többség</div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Választásra bocsátott helyek</div>
+            <div style="font-size: 1.4rem; font-weight: 800; margin-top: 0.2rem; color: #f59e0b;">35 Szék</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">22 republikánus, 13 demokrata szék védendő</div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Többségi Forgatókönyv</div>
+            <div style="font-size: 1.4rem; font-weight: 800; margin-top: 0.2rem; color: var(--text-main);">50 - 50 Döntetlen</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">Az alelnök döntő szavazata vagy +1 mandátum dönt</div>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Szenátusi Csatatér Dinamika 2026-ban:</h4>
+          <ul style="padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-muted); line-height: 1.8;">
+            <li><strong>Texas:</strong> Ken Paxton (R) ellenében James Talarico (D) meglepően versenyképes, a felmérésekben 1.4%-os előnnyel vezet, ami földrengésszerű áttörést jelenthet.</li>
+            <li><strong>Michigan:</strong> Abdul El-Sayed (D) stabil 3 pontos vezetéssel védi a demokrata mandátumot Mike Rogers (R) ellenében.</li>
+            <li><strong>Ohio:</strong> Sherrod Brown (D) veterán politikus a közvélemény-kutatásokban felülmúlja a republikánus Jon Hustedet a munkás szavazók körében.</li>
+            <li><strong>Iowa & Alaszka:</strong> A hagyományosan konzervatív államokban is szoros verseny bontakozott ki a helyi gazdasági és szociális kérdések mentén.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 100-Seat Interactive Senate Explorer -->
+      <div class="card" style="margin-top: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h3 style="font-size: 1.25rem; font-weight: 800;">📋 Mind a 100 Szenátusi Szék Részletes Katalógusa (Államonként)</h3>
+            <p style="color: var(--text-muted); font-size: 0.82rem; margin-top: 0.2rem;">
+              Nézd meg külön a 65 nem választó széket a hivatalban lévő szenátorok neveivel, valamint a 35 éles választási versenyt a régi szenátorral, az indulókkal és a várható esélyessel.
+            </p>
+          </div>
+        </div>
+
+        <!-- Filters for Senate Explorer -->
+        <div class="filter-bar">
+          <div class="search-input-wrap">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="senate-seats-search" class="search-input" placeholder="Keresés állam, szenátor vagy jelölt szerint (pl. Texas, Collins, Sanders)...">
+          </div>
+
+          <div class="filter-buttons">
+            <button class="filter-pill active" id="btn-filter-all-seats" data-senate-filter="all">Mind a 100 szék</button>
+            <button class="filter-pill" id="btn-filter-election-seats" data-senate-filter="election">🔥 2026-os Választási Versenyek (35 szék)</button>
+            <button class="filter-pill" id="btn-filter-noelection-seats" data-senate-filter="no-election">🔒 Nem Választó Székek (65 szék)</button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Állam</th>
+                <th>Szék (Osztály)</th>
+                <th>Választási Státusz</th>
+                <th>Hivatalban lévő / Régi Szenátor</th>
+                <th>2026-ban Induló Jelöltek</th>
+                <th>Esélyes Jelölt</th>
+                <th>Előrejelzés</th>
+              </tr>
+            </thead>
+            <tbody id="senate-seats-tbody">
+              <!-- Rendered by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: HOUSE DEEP DIVE -->
+    <div id="tab-house" class="tab-pane" style="display: none;">
+      <div class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 0.5rem;">Alsóház (Képviselőház): 435 Választókerület Elemzése</h2>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.5rem;">
+          A Képviselőházban mind a 435 mandátum gazdát cserélhet 2026. november 3-án. A többség megszerzéséhez 218 képviselő szükséges.
+        </p>
+
+        <div class="grid-3" style="margin-bottom: 1.5rem;">
+          <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Jelenlegi Állás</div>
+            <div style="font-size: 1.4rem; font-weight: 800; margin-top: 0.2rem;">
+              <span style="color: var(--rep-red-light);">220 Rep</span> - <span style="color: var(--dem-blue-light);">213 Dem</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">Hajszálvékony republikánus többség</div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Várható Képviselőházi Eredmény</div>
+            <div style="font-size: 1.4rem; font-weight: 800; margin-top: 0.2rem; color: var(--dem-blue-light);">229 Dem (+16 Mandátum)</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">Demokrata többség valószínűsíthető</div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Versenyben lévő (Toss-up) körzetek</div>
+            <div style="font-size: 1.4rem; font-weight: 800; margin-top: 0.2rem; color: #f59e0b;">21 Kerület</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">Ezek döntenek a többség mértékéről</div>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Fő Elemzői Megállapítások (Cook Political Report & Sabato's Crystal Ball):</h4>
+          <ul style="padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-muted); line-height: 1.8;">
+            <li><strong>Külvárosi hullám:</strong> New York és Kalifornia mérsékelt külvárosi körzeteiben a demokrata jelöltek jelentős előnyre tettek szert a független és női szavazók körében.</li>
+            <li><strong>Félidős elnöki átok:</strong> A modern amerikai történelemben a Fehér Házat birtokló párt szinte kivétel nélkül mandátumokat veszít az első félidős voksoláson (átlagosan 26-28 helyet).</li>
+            <li><strong>Pénzügyi és mozgósítási előny:</strong> A demokrata kampánybizottság (DCCC) jelentős anyagi előnnyel rendelkezik a legélesebb 21 körzetben a televíziós és digitális hirdetési piacokon.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: POLLS DATABASE -->
+    <div id="tab-polls" class="tab-pane" style="display: none;">
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <h2 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 0.5rem;">Közvélemény-kutatási Adatbázis & Felmérések</h2>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.25rem;">
+          Minden felmérés független, auditált módszertannal rendelkező közvélemény-kutatótól származik. A felmérések mellett feltüntetjük az intézet megbízhatósági minősítését (pl. A+, A, B+).
+        </p>
+
+        <!-- Filters -->
+        <div class="filter-bar">
+          <div class="search-input-wrap">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="poll-search" class="search-input" placeholder="Keresés állam, jelölt vagy intézet szerint...">
+          </div>
+
+          <div class="filter-buttons">
+            <button class="filter-pill active" data-filter="all">Minden felmérés</button>
+            <button class="filter-pill" data-filter="national">Országos (Generic Ballot)</button>
+            <button class="filter-pill" data-filter="senate">Szenátusi versenyek</button>
+            <button class="filter-pill" data-filter="house">Képviselőházi körzetek</button>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Dátum</th>
+                <th>Verseny / Téma</th>
+                <th>Közvélemény-kutató & Besorolás</th>
+                <th>Dem %</th>
+                <th>Rep %</th>
+                <th>Különbség</th>
+                <th>Hivatkozás</th>
+              </tr>
+            </thead>
+            <tbody id="polls-tbody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: CURATED NEWS -->
+    <div id="tab-news" class="tab-pane" style="display: none;">
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h2 style="font-size: 1.35rem; font-weight: 800;">Hiteles Hírfolyam & Nemzetközi Jelentések</h2>
+            <p style="color: var(--text-muted); font-size: 0.88rem;">
+              Kizárólag a legnagyobb és legmegbízhatóbb független hírügynökségek (AP, Reuters, NYT, WSJ, Politico, BBC) ellenőrzött anyagai.
+            </p>
+          </div>
+        </div>
+
+        <!-- News Subtabs -->
+        <div class="news-subtabs">
+          <button class="news-subtab-btn active" data-news-subtab="daily">
+            🔥 A Nap Fontos Eseményei (Országos)
+          </button>
+          <button class="news-subtab-btn" data-news-subtab="weekly">
+            📅 A Hét Összefoglalója
+          </button>
+          <button class="news-subtab-btn" data-news-subtab="all">
+            📰 Összes Hírfolyam (Időrendben)
+          </button>
+        </div>
+      </div>
+
+      <!-- SUBVIEW 1: DAILY DIGEST & KEYWORD TRENDS -->
+      <div id="news-subview-daily">
+        <!-- Trending Keywords Cloud -->
+        <div class="trending-box">
+          <div class="trending-header">
+            <span>🏷️ A MÉDIA ÁLTAL LEGTÖBBET EMLÍTETT KULCSSZAVAK MA (OROSZÁGOS MÉRÉS):</span>
+            <span style="font-size: 0.72rem; color: #60a5fa;">Valós idejű hírfolyam-elemzés</span>
+          </div>
+          <div class="trending-pills" id="trending-keywords-pills">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Daily Lead Digest Card -->
+        <div id="daily-digest-container">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- SUBVIEW 2: WEEKLY DIGEST -->
+      <div id="news-subview-weekly" style="display: none;">
+        <div id="weekly-digest-container">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- SUBVIEW 3: ALL ARTICLES GRID -->
+      <div id="news-subview-all" style="display: none;">
+        <div class="news-grid" id="news-grid-container">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 6: TRUMP FIGYELŐ -->
+    <div id="tab-trump" class="tab-pane" style="display: none;">
+      <!-- Trump Header & Approval Rating Card -->
+      <div class="trump-header-card">
+        <div class="trump-avatar-area">
+          <div class="trump-avatar">🇺🇸</div>
+          <div>
+            <h2 style="font-size: 1.45rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+              <span>Donald Trump Figyelő</span>
+              <span class="truth-tag">ÉLŐ ARCHÍVUM: 36,700+ POSZT</span>
+            </h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.2rem;">
+              Valós idejű és teljes történelmi Truth Social bejegyzéstár (2022–2026), kampánykörút és független forrású tényellenőrzések (AP, Reuters, NYT).
+            </p>
+          </div>
+        </div>
+
+        <div class="trump-approval-stat">
+          <div style="display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 700; margin-bottom: 0.35rem;">
+            <span>Elnöki Népszerűségi Átlag:</span>
+            <span style="color: #f87171;" id="trump-spread-badge">-16.6%</span>
+          </div>
+          <div class="prob-bar-container" style="height: 12px; margin-bottom: 0.5rem;">
+            <div id="trump-prob-approve-bar" style="width: 39.8%; background: #3b82f6;" title="Támogatottság: 39.8%"></div>
+            <div id="trump-prob-disapprove-bar" style="width: 56.4%; background: #ef4444;" title="Elutasítottság: 56.4%"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted);">
+            <span>Támogatja: <strong id="trump-approve-val" style="color: #60a5fa;">39.8%</strong></span>
+            <span>Elutasítja: <strong id="trump-disapprove-val" style="color: #f87171;">56.4%</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Stats Banner -->
+      <div class="truth-stats-banner" id="truth-stats-banner">
+        <div class="truth-stat-card">
+          <div class="truth-stat-num" id="truth-stat-total">36,703</div>
+          <div class="truth-stat-label">💬 Összes Truth Social Poszt</div>
+        </div>
+        <div class="truth-stat-card">
+          <div class="truth-stat-num" id="truth-stat-media">13,389</div>
+          <div class="truth-stat-label">🖼️ Képes & Videós Tartalom</div>
+        </div>
+        <div class="truth-stat-card">
+          <div class="truth-stat-num" id="truth-stat-latest">Ma</div>
+          <div class="truth-stat-label">🕒 Legfrissebb Bejegyzés</div>
+        </div>
+        <div class="truth-stat-card">
+          <div class="truth-stat-num" id="truth-stat-top-favs">410K+</div>
+          <div class="truth-stat-label">❤️ Rekord Kedvelés (#COVFEFE)</div>
+        </div>
+      </div>
+
+      <!-- Sub-tabs for Trump section -->
+      <div class="news-subtabs" style="margin: 1.5rem 0 1rem 0;">
+        <button class="news-subtab-btn active" id="btn-subtab-truth-posts" onclick="MidtermApp.switchTrumpSubtab('posts')">
+          💬 Összes Truth Social Poszt (36,700+)
+        </button>
+        <button class="news-subtab-btn" id="btn-subtab-truth-rallies" onclick="MidtermApp.switchTrumpSubtab('rallies')">
+          📍 Kampánykörút & Nagygyűlések
+        </button>
+        <button class="news-subtab-btn" id="btn-subtab-truth-initiatives" onclick="MidtermApp.switchTrumpSubtab('initiatives')">
+          🛡️ Tényellenőrzések & Kiemelt Ígéretek
+        </button>
+      </div>
+
+      <!-- SUBTAB 1: TRUTH SOCIAL FULL EXPLORER -->
+      <div id="trump-subtab-posts" class="trump-subtab-content">
+        <!-- Explorer Controls -->
+        <div class="truth-explorer-controls">
+          <!-- Search Row -->
+          <div class="truth-search-row">
+            <div class="truth-search-box">
+              <span class="truth-search-icon">🔍</span>
+              <input type="text" id="truth-search-input" placeholder="Keresés Trump összes posztjában (pl. election, tariffs, China, border, judge, Biden, tax)..." onkeydown="if(event.key==='Enter') MidtermApp.handleTruthSearch()">
+              <button class="truth-clear-btn" id="truth-clear-btn" onclick="MidtermApp.clearTruthSearch()" style="display: none;" title="Keresés törlése">✕</button>
+            </div>
+            <button class="btn btn-primary" onclick="MidtermApp.handleTruthSearch()">Keresés</button>
+            <button class="btn btn-secondary" onclick="MidtermApp.resetTruthFilters()">Visszaállítás</button>
+          </div>
+
+          <!-- Filter Pills Row -->
+          <div class="truth-filter-row">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); align-self: center;">Témák:</span>
+            <div class="truth-topic-chips" id="truth-topic-chips">
+              <button class="topic-chip active" data-topic="all" onclick="MidtermApp.setTruthTopic('all')">🌟 Összes (36k+)</button>
+              <button class="topic-chip" data-topic="election" onclick="MidtermApp.setTruthTopic('election')">🗳️ Időközi Választások</button>
+              <button class="topic-chip" data-topic="economy" onclick="MidtermApp.setTruthTopic('economy')">💰 Gazdaság & Vámok</button>
+              <button class="topic-chip" data-topic="border" onclick="MidtermApp.setTruthTopic('border')">🚨 Határ & Migráció</button>
+              <button class="topic-chip" data-topic="legal" onclick="MidtermApp.setTruthTopic('legal')">⚖️ Bíróságok & Igazságügy</button>
+              <button class="topic-chip" data-topic="china" onclick="MidtermApp.setTruthTopic('china')">🌏 Kína & Külpolitika</button>
+              <button class="topic-chip" data-media="true" id="chip-media-only" onclick="MidtermApp.toggleTruthMediaOnly()">📷 Csak Képpel</button>
+            </div>
+          </div>
+
+          <!-- Sort and Pagination Info Bar -->
+          <div class="truth-meta-bar">
+            <div id="truth-results-count" style="font-size: 0.85rem; font-weight: 700; color: var(--text-main);">
+              Betöltés...
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+              <label style="font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.35rem;">
+                Rendezés:
+                <select id="truth-sort-select" onchange="MidtermApp.handleTruthSort(this.value)" class="form-select-sm">
+                  <option value="newest">🕒 Legfrissebb elöl</option>
+                  <option value="likes">❤️ Legtöbb kedvelés</option>
+                  <option value="retruths">🔁 Legtöbb Re-Truth</option>
+                  <option value="oldest">⏳ Legrégebbi elöl</option>
+                </select>
+              </label>
+              <label style="font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.35rem;">
+                Megjelenítés:
+                <select id="truth-limit-select" onchange="MidtermApp.handleTruthLimit(this.value)" class="form-select-sm">
+                  <option value="20">20 / oldal</option>
+                  <option value="50">50 / oldal</option>
+                  <option value="100">100 / oldal</option>
+                </select>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feed Container -->
+        <div id="truth-posts-feed">
+          <!-- Rendered dynamically by JS -->
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="truth-pagination-bar" id="truth-pagination-bar">
+          <!-- Rendered dynamically by JS -->
+        </div>
+      </div>
+
+      <!-- SUBTAB 2: RALLIES & CAMPAIGN TOUR -->
+      <div id="trump-subtab-rallies" class="trump-subtab-content" style="display: none;">
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.25rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <span>📍</span> 32 Napos Nemzeti Kampánykörút & Hivatalos Nagygyűlések
+          </h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">
+            Donald Trump kampányeseményei a 2026-os szenátusi és képviselőházi csatatér államokban.
+          </p>
+        </div>
+        <div id="trump-activities-container">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- SUBTAB 3: FACT-CHECKS & KEY INITIATIVES -->
+      <div id="trump-subtab-initiatives" class="trump-subtab-content" style="display: none;">
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.25rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <span>⚡</span> Kiemelt Kampányígéretek és Független Tényellenőrzések
+          </h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">
+            Az Associated Press (AP), Reuters és The New York Times független ellenőrzései a legfontosabb kampányállításokról.
+          </p>
+        </div>
+        <div id="trump-initiatives-container">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 6: METHODOLOGY & TRUSTED SOURCES -->
+    <div id="tab-methodology" class="tab-pane" style="display: none;">
+      <div class="methodology-content">
+        <h2 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.75rem;">🛡️ Módszertan és Forráskritériumok</h2>
+        <p>
+          Ez az információs felület kifejezetten azzal a céllal jött létre, hogy kiszűrje a pártos propagandát, a félrevezető kattintásvadász cikkeket és a módszertanilag kétes felméréseket. Az oldal kizárólag a nemzetközileg elismert, szigorúan szabályozott és független médiumokra, valamint a legmagasabb minősítésű közvélemény-kutatókra támaszkodik.
+        </p>
+
+        <h3>1. Megbízható Közvélemény-kutatók és Elemzőintézetek</h3>
+        <p>Az adatbázis kizárólag olyan kutatóintézetek méréseit tartalmazza, amelyek teljes transzparenciát biztosítanak a mintanagyság, a kérdésfeltevés és a mintavételi hibahatár tekintetében:</p>
+
+        <div class="sources-list">
+          <div class="source-item">
+            <h4>Siena College Research Institute / The New York Times (A+)</h4>
+            <p>A legmagasabbra értékelt amerikai közvélemény-kutató intézet. Szigorú kettős ellenőrzésű vezetékes és mobiltelefonos mintavétel.</p>
+          </div>
+          <div class="source-item">
+            <h4>Marist College Institute for Public Opinion (A)</h4>
+            <p>Évtizedes múltú, kiemelkedő pontosságú akadémiai felmérő intézet (az NPR és a PBS partnere).</p>
+          </div>
+          <div class="source-item">
+            <h4>Monmouth University Polling Institute (A)</h4>
+            <p>Független egyetemi kutatóközpont, kiváló történelmi találati aránnyal a csatatér államokban.</p>
+          </div>
+          <div class="source-item">
+            <h4>Emerson College Polling (A-)</h4>
+            <p>Hibrid telefonos és online panel módszertan, gyors és naprakész mérési ciklusokkal.</p>
+          </div>
+          <div class="source-item">
+            <h4>Quinnipiac University Poll (A-)</h4>
+            <p>Széles körben tisztelt, országos és állami szintű felméréseket készítő független egyetemi felmérő.</p>
+          </div>
+          <div class="source-item">
+            <h4>Aggregátorok: RealClearPolitics, 538 / ABC News, Cook Political Report</h4>
+            <p>A felmérések súlyozott átlagait és szakértői körzetelemzéseit használjuk a mandátumsávok modellezésére.</p>
+          </div>
+        </div>
+
+        <h3>2. Hiteles Hírmédiák</h3>
+        <p>A hírfolyam kizárólag a Pulitzer-díjas és nemzetközi etikai kódexet követő szerkesztőségek anyagait fogadja be:</p>
+        <div class="sources-list">
+          <div class="source-item">
+            <h4>Associated Press (AP)</h4>
+            <p>A világ legrégebbi és legmegbízhatóbb független hírügynöksége; az amerikai választások hivatalos eredményközlője.</p>
+          </div>
+          <div class="source-item">
+            <h4>Reuters</h4>
+            <p>Globális tényellenőrző és hírügynökség, szigorú tárgyilagossági szabályokkal.</p>
+          </div>
+          <div class="source-item">
+            <h4>The New York Times & The Wall Street Journal</h4>
+            <p>A legmélyebb oknyomozó és gazdasági elemző stábbal rendelkező amerikai napilapok.</p>
+          </div>
+          <div class="source-item">
+            <h4>Politico & BBC News</h4>
+            <p>Részletes kongresszusi belső tudósítások és pártatlan nemzetközi perspektíva.</p>
+          </div>
+        </div>
+
+        <h3>3. Napi Automatikus Frissítési Rendszer</h3>
+        <p>
+          A weboldal mögött egy dedikált Python háttérszolgáltatás fut (<code>updater.py</code>), amely minden nap automatikusan ellenőrzi a legújabb hírfolyamokat és a közzétett felméréseket, újraszámítja a súlyozott átlagokat, és frissíti a megjelenített ábrákat. Ezenkívül a fejlécben található <em>"🔄 Frissítés most"</em> gomb segítségével bármikor manuálisan is kezdeményezhető azonnali szinkronizáció.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <h4>USA Időközi Választások 2026 Figyelő</h4>
+        <p>Független, adatvezérelt választási portál az amerikai Kongresszus (Alsóház és Felsőház) összetételének és közvéleményének nyomon követésére.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.75rem;">© 2026 • Minden jog fenntartva • Készült a legmagasabb megbízhatósági szabványok szerint.</p>
+      </div>
+      <div>
+        <div style="font-weight: 700; margin-bottom: 0.35rem;">Gyors Navigáció</div>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#" onclick="App.switchTab('overview'); return false;" style="color: var(--text-muted); text-decoration: none;">Előrejelzés</a>
+          <a href="#" onclick="App.switchTab('senate'); return false;" style="color: var(--text-muted); text-decoration: none;">Szenátus</a>
+          <a href="#" onclick="App.switchTab('house'); return false;" style="color: var(--text-muted); text-decoration: none;">Képviselőház</a>
+          <a href="#" onclick="App.switchTab('polls'); return false;" style="color: var(--text-muted); text-decoration: none;">Kutatások</a>
+          <a href="#" onclick="App.switchTab('news'); return false;" style="color: var(--text-muted); text-decoration: none;">Hírek</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/fallback_data.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

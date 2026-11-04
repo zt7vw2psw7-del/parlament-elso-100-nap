@@ -1,0 +1,1194 @@
+[
+  {
+    "code": 1,
+    "name_en": "Macroeconomics",
+    "name_hu": "Makrogazdaság",
+    "subtopics": [
+      {
+        "code": 100,
+        "title_en": "General",
+        "description": "Includes issues related to general domestic macroeconomic policy."
+      },
+      {
+        "code": 101,
+        "title_en": "Interest Rates",
+        "description": "Includes issues related to inflation, cost of living, prices, and interest rates"
+      },
+      {
+        "code": 103,
+        "title_en": "Unemployment Rate",
+        "description": "Includes issues related to the monetary policy, central bank, and the treasury"
+      },
+      {
+        "code": 105,
+        "title_en": "National Budget",
+        "description": "&nbsp;Description: Issues related to public debt, budgeting, and efforts to reduce deficits"
+      },
+      {
+        "code": 107,
+        "title_en": "Tax Code",
+        "description": "Includes issues related to manufacturing policy, industrial revitalization and growth"
+      },
+      {
+        "code": 110,
+        "title_en": "Price Control",
+        "description": "&nbsp;Description: Includes issues related to wage or price control, emergency price controls"
+      },
+      {
+        "code": 199,
+        "title_en": "Other",
+        "description": "Description: Includes issues related to other macroeconomics subtopics"
+      }
+    ]
+  },
+  {
+    "code": 2,
+    "name_en": "Civil Rights",
+    "name_hu": "Polgári jogok és kisebbségek",
+    "subtopics": [
+      {
+        "code": 200,
+        "title_en": "General",
+        "description": "Includes issues related generally to civil rights and minority rights"
+      },
+      {
+        "code": 201,
+        "title_en": "Minority Discrimination",
+        "description": "Includes issues related to minority, ethnic, and racial group discrimination&nbsp;"
+      },
+      {
+        "code": 202,
+        "title_en": "Gender Discrimination",
+        "description": "Includes issues related to sex, gender, and sexual orientation discrimination"
+      },
+      {
+        "code": 204,
+        "title_en": "Age Discrimination",
+        "description": "Includes issues related to age discrimination, including mandatory retirement age policies"
+      },
+      {
+        "code": 205,
+        "title_en": "Handicap Discrimination",
+        "description": "Includes issues related to handicap and disease discrimination"
+      },
+      {
+        "code": 206,
+        "title_en": "Voting Rights",
+        "description": "oting rights, expanding or contracting the franchise, participation and related issues"
+      },
+      {
+        "code": 207,
+        "title_en": "Freedom of Speech",
+        "description": "&nbsp;Description:&nbsp;Issues related to freedom of speech, religious freedoms, and other types of freedom of expression"
+      },
+      {
+        "code": 208,
+        "title_en": "Right to Privacy",
+        "description": "Includes issues related to privacy rights, including privacy of records, access to government information, and abortion rights"
+      },
+      {
+        "code": 209,
+        "title_en": "Anti-Government",
+        "description": "Includes issues related to anti-government activity groups, such as the communist party and local insurgency groups"
+      },
+      {
+        "code": 299,
+        "title_en": "Other",
+        "description": "Includes issues related to other civil rights subtopics"
+      }
+    ]
+  },
+  {
+    "code": 3,
+    "name_en": "Health",
+    "name_hu": "Egészségügy",
+    "subtopics": [
+      {
+        "code": 300,
+        "title_en": "General",
+        "description": "Includes issues related generally to health care, including appropriations for general health care government agencies"
+      },
+      {
+        "code": 301,
+        "title_en": "Health Care Reform",
+        "description": "Includes issues related to broad, comprehensive changes in the health care system"
+      },
+      {
+        "code": 302,
+        "title_en": "Insurance",
+        "description": "&nbsp;Description: Includes issues related to health insurance reform, regulation, availability, and cost"
+      },
+      {
+        "code": 321,
+        "title_en": "Drug Industry",
+        "description": "Description: Includes issues related to the regulation and promotion of pharmaceuticals, medical devices, and clinical labs"
+      },
+      {
+        "code": 322,
+        "title_en": "Medical Facilities",
+        "description": "&nbsp; Description: Issues related to facilities construction, regulation and payments, including waitlists and ambulance services"
+      },
+      {
+        "code": 323,
+        "title_en": "Insurance Providers",
+        "description": "Includes issues related to provider and insurer payments and regulation, including other types of benefits or multiple benefits"
+      },
+      {
+        "code": 324,
+        "title_en": "Medical Liability",
+        "description": "Description: Includes issues related to medical liability, malpractice issues, medical fraud and abuse, and unfair practices"
+      },
+      {
+        "code": 325,
+        "title_en": "Manpower",
+        "description": "&nbsp;Issues related to the supply and quantity of labor in the health care industry, training and licensing"
+      },
+      {
+        "code": 331,
+        "title_en": "Disease Prevention",
+        "description": "&nbsp;Issues related to disease prevention, treatment, and health promotion, including specific diseases not covered in other subtopics"
+      },
+      {
+        "code": 332,
+        "title_en": "Infants and Children",
+        "description": "Includes issues related to infants and children, including coverage and quality of care, health promotion, and school health programs"
+      },
+      {
+        "code": 333,
+        "title_en": "Mental Health",
+        "description": "ental health care and mental health disease"
+      },
+      {
+        "code": 334,
+        "title_en": "Long-term Care",
+        "description": "Includes issues related to prescription drug coverage, programs to pay for prescription drugs, and policy to reduce the cost of prescription drugs"
+      },
+      {
+        "code": 341,
+        "title_en": "Tobacco Abuse",
+        "description": "Includes issues related to tobacco abuse, treatment, education, and health effects"
+      },
+      {
+        "code": 342,
+        "title_en": "Drug and Alcohol Abuse",
+        "description": "Includes issues related to alcohol and illegal drug abuse, treatment, education, and health effects"
+      },
+      {
+        "code": 398,
+        "title_en": "R&amp;D",
+        "description": "Includes issues related to health care research and development"
+      },
+      {
+        "code": 399,
+        "title_en": "Other",
+        "description": "Includes issues related to other health care topics"
+      }
+    ]
+  },
+  {
+    "code": 4,
+    "name_en": "Agriculture",
+    "name_hu": "Mezőgazdaság",
+    "subtopics": [
+      {
+        "code": 400,
+        "title_en": "General",
+        "description": "Description: Includes issues related to general agriculture policy, including appropriations for general agriculture government agencies"
+      },
+      {
+        "code": 401,
+        "title_en": "Trade",
+        "description": "Includes issues related to the regulation and impact of agricultural foreign trade"
+      },
+      {
+        "code": 402,
+        "title_en": "Subsidies to Farmers",
+        "description": "Includes issues related to government subsidies to farmers and ranchers, including agricultural disaster insurance"
+      },
+      {
+        "code": 403,
+        "title_en": "Food Inspection &amp; Safety",
+        "description": "Includes issues related to food inspection and safety, including seafood, and labeling requirements"
+      },
+      {
+        "code": 404,
+        "title_en": "Food Marketing &amp; Promotion",
+        "description": "Includes issues related to animal and crop disease, pest control and pesticide regulation, and welfare for domesticated animals"
+      },
+      {
+        "code": 408,
+        "title_en": "Fisheries &amp; Fishing",
+        "description": "Includes issues related to fishing, commercial fishery regulation and conservation"
+      },
+      {
+        "code": 498,
+        "title_en": "R&amp;D",
+        "description": "Includes issues related to agricultural research and development"
+      },
+      {
+        "code": 499,
+        "title_en": "Other",
+        "description": "Includes issues related to other agricultural subtopics"
+      }
+    ]
+  },
+  {
+    "code": 5,
+    "name_en": "Labor",
+    "name_hu": "Munkaügy",
+    "subtopics": [
+      {
+        "code": 500,
+        "title_en": "General",
+        "description": "Includes issues generally related to labor, employment, and pensions, including appropriations for government agencies regulating labor policy"
+      },
+      {
+        "code": 501,
+        "title_en": "Worker Safety",
+        "description": "Includes issues related to worker safety and protection and compensation for work-related injury and disease"
+      },
+      {
+        "code": 502,
+        "title_en": "Employment Training",
+        "description": "&nbsp;Description: Includes issues related to job training for adult workers, workforce development, and efforts to retrain displaced workers"
+      },
+      {
+        "code": 503,
+        "title_en": "Employee Benefits",
+        "description": "Includes issues related to all employee benefits, pensions, and retirement accounts, including government-provided unemployment insurance"
+      },
+      {
+        "code": 504,
+        "title_en": "Labor Unions",
+        "description": "Includes issues related to labor unions, collective bargaining, and employer-employee relations"
+      },
+      {
+        "code": 505,
+        "title_en": "Fair Labor Standards",
+        "description": "Includes issues related to fair labor standards such as the minimum wage and overtime compensation, and labor law"
+      },
+      {
+        "code": 506,
+        "title_en": "Youth Employment",
+        "description": "Includes issues related to youth employment, child labor and job training for youths"
+      },
+      {
+        "code": 529,
+        "title_en": "Migrant and Seasonal",
+        "description": "Includes issues related to migrant, guest and seasonal workers"
+      },
+      {
+        "code": 599,
+        "title_en": "Other",
+        "description": "&nbsp;Issues related to other labor policy"
+      }
+    ]
+  },
+  {
+    "code": 6,
+    "name_en": "Education",
+    "name_hu": "Oktatás",
+    "subtopics": [
+      {
+        "code": 600,
+        "title_en": "General",
+        "description": "Includes issues related to general education policy, including appropriations for government agencies regulating education policy"
+      },
+      {
+        "code": 601,
+        "title_en": "Higher",
+        "description": "Includes issues related to higher education, student loans and education finance, and the regulation of colleges and universities"
+      },
+      {
+        "code": 602,
+        "title_en": "Elementary &amp; Secondary",
+        "description": "&nbsp;Description: Includes issues related to elementary and primary schools, school reform, safety in schools, and efforts to generally improve educational standards and outcomes"
+      },
+      {
+        "code": 603,
+        "title_en": "Underprivileged",
+        "description": "Includes issues related to education of underprivileged students, including adult literacy programs, bilingual education needs, and rural education initiatives"
+      },
+      {
+        "code": 604,
+        "title_en": "Vocational",
+        "description": "&nbsp;Description: Includes issues related to vocational education for children and adults and their impact"
+      },
+      {
+        "code": 606,
+        "title_en": "Special",
+        "description": "&nbsp;Description: Includes issues related to special education and education for the physically or mentally handicapped"
+      },
+      {
+        "code": 607,
+        "title_en": "Excellence",
+        "description": "&nbsp;Description: Includes issues related to education excellence, including efforts to increase the quality of specific areas, such as math, science or foreign language skills"
+      },
+      {
+        "code": 698,
+        "title_en": "R&amp;D",
+        "description": "Includes issues related to research and development in education"
+      },
+      {
+        "code": 699,
+        "title_en": "Other",
+        "description": "Includes issues related to other subtopics in education policy"
+      }
+    ]
+  },
+  {
+    "code": 7,
+    "name_en": "Environment",
+    "name_hu": "Környezetvédelem",
+    "subtopics": [
+      {
+        "code": 700,
+        "title_en": "General",
+        "description": "Includes issues related to general environmental policy, including appropriations for government agencies regulating environmental policy"
+      },
+      {
+        "code": 701,
+        "title_en": "Drinking Water",
+        "description": "&nbsp;Description"
+      },
+      {
+        "code": 703,
+        "title_en": "Waste Disposal",
+        "description": "Includes issues related to the disposal and treatment of wastewater, solid waste and runoff.&nbsp;"
+      },
+      {
+        "code": 704,
+        "title_en": "Hazardous Waste",
+        "description": "Includes issues related to hazardous waste and toxic chemical regulation, treatment, and disposal"
+      },
+      {
+        "code": 705,
+        "title_en": "Air Pollution",
+        "description": "Includes issues related to air pollution, climate change, and noise pollution"
+      },
+      {
+        "code": 707,
+        "title_en": "Recycling",
+        "description": "Includes issues related to recycling, reuse, and resource conservation"
+      },
+      {
+        "code": 708,
+        "title_en": "Indoor Hazards",
+        "description": "Includes issues related to indoor environmental hazards, indoor air contamination (including on airlines), and indoor hazardous substances such as asbestos"
+      },
+      {
+        "code": 709,
+        "title_en": "Species &amp; Forest",
+        "description": "Description: Includes issues related to species and forest protection, endangered species, control of the domestic illicit trade in wildlife products, and regulation of laboratory or performance animals"
+      },
+      {
+        "code": 711,
+        "title_en": "Land and Water Conservation",
+        "description": "Includes issues related to land and water resource conservation"
+      },
+      {
+        "code": 798,
+        "title_en": "R&amp;D",
+        "description": "Includes issues related to research and development in environmental technology, not including alternative energy"
+      },
+      {
+        "code": 799,
+        "title_en": "Other",
+        "description": "Includes issues related to other environmental subtopics"
+      }
+    ]
+  },
+  {
+    "code": 8,
+    "name_en": "Energy",
+    "name_hu": "Energiaügy",
+    "subtopics": [
+      {
+        "code": 800,
+        "title_en": "General",
+        "description": "Includes issues generally related to energy policy, including appropriations for government agencies regulating energy policy"
+      },
+      {
+        "code": 801,
+        "title_en": "Nuclear",
+        "description": "Includes issues related to nuclear energy, safety and security, and disposal of nuclear waste"
+      },
+      {
+        "code": 802,
+        "title_en": "Electricity",
+        "description": "Includes issues related to general electricity, hydropower, and regulation of electrical utilities&nbsp;"
+      },
+      {
+        "code": 803,
+        "title_en": "Natural Gas &amp; Oil",
+        "description": "Includes issues related to natural gas and oil, drilling, oil spills and flaring, oil and gas prices, shortages and gasoline regulation"
+      },
+      {
+        "code": 805,
+        "title_en": "Coal",
+        "description": "Includes issues related to coal production, use, trade, and regulation, including coal gasification and clean coal technologies"
+      },
+      {
+        "code": 806,
+        "title_en": "Alternative &amp; Renewable",
+        "description": "Includes issues related to alternative and renewable energy, biofuels, hydrogen and geothermal power"
+      },
+      {
+        "code": 807,
+        "title_en": "Conservation",
+        "description": "Includes issues related to energy conservation and energy efficiency, including vehicles, homes, commercial use and government"
+      },
+      {
+        "code": 898,
+        "title_en": "R&amp;D",
+        "description": "Includes issues related to energy research and development"
+      },
+      {
+        "code": 899,
+        "title_en": "Other",
+        "description": "&nbsp;Description: Includes issues related to other energy subtopics"
+      }
+    ]
+  },
+  {
+    "code": 9,
+    "name_en": "Immigration",
+    "name_hu": "Bevándorlás és állampolgárság",
+    "subtopics": [
+      {
+        "code": 900,
+        "title_en": "Immigration",
+        "description": "Includes issues related to immigration, refugees, and citizenship"
+      }
+    ]
+  },
+  {
+    "code": 10,
+    "name_en": "Transportation",
+    "name_hu": "Közlekedés",
+    "subtopics": [
+      {
+        "code": 1000,
+        "title_en": "General",
+        "description": "Includes issues related generally to transportation, including appropriations for government agencies regulating transportation policy"
+      },
+      {
+        "code": 1001,
+        "title_en": "Mass",
+        "description": "Includes issues related to mass transportation construction, regulation, safety, and availability"
+      },
+      {
+        "code": 1002,
+        "title_en": "Highways",
+        "description": "Includes issues related to public highway construction, maintenance, and safety"
+      },
+      {
+        "code": 1003,
+        "title_en": "Air Travel",
+        "description": "Includes issues related to air travel, regulation and safety of aviation, airports, air traffic control, pilot training, and aviation technology"
+      },
+      {
+        "code": 1005,
+        "title_en": "Railroad Travel",
+        "description": "Includes issues related to railroads, rail travel, rail freight, and the development and deployment of new rail technologies"
+      },
+      {
+        "code": 1007,
+        "title_en": "Maritime",
+        "description": "Includes issues related to maritime transportation, including maritime freight and shipping, safety and security, and inland waterways and channels"
+      },
+      {
+        "code": 1010,
+        "title_en": "Infrastructure",
+        "description": "Description: Includes issues related to infrastructure and public works, including employment initiatives"
+      },
+      {
+        "code": 1098,
+        "title_en": "R&amp;D",
+        "description": "Includes issues related to transportation research and development"
+      },
+      {
+        "code": 1099,
+        "title_en": "Other",
+        "description": "Description: Includes issues related to other transportation subtopics"
+      }
+    ]
+  },
+  {
+    "code": 12,
+    "name_en": "Law and Crime",
+    "name_hu": "Jog, igazságszolgáltatás és közbiztonság",
+    "subtopics": [
+      {
+        "code": 1200,
+        "title_en": "General",
+        "description": "&nbsp;Description: Includes issues related to general law, crime, and family issues"
+      },
+      {
+        "code": 1201,
+        "title_en": "Agencies",
+        "description": "&nbsp; Description: Includes issues related to all law enforcement agencies, including border, customs, and other specialized enforcement agencies and their appropriations"
+      },
+      {
+        "code": 1202,
+        "title_en": "White Collar Crime",
+        "description": "&nbsp;Description: Includes issues related to white collar crime, organized crime, counterfeiting and fraud, cyber-crime, and money laundering"
+      },
+      {
+        "code": 1203,
+        "title_en": "Illegal Drugs",
+        "description": "Description: Issues related to illegal drug crime and enforcement, criminal penalties for drug crimes, including international efforts to combat drug trafficking&nbsp;"
+      },
+      {
+        "code": 1204,
+        "title_en": "Court Administration",
+        "description": "&nbsp;Description: Includes issues related to court administration, judiciary appropriations, guidelines for bail, pre-release, fines and legal representation"
+      },
+      {
+        "code": 1205,
+        "title_en": "Prisons",
+        "description": "&nbsp;Description: Includes issues related to prisons and jails, parole systems, and appropriations"
+      },
+      {
+        "code": 1206,
+        "title_en": "Juvenile Crime",
+        "description": "&nbsp; &nbsp; &nbsp;Description: Includes issues related to juvenile crime and justice, juvenile prisons and jails, and efforts to reduce juvenile crime and recidivism"
+      },
+      {
+        "code": 1207,
+        "title_en": "Child Abuse",
+        "description": "&nbsp; &nbsp;Description: Includes issues related to child abuse, child pornography, sexual exploitation of children and parental kidnapping"
+      },
+      {
+        "code": 1208,
+        "title_en": "Family Issues",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to family issues, domestic violence, child welfare, family law"
+      },
+      {
+        "code": 1210,
+        "title_en": "Criminal &amp; Civil Code",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to domestic criminal and civil codes, including crimes not mentioned in other subtopics"
+      },
+      {
+        "code": 1211,
+        "title_en": "Crime Control",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to&nbsp;the control, prevention, and impact of crime"
+      },
+      {
+        "code": 1227,
+        "title_en": "Police",
+        "description": "&nbsp; &nbsp;Description: Includes issues related to Police and other general domestic security responses to terrorism, such as special police"
+      },
+      {
+        "code": 1299,
+        "title_en": "Other",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to other law, crime, and family subtopics"
+      }
+    ]
+  },
+  {
+    "code": 13,
+    "name_en": "Social Welfare",
+    "name_hu": "Szociálpolitika és jólét",
+    "subtopics": [
+      {
+        "code": 1300,
+        "title_en": "General",
+        "description": "&nbsp; &nbsp;Description: Includes issues generally related to social welfare policy"
+      },
+      {
+        "code": 1302,
+        "title_en": "Low-Income Assistance",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to poverty assistance for low-income families, including food assistance programs, programs to assess or alleviate welfare dependency and tax credits directed at low-income families"
+      },
+      {
+        "code": 1303,
+        "title_en": "Elderly Assistance",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to elderly issues and elderly assistance, including government pensions"
+      },
+      {
+        "code": 1304,
+        "title_en": "Disabled Assistance",
+        "description": "&nbsp; &nbsp; &nbsp;Description: Includes issues related to aid for people with physical or mental disabilities"
+      },
+      {
+        "code": 1305,
+        "title_en": "Volunteer Associations",
+        "description": "&nbsp; &nbsp; &nbsp;Description: Includes issues related to domestic volunteer associations, charities, and youth organizations"
+      },
+      {
+        "code": 1308,
+        "title_en": "Child Care",
+        "description": "&nbsp; &nbsp; &nbsp;&nbsp;Description: Includes issues related to parental leave and child care"
+      },
+      {
+        "code": 1399,
+        "title_en": "Other",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to other social welfare policy subtopics"
+      }
+    ]
+  },
+  {
+    "code": 14,
+    "name_en": "Housing",
+    "name_hu": "Lakásügy és településfejlesztés",
+    "subtopics": [
+      {
+        "code": 1400,
+        "title_en": "General",
+        "description": "&nbsp; &nbsp;Description: Includes issues related generally to housing and urban affairs"
+      },
+      {
+        "code": 1401,
+        "title_en": "Community Development",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to housing and community development, neighborhood development, and national housing policy"
+      },
+      {
+        "code": 1403,
+        "title_en": "Urban Development",
+        "description": "&nbsp; &nbsp; &nbsp;Description: Includes issues related to urban development and general urban issues"
+      },
+      {
+        "code": 1404,
+        "title_en": "Rural Housing",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to rural housing"
+      },
+      {
+        "code": 1405,
+        "title_en": "Rural Development",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes non-housing issues focused on economic, infrastructure, and other developments in non-urban areas"
+      },
+      {
+        "code": 1406,
+        "title_en": "Low-Income Assistance",
+        "description": "&nbsp; &nbsp; &nbsp;&nbsp;Description: Includes issues related to housing for low-income individuals and families, including public housing projects and housing affordability programs"
+      },
+      {
+        "code": 1407,
+        "title_en": "Veterans",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to housing for military veterans and their families, including subsidies for veterans"
+      },
+      {
+        "code": 1408,
+        "title_en": "Elderly",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to housing for the elderly, including housing facilities for the handicapped elderly"
+      },
+      {
+        "code": 1409,
+        "title_en": "Homeless",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to housing for the homeless and efforts to reduce homelessness&nbsp;"
+      },
+      {
+        "code": 1498,
+        "title_en": "R&amp;D",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to housing and community development research and development"
+      },
+      {
+        "code": 1499,
+        "title_en": "Other",
+        "description": "&nbsp; &nbsp; Description: Other issues related to housing and community development"
+      }
+    ]
+  },
+  {
+    "code": 15,
+    "name_en": "Domestic Commerce",
+    "name_hu": "Belkereskedelem és pénzügyi szektor",
+    "subtopics": [
+      {
+        "code": 1500,
+        "title_en": "General",
+        "description": "&nbsp; Description: Includes issues generally related to domestic commerce, including appropriations for government agencies regulating domestic commerce"
+      },
+      {
+        "code": 1501,
+        "title_en": "Banking",
+        "description": "&nbsp; &nbsp;&nbsp;Description: Includes issues related to the regulation of national banking systems and other non-bank financial institutions"
+      },
+      {
+        "code": 1502,
+        "title_en": "Securities &amp; Commodities",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to the regulation and facilitation of securities and commodities trading, regulation of investments and related industries, and exchanges"
+      },
+      {
+        "code": 1504,
+        "title_en": "Consumer Finance",
+        "description": "&nbsp; &nbsp; &nbsp;&nbsp;Description: Includes issues related to consumer finance, mortgages, credit cards, access to credit records, and consumer credit fraud"
+      },
+      {
+        "code": 1505,
+        "title_en": "Insurance Regulation",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to insurance regulation, fraud and abuse in the insurance industry, the financial health of the insurance industry, and insurance availability and cost"
+      },
+      {
+        "code": 1507,
+        "title_en": "Bankruptcy",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to personal, commercial, and municipal bankruptcies"
+      },
+      {
+        "code": 1520,
+        "title_en": "Corporate Management",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to corporate mergers, antitrust regulation, corporate accounting and governance, and corporate management"
+      },
+      {
+        "code": 1521,
+        "title_en": "Small Businesses",
+        "description": "&nbsp; &nbsp; Description: Includes issues related to small businesses, including programs to promote and subsidize small businesses"
+      },
+      {
+        "code": 1522,
+        "title_en": "Copyrights and Patents",
+        "description": "&nbsp;Description: Includes issues related to copyrights and patents, patent reform, and intellectual property"
+      },
+      {
+        "code": 1523,
+        "title_en": "Disaster Relief",
+        "description": "&nbsp; &nbsp;Description: Includes issues related to domestic natural disaster relief, disaster or flood insurance, and natural disaster preparedness"
+      },
+      {
+        "code": 1524,
+        "title_en": "Tourism",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Issues related to tourism regulation, promotion, and impact"
+      },
+      {
+        "code": 1525,
+        "title_en": "Consumer Safety",
+        "description": "&nbsp; Description: Includes issues related to consumer fraud and safety in domestic commerce&nbsp;"
+      },
+      {
+        "code": 1526,
+        "title_en": "Sports Regulation",
+        "description": "&nbsp; &nbsp; Description: Includes issues related to the regulation&nbsp;and promotion&nbsp;of sports, gambling, and personal fitness"
+      },
+      {
+        "code": 1598,
+        "title_en": "R&amp;D",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to domestic commerce research and development"
+      },
+      {
+        "code": 1599,
+        "title_en": "Other",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to other domestic commerce policy subtopics"
+      }
+    ]
+  },
+  {
+    "code": 16,
+    "name_en": "Defense",
+    "name_hu": "Honvédelem és katonapolitika",
+    "subtopics": [
+      {
+        "code": 1600,
+        "title_en": "General",
+        "description": "&nbsp; &nbsp; &nbsp;&nbsp;Description: Includes issues related generally to defense policy, and appropriations for agencies that oversee general defense policy"
+      },
+      {
+        "code": 1602,
+        "title_en": "Alliances",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to defense alliance and agreement, security assistance, and UN peacekeeping activities"
+      },
+      {
+        "code": 1603,
+        "title_en": "Intelligence",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to military intelligence, espionage, and covert operations"
+      },
+      {
+        "code": 1604,
+        "title_en": "Readiness",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to military readiness, coordination of armed services air support and sealift capabilities, and national stockpiles of strategic materials."
+      },
+      {
+        "code": 1605,
+        "title_en": "Nuclear Arms",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to nuclear weapons, nuclear proliferation, modernization of nuclear equipment"
+      },
+      {
+        "code": 1606,
+        "title_en": "Military Aid",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to military aid to other countries and the control of arms sales to other countries"
+      },
+      {
+        "code": 1608,
+        "title_en": "Personnel Issues",
+        "description": "&nbsp; &nbsp;Description: Includes issues related to military manpower, military personel and their dependents, military courts, and general veterans' issues"
+      },
+      {
+        "code": 1610,
+        "title_en": "Procurement",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to military procurement, conversion of old equipment, and weapons systems evaluation"
+      },
+      {
+        "code": 1611,
+        "title_en": "Installations &amp; Land",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to military installations, construction, and land transfers"
+      },
+      {
+        "code": 1612,
+        "title_en": "Reserve Forces",
+        "description": "&nbsp; &nbsp; &nbsp; Description; Issues related to military reserves and reserve affairs"
+      },
+      {
+        "code": 1614,
+        "title_en": "Hazardous Waste",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to military nuclear and hazardous waste disposal and military environmental compliance"
+      },
+      {
+        "code": 1615,
+        "title_en": "Civil",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to domestic civil defense, national security responses to terrorism, and other issues related to homeland security"
+      },
+      {
+        "code": 1616,
+        "title_en": "Civilian Personnel",
+        "description": "&nbsp; &nbsp; &nbsp;&nbsp;Description: Includes issues related to non-contractor civilian personnel, civilian employment in the defense industry, and military base closings"
+      },
+      {
+        "code": 1617,
+        "title_en": "Contractors",
+        "description": "&nbsp; &nbsp; &nbsp;Description: Includes issues related to military contractors and contracting, oversight of military contrators and fraud by military contractors"
+      },
+      {
+        "code": 1619,
+        "title_en": "Foreign Operations",
+        "description": "&nbsp; &nbsp; &nbsp;&nbsp;Description: Includes issues related to direct war-related foreign military operations, prisoners of war and collateral damage to civilian populations"
+      },
+      {
+        "code": 1620,
+        "title_en": "Claims against Military",
+        "description": "&nbsp;Description: Includes issues related to claims against the military, settlements for military dependents, and compensation for civilians injured in military operations"
+      },
+      {
+        "code": 1698,
+        "title_en": "R&amp;D",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to defense&nbsp;research and development"
+      },
+      {
+        "code": 1699,
+        "title_en": "Other",
+        "description": "&nbsp; Description: Includes issues related to other defense policy subtopics"
+      }
+    ]
+  },
+  {
+    "code": 17,
+    "name_en": "Technology",
+    "name_hu": "Technológia, média és távközlés",
+    "subtopics": [
+      {
+        "code": 1700,
+        "title_en": "General",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to general space, science, technology, and communications"
+      },
+      {
+        "code": 1701,
+        "title_en": "Space",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to the government use of space and space resource exploitation agreements, government space programs and space exploration, military use of space"
+      },
+      {
+        "code": 1704,
+        "title_en": "Commercial Use of Space",
+        "description": "&nbsp; &nbsp; &nbsp;&nbsp;Description: Includes issues related to the regulation and promotion of commercial use of space, commercial satellite technology, and government efforts to encourage commercial space development"
+      },
+      {
+        "code": 1705,
+        "title_en": "Science Transfer",
+        "description": "&nbsp; &nbsp; &nbsp;&nbsp;Description: Includes issues related to science and technology transfer and international science cooperation"
+      },
+      {
+        "code": 1706,
+        "title_en": "Telecommunications",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to telephones and telecommunication regulation, infrastructure for high-speed internet, and other forms of telecommunication (e.g., mobile phones)"
+      },
+      {
+        "code": 1707,
+        "title_en": "Broadcast",
+        "description": "&nbsp; &nbsp; &nbsp;&nbsp;Description: Includes issues related to the broadcast industry, published media, and control of the electromagnetic spectrum"
+      },
+      {
+        "code": 1708,
+        "title_en": "Weather Forecasting",
+        "description": "&nbsp; &nbsp; &nbsp;&nbsp;Description: Includes issues related to weather forecasting, oceanography, geological surveys, and weather forecasting research and technology"
+      },
+      {
+        "code": 1709,
+        "title_en": "Computers",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues relating to the computer industry, regulation of the internet, and cyber security"
+      },
+      {
+        "code": 1798,
+        "title_en": "R&amp;D",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to space, science, technology, and communication research and development not mentioned in other subtopics."
+      },
+      {
+        "code": 1799,
+        "title_en": "Other",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to other space, science, technology, and communication research and development"
+      }
+    ]
+  },
+  {
+    "code": 18,
+    "name_en": "Foreign Trade",
+    "name_hu": "Külkereskedelem",
+    "subtopics": [
+      {
+        "code": 1800,
+        "title_en": "General",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues generally related to foreign trade and appropriations for government agencies generally regulating foreign trade"
+      },
+      {
+        "code": 1802,
+        "title_en": "Trade Agreements",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to trade negotiations, disputes, and agreements, including tax treaties"
+      },
+      {
+        "code": 1803,
+        "title_en": "Exports",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to export regulation, subsidies, promotion, and control"
+      },
+      {
+        "code": 1804,
+        "title_en": "Private Investments",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to international private business investment and corporate development"
+      },
+      {
+        "code": 1806,
+        "title_en": "Competitiveness",
+        "description": "&nbsp; &nbsp; &nbsp;&nbsp;Description: Includes issues related to productivity of competitiveness of domestic businesses and balance of payments issues"
+      },
+      {
+        "code": 1807,
+        "title_en": "Tariff &amp; Imports",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to tariffs and other barriers to imports, import regulation and impact of imports on domestic industries"
+      },
+      {
+        "code": 1808,
+        "title_en": "Exchange Rates",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to exchange rate and related issues"
+      },
+      {
+        "code": 1899,
+        "title_en": "Other",
+        "description": "&nbsp; &nbsp; &nbsp;&nbsp;Description: Includes issues related to other foreign trade policy subtopics"
+      }
+    ]
+  },
+  {
+    "code": 19,
+    "name_en": "International Affairs",
+    "name_hu": "Nemzetközi kapcsolatok és külügyek",
+    "subtopics": [
+      {
+        "code": 1900,
+        "title_en": "General",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to general international affairs and foreign aid, including appropriations for general government foreign affairs agencies"
+      },
+      {
+        "code": 1901,
+        "title_en": "Foreign Aid",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to foreign aid not directly targeting at increasing international development"
+      },
+      {
+        "code": 1902,
+        "title_en": "Resources Exploitation",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to international resources exploitation and resources agreements, law of the sea and international ocean conservation efforts"
+      },
+      {
+        "code": 1905,
+        "title_en": "Developing Countries",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related specifically to developing countries (for Financial Issues see 1906)"
+      },
+      {
+        "code": 1906,
+        "title_en": "International Finance",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to international finance and economic development, the World Bank and International Monetary Fund, regional development banks, sovereign debt and implications for international lending institutions"
+      },
+      {
+        "code": 1910,
+        "title_en": "Western Europe",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to Western Europe and the European Union"
+      },
+      {
+        "code": 1921,
+        "title_en": "Specific Country",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related specifically to a foreign country or region not codable using other codes, assessment of political issues in other countries, relations between individual countries"
+      },
+      {
+        "code": 1925,
+        "title_en": "Human Rights",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to human rights, human rights violations, human rights treaties and conventions, UN reports on human rights, crimes associated with genocide or crimes against humanity"
+      },
+      {
+        "code": 1926,
+        "title_en": "Organizations",
+        "description": "&nbsp; &nbsp; &nbsp;&nbsp;Description: International organizations, NGOs, the United Nations, International Red Cross, UNESCO, International Olympic Committee, International Criminal Court"
+      },
+      {
+        "code": 1927,
+        "title_en": "Terrorism",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to international terrorism, hijacking, and acts of piracy in other countries, efforts to fight international terrorism, international legal mechanisms to combat terrorism"
+      },
+      {
+        "code": 1929,
+        "title_en": "Diplomats",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to diplomats, diplomacy, embassies, citizens abroad, foreign diplomats in the country, visas and passports"
+      },
+      {
+        "code": 1999,
+        "title_en": "Other",
+        "description": "&nbsp; &nbsp; &nbsp;&nbsp;Description: Includes issues related to other international affairs policy subtopics"
+      }
+    ]
+  },
+  {
+    "code": 20,
+    "name_en": "Government Operations",
+    "name_hu": "Kormányzati működés, alkotmányosság és választások",
+    "subtopics": [
+      {
+        "code": 2000,
+        "title_en": "General",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to general government operations, including appropriations for multiple government agencies"
+      },
+      {
+        "code": 2001,
+        "title_en": "Intergovernmental Relations",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to intergovernmental relations, local government issues"
+      },
+      {
+        "code": 2002,
+        "title_en": "Bureaucracy",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to general government efficiencies and bureaucratic oversight"
+      },
+      {
+        "code": 2003,
+        "title_en": "Postal Service",
+        "description": "&nbsp; &nbsp; &nbsp;&nbsp;Description: Includes issues related to postal services, regulation of mail, and post-civil service"
+      },
+      {
+        "code": 2004,
+        "title_en": "Employees",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to&nbsp;civil employees not mentioned in other subtopics, government pensions and general civil service issues"
+      },
+      {
+        "code": 2005,
+        "title_en": "Appointments",
+        "description": "&nbsp; &nbsp; &nbsp;&nbsp;Description: Includes issues related to nominations and appointments not mentioned elsewhere"
+      },
+      {
+        "code": 2006,
+        "title_en": "Currency",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related the currency, national mints, medals, and commemorative coins"
+      },
+      {
+        "code": 2007,
+        "title_en": "Procurement &amp; Contractors",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to government procurement, government contractors, contractor and procurement fraud, and procurement processes and systems"
+      },
+      {
+        "code": 2008,
+        "title_en": "Property Management",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to government property management, construction, and regulation"
+      },
+      {
+        "code": 2009,
+        "title_en": "Tax Administration",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to tax administration, enforcement, and auditing for both individuals and corporations"
+      },
+      {
+        "code": 2010,
+        "title_en": "Scandals",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to public scandal and impeachment"
+      },
+      {
+        "code": 2011,
+        "title_en": "Branch Relations",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to government branch relations, administrative issues, and constitutional reforms"
+      },
+      {
+        "code": 2012,
+        "title_en": "Political Campaigns",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to the regulation of political campaigns, campaign finance, political advertising and voter registration"
+      },
+      {
+        "code": 2013,
+        "title_en": "Census &amp; Statistics",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to census and statistics collection by government"
+      },
+      {
+        "code": 2014,
+        "title_en": "Capital City",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to the capital city"
+      },
+      {
+        "code": 2015,
+        "title_en": "Claims against the government",
+        "description": "&nbsp; &nbsp; &nbsp;&nbsp;Description: Includes issues related to claims against the government, compensation for the victims of terrorist attacks, compensation policies without other substantive provisions"
+      },
+      {
+        "code": 2030,
+        "title_en": "National Holidays",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to national holidays and their observation"
+      },
+      {
+        "code": 2099,
+        "title_en": "Other",
+        "description": "&nbsp; &nbsp; &nbsp;&nbsp;Description: Includes issues related to other government operations subtopics"
+      }
+    ]
+  },
+  {
+    "code": 21,
+    "name_en": "Public Lands",
+    "name_hu": "Állami földek és vízgazdálkodás",
+    "subtopics": [
+      {
+        "code": 2100,
+        "title_en": "General",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to general public lands, water management, and territorial issues"
+      },
+      {
+        "code": 2101,
+        "title_en": "National Parks",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to national parks, memorials, historic sites, and recreation, including the management and staffing of cultural sites"
+      },
+      {
+        "code": 2102,
+        "title_en": "Indigenous Affairs",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to indigenous affairs, indigenous lands, and assistance to indigenous people"
+      },
+      {
+        "code": 2103,
+        "title_en": "Public Lands",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to natural resources, public lands, and forest management, including forest fires, livestock grazing"
+      },
+      {
+        "code": 2104,
+        "title_en": "Water Resources",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to water resources, water resource development and civil works, flood control, and research"
+      },
+      {
+        "code": 2105,
+        "title_en": "Dependencies &amp; Territories",
+        "description": "&nbsp; &nbsp; &nbsp; Description: Includes issues related to territorial and dependency issues and devolution"
+      },
+      {
+        "code": 2199,
+        "title_en": "Other",
+        "description": "&nbsp; &nbsp; &nbsp;&nbsp;Description: Includes issues related to other public lands policy subtopics"
+      }
+    ]
+  },
+  {
+    "code": 23,
+    "name_en": "Culture",
+    "name_hu": "Kultúra",
+    "subtopics": [
+      {
+        "code": 2300,
+        "title_en": "General",
+        "description": ""
+      }
+    ]
+  }
+]

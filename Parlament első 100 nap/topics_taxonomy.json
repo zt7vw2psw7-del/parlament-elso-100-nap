@@ -1,0 +1,80 @@
+[
+  {
+    "code": "MAKROGAZDASAG",
+    "name": "Makrogazdaság és Pénzügyek",
+    "description": "Költségvetés, infláció, adórendszer, gazdasági növekedés, államadósság, devizahitelek, bankadó.",
+    "keywords": ["adó", "áfa", "szja", "jövedelemadó", "költségvetés", "hiány", "államadósság", "infláció", "bankadó", "forint", "gazdasági akcióterv", "devizahitel", "monetáris"]
+  },
+  {
+    "code": "JOGALLAM_ALKOTMANY",
+    "name": "Alkotmányosság, Jogállam és Igazságszolgáltatás",
+    "description": "Alkotmánymódosítások, Alaptörvény, bíróságok, ügyészség, választójogi törvény, jogállamiság, fékek és egyensúlyok.",
+    "keywords": ["alkotmány", "alkotmánymódosítás", "alaptörvény", "bíróság", "ügyészség", "európai ügyészség", "választási törvény", "jogállam", "igazságügy", "fékek és egyensúlyok"]
+  },
+  {
+    "code": "NEMZETPOLITIKA",
+    "name": "Nemzetpolitika és Határon túli magyarság",
+    "description": "Kettős állampolgárság, Trianon-emléknap, határon túli magyar közösségek támogatása, autonómia.",
+    "keywords": ["kettős állampolgárság", "határon túli", "trianon", "nemzeti összetartozás", "honosítás", "erdély", "felvidék", "vajdaság", "kárpátalja", "autonómia"]
+  },
+  {
+    "code": "SZOCIALPOLITIKA_CSALAD",
+    "name": "Szociálpolitika, Család és Munkaerőpiac",
+    "description": "Családtámogatások, nyugdíjak, segélyezés, közmunka, foglalkoztatottság, gyermekvállalás ösztönzése.",
+    "keywords": ["családi pótlék", "gyes", "gyed", "csok", "nyugdíj", "munkanélküliség", "szociális segély", "közmunka", "munkabér", "minimálbér", "szegénység"]
+  },
+  {
+    "code": "EGESZSEGUGY",
+    "name": "Egészségügy és Betegellátás",
+    "description": "Kórházak helyzete, orvosok és ápolók bérezése, várólisták, gyógyszerellátás, egészségbiztosítás.",
+    "keywords": ["kórház", "orvos", "ápoló", "szakdolgozó", "várólista", "betegellátás", "oep", "neak", "egészségbiztosítás", "gyógyszer", "egészségügy", "traumatológia"]
+  },
+  {
+    "code": "OKTATAS_KUTATAS",
+    "name": "Oktatás, Felsőoktatás és Kutatás",
+    "description": "Közoktatás, egyetemi autonómia, pedagógusbérek, szakképzés, MTA, kutatás-fejlesztés.",
+    "keywords": ["iskola", "egyetem", "tanár", "pedagógus", "diák", "felsőoktatás", "tankötelezettség", "szakképzés", "oktatás", "státusztörvény", "akadémia", "kutatás"]
+  },
+  {
+    "code": "KORRUPCIO_ELSZAMOLTATO",
+    "name": "Korrupció, Elszámoltatás és Átláthatóság",
+    "description": "Kormányváltás utáni elszámoltatás, közpénzek ellenőrzése, közbeszerzések, vagyonnyilatkozatok, korrupcióellenes intézkedések.",
+    "keywords": ["elszámoltatás", "vizsgálóbizottság", "visszaélés", "korrupció", "közbeszerzés", "közpénz", "vagyonosodás", "átláthatóság", "integritás hatóság", "számonkérés"]
+  },
+  {
+    "code": "ENERGIA_KORNYEZET",
+    "name": "Energia, Klímapolitika és Környezetvédelem",
+    "description": "Energiabiztonság, áram- és gázárak, rezsicsökkentés / piaci árak, megújuló energia, környezetvédelem, árvízvédelem.",
+    "keywords": ["energia", "földgáz", "villamosenergia", "paks", "atomerőmű", "megújuló", "árvíz", "gát", "katasztrófavédelem", "zöld átállás", "rezsi", "környezetvédelem"]
+  },
+  {
+    "code": "KULUGY_EU_HONVEDELM",
+    "name": "Külügy, Európai Unió és Biztonságpolitika",
+    "description": "EU-s kapcsolatok, uniós források, NATO, nemzetközi szerződések, honvédelem, haderőfejlesztés.",
+    "keywords": ["európai unió", "brüsszel", "eu forrás", "helyreállítási alap", "nato", "külpolitika", "nagykövet", "diplomácia", "honvédség", "hadsereg", "szuverenitás"]
+  },
+  {
+    "code": "MEDIA_KOMMUNIKACIO",
+    "name": "Média, Tájékoztatás és Digitális Ügyek",
+    "description": "Közmédia átalakítása, Médiatanács, sajtószabadság, telekommunikáció, digitalizáció.",
+    "keywords": ["média", "sajtószabadság", "közmédia", "mti", "médiatörvény", "ortt", "nmhh", "médiatanács", "hírközlés", "tájékoztatás", "propaganda"]
+  },
+  {
+    "code": "KOZIGAZGATAS_ONKORMANYZAT",
+    "name": "Közigazgatás és Önkormányzatok",
+    "description": "Közigazgatási reform, minisztériumok átszervezése, kormányhivatalok, helyi önkormányzatok jogkörei és finanszírozása.",
+    "keywords": ["önkormányzat", "polgármester", "minisztérium", "közigazgatás", "bürokrácia", "járás", "kormányhivatal", "közszolgálat", "struktúra"]
+  },
+  {
+    "code": "MEZOGAZDASAG_VIDEK",
+    "name": "Agrárium és Vidékfejlesztés",
+    "description": "Földbérlet, mezőgazdasági támogatások, gazdák helyzete, élelmiszerbiztonság, természeti károk.",
+    "keywords": ["mezőgazdaság", "gazda", "földbérlet", "földügyek", "agrártámogatás", "vetőmag", "termés", "aszály", "vidékfejlesztés", "agrárkamara"]
+  },
+  {
+    "code": "EGYEB_UGYRENDI",
+    "name": "Parlamenti Működés és Protokoll",
+    "description": "Ülésrend, jegyzők, eskütevés, bizottsági helyek elosztása, ceremoniális megemlékezések.",
+    "keywords": ["eskü", "napirend", "bizottság", "tisztségviselő", "korelnök", "jegyzőkönyv", "szavazatszámlálás", "ügyrend", "ülésszak"]
+  }
+]
