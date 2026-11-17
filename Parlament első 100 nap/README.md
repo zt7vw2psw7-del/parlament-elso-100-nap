@@ -13,7 +13,7 @@ Ez a projekt a **2010-es** és a **2026-os** magyar kormányváltást (az Orszá
 | **Alakuló ülés dátuma** | **2010. május 14.** | **2026. május 9.** |
 | **100 napos időszak vége**| **2010. augusztus 22.** | **2026. augusztus 17.** |
 | **Kormányzó erő** | Fidesz – KDNP (kétharmados többség) | TISZA Párt (kormánytöbbség) |
-| **Ellenzéki frakciók** | MSZP, Jobbik, LMP, Függetlenek | Fidesz, KDNP, Mi Hazánk, DK, Függetlenek |
+| **Ellenzéki frakciók** | MSZP, Jobbik, LMP, Függetlenek | Fidesz, KDNP, Mi Hazánk |
 | **Főbb törvényhozási fókusz** | Kettős állampolgárság, Trianon-emléknap, Alkotmánymódosítások, 29 pontos gazdasági akcióterv, bankadó, Nemzeti Együttműködés Nyilatkozata | Jogállamisági reformok, uniós források feloldása, Szuverenitásvédelmi Hivatal megszüntetése, egészségügyi & oktatási reformok, vagyonvisszaszerzés |
 
 ---
@@ -21,12 +21,12 @@ Ez a projekt a **2010-es** és a **2026-os** magyar kormányváltást (az Orszá
 ## 📊 2. Főbb Statisztikai Mutatók (Tisztított, ≥ 200 szavas Felszólalásokkal)
 
 > [!NOTE]
-> Az adatbázisból eltávolításra kerültek a 200 szónál rövidebb, tisztán procedurális bekiabálások, levezető elnöki átadások és rövid ügyrendi megjegyzések, valamint a felszólalások szövegéből törölve lettek a jegyzőkönyvvezetői tapsra és közbekiabálásra/teremreakcióra utaló zárójeles elemek.
+> Az adatbázisból eltávolításra kerültek a 200 szónál rövidebb, tisztán procedurális bekiabálások, levezető elnöki átadások és rövid ügyrendi megjegyzések. A szakpolitikai elemzésekből továbbá kiszűrésre kerültek az elnöki technikai szavaztatások és határozathirdetések (`is_procedural = 1`, 60 db), így a tiszta érdemi korpusz 3 813 felszólalást tartalmaz.
 
 | Kategória | 2010 (Orbán-kormány) | 2026 (Új kormányzat) | Összesen |
 | :--- | :---: | :---: | :---: |
 | **Ülésnapok száma** | 28 nap | 23 nap | **51 ülésnap** |
-| **Érdemi felszólalások (≥ 200 szó)** | **2 334 db** | **1 539 db** | **3 873 felszólalás** |
+| **Érdemi felszólalások (≥ 200 szó, procedurális nélkül)** | **2 279 db** | **1 534 db** | **3 813 felszólalás** (összesen 3 873 db) |
 | **Kérdések és interpellációk** | 659 db | 1 366 db | **2 025 kérdés** |
 | **Benyújtott törvényjavaslatok** | **66 db** | **61 db** | **127 törvényjavaslat** |
 | **Elfogadott törvények (kihirdetve)** | **56 db (84.8%)** | **15 db (24.6%)** | **71 elfogadott törvény** |
