@@ -83,13 +83,13 @@ Az SQLite adatbázis az Országgyűlés plenáris naplóiból kinyert, normaliz�
 | **10** | Közlekedés | Transportation | Vasút (MÁV), autópályák, közúti hálózat, tömegközlekedés |
 | **12** | Jog és igazságszolgáltatás | Law & Crime | Btk., Ptk., bíróságok, rendőrség, korrupció, elszámoltatás |
 | **13** | Szociálpolitika és jólét | Social Welfare | Családtámogatás, GYES/GYED, nyugdíjak, szociális segélyek |
-| **14** | Lakásügy és vidékfejlesztés | Housing | Lakhatás, bérlakásprogram, Magyar Falu Program |
+| **14** | Településfejlesztés, önkormányzatok és lakásügy | Community Development & Housing | Helyi önkormányzatok működése, településfejlesztés, bérlakás, Magyar Falu Program |
 | **15** | Belkereskedelem, pénzügy | Domestic Commerce | Bankok, devizahitelek, fogyasztóvédelem, sport, turizmus |
 | **16** | Honvédelem | Defense | Magyar Honvédség, NATO kötelezettségek, haderőfejlesztés |
 | **17** | Technológia és média | Technology & Media | Médiatörvény, sajtószabadság, digitális átállás, távközlés |
 | **18** | Külkereskedelem | Foreign Trade | Export, import, vámpolitika |
 | **19** | Nemzetközi kapcsolatok | International Affairs | Európai Unió, RRF források, diplomácia, háborús konfliktusok |
-| **20** | Kormányzati működés | Government Operations | Alkotmány, önkormányzatok, közigazgatás, választási rendszer |
+| **20** | Alkotmányosság, kormányzati működés és választások | Government Operations | Alkotmány, Alaptörvény, Alkotmánybíróság, választási rendszer, minisztériumi felépítés |
 | **21** | Állami földek és vízgazdálkodás | Public Lands & Water | Termőföld, Nemzeti Földalap, árvízvédelem, vízügy |
 | **23** | Kultúra | Culture | Művészetek, színházak, kulturális örökség, NKA |
 
