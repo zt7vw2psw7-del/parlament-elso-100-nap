@@ -1,0 +1,6 @@
+discover_lite run 2026-11-11 22:17
+command: /Users/berczizoltan/Documents/Egyetem/Politikatudomány MA - ELTE/Bibó/Sebők Miklós AI óra/Sebők Miklós AI kalandok/.agents/skills/vdiscover/scripts/discover_lite.py /Users/berczizoltan/Documents/Egyetem/Politikatudomány MA - ELTE/Bibó/Sebők Miklós AI óra/Sebők Miklós AI kalandok/vdiscover_run/speeches_for_discovery.csv --text-col text --id-col speech_id --kmin 4 --kmax 8 --holdout 0.3 --seed 42 --stopwords /Users/berczizoltan/Documents/Egyetem/Politikatudomány MA - ELTE/Bibó/Sebők Miklós AI óra/Sebők Miklós AI kalandok/vdiscover_run/hu_stopwords.txt --out /Users/berczizoltan/Documents/Egyetem/Politikatudomány MA - ELTE/Bibó/Sebők Miklós AI óra/Sebők Miklós AI kalandok/vdiscover_run
+documents: 3873 total, 2711 discovery, 1162 held out (holdout 0.3, seed 42)
+vocabulary: 48376 terms (min_df 2, max_df 0.5, 48 extra stop words)
+k rule: best silhouette over 4..8; chosen k = 5, silhouette 0.0085
+outliers: 271 of 2711 (10.0%); the count is a setting, not a discovery: read k_scan.csv

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Parl100Nap: Adat-kódkönyv (Data Codebook)</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 20mm 15mm 20mm 15mm;
+      @bottom-right {
+        content: counter(page);
+      }
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1e293b;
+      line-height: 1.5;
+      font-size: 10.5pt;
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    .header-banner {
+      border-bottom: 3px solid #1e3a8a;
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: 20pt;
+      color: #0f172a;
+      margin: 0 0 6px 0;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      font-size: 12pt;
+      color: #475569;
+      font-weight: 500;
+      margin: 0 0 12px 0;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px 20px;
+      background: #f8fafc;
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+      font-size: 9pt;
+      color: #334155;
+    }
+    .meta-item strong {
+      color: #0f172a;
+    }
+    h2 {
+      font-size: 13pt;
+      color: #1e3a8a;
+      border-bottom: 1.5px solid #cbd5e1;
+      padding-bottom: 4px;
+      margin-top: 22px;
+      margin-bottom: 10px;
+      page-break-after: avoid;
+    }
+    h3 {
+      font-size: 11pt;
+      color: #334155;
+      margin-top: 14px;
+      margin-bottom: 6px;
+      page-break-after: avoid;
+    }
+    p {
+      margin: 0 0 10px 0;
+      text-align: justify;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 16px 0;
+      font-size: 9pt;
+      page-break-inside: auto;
+    }
+    tr {
+      page-break-inside: avoid;
+      page-break-after: auto;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 6px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+    }
+    tbody tr:nth-child(even) {
+      background: #fcfcfd;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-size: 8.5pt;
+    }
+    .badge-ok {
+      display: inline-block;
+      background: #dcfce7;
+      color: #15803d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 8pt;
+    }
+    .bibtex-box {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-family: ui-monospace, monospace;
+      font-size: 8pt;
+      white-space: pre-wrap;
+      margin-top: 8px;
+    }
+    .footer-note {
+      margin-top: 30px;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 8px;
+      font-size: 8pt;
+      color: #64748b;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-banner">
+    <h1>Parl100Nap: Adat-kódkönyv (Data Codebook)</h1>
+    <div class="subtitle">Magyar Parlamenti Összehasonlító Korpusz (2010 vs. 2026) — ParlLawSpeech Sablon</div>
+    
+    <div class="meta-grid">
+      <div class="meta-item"><strong>Verzió:</strong> 1.0 (Hivatalos kiadás)</div>
+      <div class="meta-item"><strong>Dátum:</strong> 2026. November 11.</div>
+      <div class="meta-item"><strong>Szerző:</strong> Berczi Zoltán</div>
+      <div class="meta-item"><strong>Intézmény:</strong> ELTE Bibó István Szakkollégium</div>
+      <div class="meta-item"><strong>Licenc:</strong> Creative Commons Attribution 4.0 (CC-BY 4.0)</div>
+      <div class="meta-item"><strong>Tároló:</strong> github.com/zt7vw2psw7-del/parlament-elso-100-nap</div>
+    </div>
+  </div>
+
+  <h2>1. Bevezetés és Kutatási Cél</h2>
+  <p>
+    A <strong>Parl100Nap</strong> korpusz a 2010-es kormányváltás és a 2026-os parlamenti ciklus első 100 napjának összehasonlító politikatudományi vizsgálatára létrehozott kutatási adatbázis. A korpusz tartalmazza a plenáris felszólalásokat, a beterjesztett törvényjavaslatokat, valamint az írásbeli és szóbeli képviselői kérdéseket.
+  </p>
+  <p>
+    A korpusz elsődleges célja a törvényhozási prioritások, a vitastílus és a politikai napirend feltárása a nemzetközi <em>Comparative Agendas Project (CAP) Master Codebook</em> tematikus taxonómiája és modern szöveganalitikai eszközök segítségével.
+  </p>
+
+  <h2>2. Lefedettség és Adatgyűjtés (Coverage & Collection)</h2>
+  <p>
+    A korpusz a Magyar Országgyűlés hivatalos adatait dolgozza fel az alakuló üléstől számított első 100 naptári napban.
+  </p>
+  
+  <h3>1. Táblázat: A korpusz lefedettsége és megfigyelési egységei</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Korpusz egység</th>
+        <th>Időszak</th>
+        <th>Megfigyelések ($N$)</th>
+        <th>Változók</th>
+        <th>Időkeret</th>
+        <th>Forrás</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Felszólalások (<code>speech</code>)</strong></td>
+        <td>2010</td>
+        <td>2 334</td>
+        <td>24</td>
+        <td>2010.05.14 – 2010.08.21</td>
+        <td>parlament.hu / Napló</td>
+      </tr>
+      <tr>
+        <td><strong>Felszólalások (<code>speech</code>)</strong></td>
+        <td>2026</td>
+        <td>1 539</td>
+        <td>24</td>
+        <td>2026.05.09 – 2026.08.16</td>
+        <td>parlament.hu / WebAPI</td>
+      </tr>
+      <tr>
+        <td><strong>Törvényjavaslatok (<code>bill</code>)</strong></td>
+        <td>2010</td>
+        <td>66</td>
+        <td>25</td>
+        <td>2010.05.14 – 2010.08.21</td>
+        <td>parlament.hu / Irományok</td>
+      </tr>
+      <tr>
+        <td><strong>Törvényjavaslatok (<code>bill</code>)</strong></td>
+        <td>2026</td>
+        <td>61</td>
+        <td>25</td>
+        <td>2026.05.09 – 2026.08.16</td>
+        <td>parlament.hu / Irományok</td>
+      </tr>
+      <tr>
+        <td><strong>Kérdések (<code>question</code>)</strong></td>
+        <td>2010</td>
+        <td>659</td>
+        <td>10</td>
+        <td>2010.05.14 – 2010.08.21</td>
+        <td>parlament.hu / Kérdések</td>
+      </tr>
+      <tr>
+        <td><strong>Kérdések (<code>question</code>)</strong></td>
+        <td>2026</td>
+        <td>1 366</td>
+        <td>10</td>
+        <td>2026.05.09 – 2026.08.16</td>
+        <td>parlament.hu / Kérdések</td>
+      </tr>
+      <tr>
+        <td><strong>Képviselői aktivitás (<code>mp</code>)</strong></td>
+        <td>Összes</td>
+        <td>492</td>
+        <td>7</td>
+        <td>2010 & 2026</td>
+        <td>Rekord-linkage unió</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Szűrési szabályzat:</strong> A 200 szónál rövidebb nem érdemi, procedurális felszólalásokat (pl. elnöki szünetek, megnyitások), valamint a zárójeles reakciókat (taps, derültség, közbeszólás) módszertani minőségbiztosítás céljából eltávolítottuk.</p>
+
+  <h2>3. Adatstruktúra és Változók (Variables)</h2>
+  <p>
+    <strong>Fájlformátumok:</strong> SQLite adatbázis (<code>parlament_100nap.db</code>) és UTF-8 kódolású CSV fájlok.<br>
+    <strong>Összekapcsoló kulcsok:</strong> <code>period_id</code> (ciklus), <code>speaker_name</code> / <code>submitter_names</code> (képviselői entitás), <code>cap_major_code</code> (CAP téma).
+  </p>
+
+  <h3>2. Táblázat: Felszólalások változói (<code>felszolalasok_kategorizalva.csv</code>)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">Változó</th>
+        <th>Leírás</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><code>speech_id</code></td><td>Egyedi felszólalás-azonosító (<code>YYYY_DDD_NNN</code> formátum).</td></tr>
+      <tr><td><code>period_id</code></td><td>Parlamenti ciklus azonosítója (<code>2010</code> vagy <code>2026</code>).</td></tr>
+      <tr><td><code>sitting_date</code></td><td>Az ülésnap hivatalos dátuma (<code>YYYY-MM-DD</code>).</td></tr>
+      <tr><td><code>speaker_name</code></td><td>A felszólaló képviselő hivatalos neve.</td></tr>
+      <tr><td><code>group_name</code></td><td>A képviselő frakciójának / pártjának teljes megnevezése.</td></tr>
+      <tr><td><code>governing_status</code></td><td>Kormányzati státusz (<code>kormany</code>, <code>ellenzek</code>, <code>fuggetlen</code>).</td></tr>
+      <tr><td><code>speech_type_name</code></td><td>A felszólalás eljárási típusa (napirend előtti, vezérszónoki, vita).</td></tr>
+      <tr><td><code>agenda_item</code></td><td>A napirendi pont vagy a tárgyalt törvényjavaslat hivatalos címe.</td></tr>
+      <tr><td><code>word_count</code></td><td>A tisztított szöveg szószáma (garantáltan &ge; 200 szó).</td></tr>
+      <tr><td><code>cap_major_code</code></td><td>Comparative Agendas Project főkategória kód (1–23).</td></tr>
+      <tr><td><code>primary_topic</code></td><td>A CAP főkategória hivatalos magyar elnevezése.</td></tr>
+      <tr><td><code>has_past_critique</code></td><td>Múltba mutató politikai bírálat jelenléte (1 = igen, 0 = nem).</td></tr>
+      <tr><td><code>source_url</code></td><td>Hivatalos forráshivatkozás a parlament.hu jegyzőkönyvre.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>3. Táblázat: Törvényjavaslatok változói (<code>torvenyjavaslatok_kategorizalva.csv</code>)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">Változó</th>
+        <th>Leírás</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><code>bill_id</code></td><td>Egyedi törvényjavaslat azonosító (<code>YYYY_T_N</code>).</td></tr>
+      <tr><td><code>bill_number</code></td><td>Hivatalos irományszám (pl. <code>T/9</code>).</td></tr>
+      <tr><td><code>title</code></td><td>A törvényjavaslat hivatalos teljes címe.</td></tr>
+      <tr><td><code>submitter_names</code></td><td>A javaslatot jegyző képviselő(k) neve (vesszővel tagolva).</td></tr>
+      <tr><td><code>submitter_party</code></td><td>A beterjesztő politikai frakciója.</td></tr>
+      <tr><td><code>submission_date</code></td><td>Benyújtás dátuma (<code>YYYY-MM-DD</code>).</td></tr>
+      <tr><td><code>status</code></td><td>Parlamenti döntési állapot (<code>elfogadva</code>, <code>elutasitva</code>, <code>tárgyalás alatt</code>).</td></tr>
+      <tr><td><code>is_enacted</code></td><td>Bináris változó: hatályba lépett törvény (1 = igen, 0 = nem).</td></tr>
+      <tr><td><code>yes_votes</code> / <code>no_votes</code></td><td>A zárószavazáson leadott igen és nem szavazatok száma.</td></tr>
+      <tr><td><code>cap_major_code</code></td><td>A javaslat tartalmi CAP főkategóriája.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>4. Validáció és Minőségbiztosítás (Validation)</h2>
+  <p>
+    Az adathalmaz a <strong>ParlLawSpeech</strong> módszertani protokollja szerint 5 lépéses validáción esett át:
+  </p>
+  <ul>
+    <li><strong>1. Teljesség & Duplikációk:</strong> 100% egyedi ID-k, 0 db hiányzó (NULL/NA) szövegrekord. <span class="badge-ok">VALIDÁLT</span></li>
+    <li><strong>2. Metaadat-inspekció:</strong> Pártnevek egységesítve, ID-k ellenőrizve reguláris kifejezésekkel (0 hiba). <span class="badge-ok">VALIDÁLT</span></li>
+    <li><strong>3. Rekord-linkage:</strong> 492 képviselői profil kibontása és uniója 3 forrás összekapcsolásával. <span class="badge-ok">VALIDÁLT</span></li>
+    <li><strong>4. Kódolási tisztaság:</strong> 0 db hibás UTF-8 / mojibake karakter. <span class="badge-ok">VALIDÁLT</span></li>
+    <li><strong>5. vscrape teljesség (Reconciliation):</strong> $\text{kinyert} + \text{magyarázott} = \text{hivatalos szám}$ (Rés: 0). <span class="badge-ok">VALIDÁLT</span></li>
+  </ul>
+
+  <h2>5. Hivatkozás (Citation)</h2>
+  <div class="bibtex-box">@misc{berczi2026parl100nap,
+  author       = {Berczi, Zolt{\'{a}}n},
+  title        = {Parl100Nap: Magyar Parlamenti {\"{O}}sszehasonl{\'{i}}t{\'{o}} Korpusz (2010 vs. 2026)},
+  year         = {2026},
+  publisher    = {GitHub},
+  howpublished = {\url{https://github.com/zt7vw2psw7-del/parlament-elso-100-nap}}
+}</div>
+
+  <div class="footer-note">
+    Parl100Nap Kutatási Adatbázis • ELTE Bibó István Szakkollégium • Sebők Miklós AI óra • 2026
+  </div>
+
+</body>
+</html>

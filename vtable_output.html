@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Parl100Nap: Tudományos Publikációs Táblázatok (vtable-format)</title>
+  <style>
+    body {
+      font-family: "Times New Roman", Times, Georgia, serif;
+      font-size: 11pt;
+      line-height: 1.6;
+      color: #000000;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h1 {
+      font-size: 16pt;
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+    .table-container {
+      margin: 35px 0;
+    }
+    /* 1. Caption: Table N. Title (max 6 words, above table, sequential) */
+    .table-caption {
+      font-weight: bold;
+      margin-bottom: 6px;
+      font-size: 11pt;
+    }
+    /* 7. Booktabs three-line rule: top rule, mid rule, bottom rule, NO vertical lines */
+    table.booktabs {
+      width: 100%;
+      border-collapse: collapse;
+      border-top: 2px solid #000000;    /* Top rule */
+      border-bottom: 2px solid #000000; /* Bottom rule */
+      margin: 0;
+    }
+    table.booktabs th {
+      border-bottom: 1px solid #000000; /* Mid rule under header */
+      padding: 6px 8px;
+      font-weight: bold;
+      text-align: left;
+    }
+    table.booktabs td {
+      padding: 5px 8px;
+      font-weight: normal;              /* Body cells strictly plain */
+      border: none;                     /* No vertical lines, no row lines */
+    }
+    table.booktabs tr.totals-row td {
+      border-top: 1px solid #000000;    /* Totals rule */
+      font-weight: normal;
+    }
+    .text-right {
+      text-align: right !important;
+    }
+    .text-center {
+      text-align: center !important;
+    }
+    /* 6. Note below table giving source, base, thresholds */
+    .table-note {
+      font-size: 9.5pt;
+      color: #333333;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Magyar Parlamenti Összehasonlító Elemzés (2010 vs. 2026)<br><span style="font-size: 13pt; font-weight: normal;">Szabványos Tudományos Táblázatok (vtable-format)</span></h1>
+
+  <!-- Table 1: Summary Statistics -->
+  <div class="table-container">
+    <div class="table-caption">Table 1. Summary Statistics of Core Variables</div>
+    <table class="booktabs">
+      <thead>
+        <tr>
+          <th>Variable</th>
+          <th class="text-right">N</th>
+          <th class="text-right">Mean</th>
+          <th class="text-right">SD</th>
+          <th class="text-right">Min</th>
+          <th class="text-right">Max</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Speech word count</td>
+          <td class="text-right">3,873</td>
+          <td class="text-right">587.9</td>
+          <td class="text-right">497.7</td>
+          <td class="text-right">200</td>
+          <td class="text-right">5,318</td>
+        </tr>
+        <tr>
+          <td>Past critique (binary)</td>
+          <td class="text-right">3,873</td>
+          <td class="text-right">0.208</td>
+          <td class="text-right">0.406</td>
+          <td class="text-right">0</td>
+          <td class="text-right">1</td>
+        </tr>
+        <tr>
+          <td>Past critique mentions</td>
+          <td class="text-right">3,873</td>
+          <td class="text-right">0.33</td>
+          <td class="text-right">0.85</td>
+          <td class="text-right">0</td>
+          <td class="text-right">20</td>
+        </tr>
+        <tr>
+          <td>Comparative Agendas topic code</td>
+          <td class="text-right">3,873</td>
+          <td class="text-right">14.8</td>
+          <td class="text-right">7.1</td>
+          <td class="text-right">1</td>
+          <td class="text-right">23</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-note">
+      <em>Note.</em> Source: Hungarian Parliamentary Corpus (2010 and 2026 sessions). N = 3,873 substantively meaningful speeches (&ge; 200 words). Procedural announcements and applause removed.
+    </div>
+  </div>
+
+  <!-- Table 2: Bivariate Overview of Past Critique -->
+  <div class="table-container">
+    <div class="table-caption">Table 2. Retrospective Critique by Political Position</div>
+    <table class="booktabs">
+      <thead>
+        <tr>
+          <th>Period and Status</th>
+          <th class="text-right">Speeches</th>
+          <th class="text-right">Critique N</th>
+          <th class="text-right">Share (%)</th>
+          <th class="text-right">Mean Words</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2010 Government (Fidesz–KDNP)</td>
+          <td class="text-right">1,027</td>
+          <td class="text-right">213</td>
+          <td class="text-right">20.7</td>
+          <td class="text-right">548.2</td>
+        </tr>
+        <tr>
+          <td>2010 Opposition (MSZP, Jobbik, LMP)</td>
+          <td class="text-right">1,243</td>
+          <td class="text-right">209</td>
+          <td class="text-right">16.8</td>
+          <td class="text-right">592.5</td>
+        </tr>
+        <tr>
+          <td>2026 Government (Tisza)</td>
+          <td class="text-right">774</td>
+          <td class="text-right">209</td>
+          <td class="text-right">27.0</td>
+          <td class="text-right">624.1</td>
+        </tr>
+        <tr>
+          <td>2026 Opposition (Fidesz–KDNP, Mi Hazánk)</td>
+          <td class="text-right">676</td>
+          <td class="text-right">144</td>
+          <td class="text-right">21.3</td>
+          <td class="text-right">598.6</td>
+        </tr>
+        <tr class="totals-row">
+          <td>Total sample</td>
+          <td class="text-right">3,873</td>
+          <td class="text-right">806</td>
+          <td class="text-right">20.8</td>
+          <td class="text-right">587.9</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-note">
+      <em>Note.</em> Independent variable: government vs. opposition status under each 100-day window. Dependent variable: presence of retrospective critique (has_past_critique = 1). Independent MP speeches excluded from partisan rows but included in Total sample.
+    </div>
+  </div>
+
+  <!-- Table 3: Legislative Output and Passage Rates -->
+  <div class="table-container">
+    <div class="table-caption">Table 3. Legislative Bills and Enactment Rates</div>
+    <table class="booktabs">
+      <thead>
+        <tr>
+          <th>Session</th>
+          <th class="text-right">Bills Introduced</th>
+          <th class="text-right">Enacted</th>
+          <th class="text-right">Passage Rate (%)</th>
+          <th class="text-right">Mean Yes Votes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2010 session (first 100 days)</td>
+          <td class="text-right">66</td>
+          <td class="text-right">52</td>
+          <td class="text-right">78.8</td>
+          <td class="text-right">284.1</td>
+        </tr>
+        <tr>
+          <td>2026 session (first 100 days)</td>
+          <td class="text-right">61</td>
+          <td class="text-right">44</td>
+          <td class="text-right">72.1</td>
+          <td class="text-right">118.4</td>
+        </tr>
+        <tr class="totals-row">
+          <td>All bills</td>
+          <td class="text-right">127</td>
+          <td class="text-right">96</td>
+          <td class="text-right">75.6</td>
+          <td class="text-right">208.3</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-note">
+      <em>Note.</em> Official legislative proposals (irományok) submitted to the Hungarian National Assembly during the initial 100 calendar days of each term. Enacted indicates passage into law by final parliamentary vote.
+    </div>
+  </div>
+
+</body>
+</html>
