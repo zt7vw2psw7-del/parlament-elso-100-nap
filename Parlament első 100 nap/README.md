@@ -101,7 +101,108 @@ Az adatbázis besorolása a hivatalos nemzetközi **Comparative Agendas Project 
 
 ---
 
-## 📁 5. Elérhető Exportok és Fájlok
+## 📊 5. Felszólalók és Pártok Tematikus Besorolása (Ki hova került?)
+
+Az alábbi diagram és hőtérkép bemutatja, hogy a két kormányváltás utáni első 100 napban az egyes politikai erők és kulcsszereplők felszólalásai milyen szakpolitikai témakategóriákba (CAP kódok) kerültek.
+
+### 5.1. Pártok Szakpolitikai Súlypontjai (Hőtérkép)
+
+![Pártok CAP profilja](abrak/abra_partok_cap_megoszlas.png)
+
+### 5.2. Frakciók és Kulcspolitikusok Tematikus Térképe (Mermaid folyamatábra)
+
+```mermaid
+graph LR
+    subgraph Politikusok["Kiemelt Szónokok"]
+        MP["Magyar Péter (TISZA, 97)"]
+        GN["Dr. Gaudi-Nagy T. (Jobbik, 95)"]
+        RB["Rétvári Bence (KDNP, 72)"]
+        SA["Dr. Schiffer A. (LMP, 70)"]
+        TL["Toroczkai László (Mi Hazánk, 43)"]
+        LM["Dr. Lamperth M. (MSZP, 40)"]
+    end
+
+    subgraph Partok["Pártok / Frakciók"]
+        TISZA["TISZA (769 beszéd)"]
+        FIDESZ["FIDESZ (1 064 beszéd)"]
+        JOBBIK["JOBBIK (529 beszéd)"]
+        KDNP["KDNP (401 beszéd)"]
+        LMP["LMP (260 beszéd)"]
+        MH["MI HAZÁNK (192 beszéd)"]
+        MSZP["MSZP (445 beszéd)"]
+    end
+
+    subgraph CAP["Domináns Szakpolitikai Területek"]
+        C20["CAP 20: Kormányzat & Alkotmány"]
+        C12["CAP 12: Jog & Elszámoltatás"]
+        C1["CAP 1: Makrogazdaság & Adó"]
+        C3["CAP 3: Egészségügy"]
+        C6["CAP 6: Oktatás & Felsőoktatás"]
+        C13["CAP 13: Család & Jólét"]
+        C17["CAP 17: Média & Technológia"]
+        C9["CAP 9: Állampolgárság"]
+    end
+
+    MP --> TISZA
+    GN --> JOBBIK
+    RB --> KDNP
+    SA --> LMP
+    TL --> MH
+    LM --> MSZP
+
+    TISZA -->|22.5%| C20
+    TISZA -->|14.4%| C12
+    TISZA -->|7.9%| C3
+    TISZA -->|7.5%| C6
+
+    FIDESZ -->|30.4%| C20
+    FIDESZ -->|13.1%| C12
+    FIDESZ -->|7.8%| C1
+    FIDESZ -->|7.3%| C13
+
+    JOBBIK -->|31.2%| C20
+    JOBBIK -->|20.6%| C12
+    JOBBIK -->|8.3%| C1
+    JOBBIK -->|7.9%| C17
+
+    KDNP -->|27.4%| C20
+    KDNP -->|14.0%| C12
+    KDNP -->|10.5%| C6
+    KDNP -->|10.0%| C13
+
+    LMP -->|28.8%| C20
+    LMP -->|20.4%| C12
+    LMP -->|8.8%| C1
+    LMP -->|8.1%| C17
+
+    MH -->|17.7%| C12
+    MH -->|15.6%| C20
+    MH -->|13.0%| C1
+    MH -->|8.3%| C9
+
+    MSZP -->|31.5%| C20
+    MSZP -->|14.2%| C12
+    MSZP -->|12.1%| C1
+    MSZP -->|8.1%| C13
+```
+
+### 5.3. A Legaktívabb Felszólalók Tematikus Profilja
+
+| Képviselő / Szónok | Frakció | Össz. beszéd | 1. Fő téma | 2. Fő téma | 3. Fő téma |
+|:---|:---:|:---:|:---|:---|:---|
+| **Magyar Péter** | TISZA | 97 db | **CAP 13 Szociálpolitika** (18 db) | **CAP 20 Kormányzat** (18 db) | **CAP 3 Egészségügy** (12 db) |
+| **Dr. Gaudi-Nagy Tamás** | Jobbik | 95 db | **CAP 12 Jog / Elszámoltatás** (39 db) | **CAP 20 Alkotmányosság** (34 db) | **CAP 9 Állampolgárság** (5 db) |
+| **Rétvári Bence** | KDNP | 72 db | **CAP 20 Kormányzati működés** (30 db) | **CAP 12 Jog és bíróságok** (12 db) | **CAP 6 Oktatás** (8 db) |
+| **Dr. Schiffer András** | LMP | 70 db | **CAP 12 Jogállamiság / Btk.** (26 db) | **CAP 20 Házszabály** (26 db) | **CAP 1 Makrogazdaság** (7 db) |
+| **Novák Előd** | Jobbik / Mi Hazánk | 59 db | **CAP 20 Kormányzat** (24 db) | **CAP 12 Rendvédelem** (22 db) | **CAP 17 Médiatörvény** (17 db) |
+| **Volner János** | Jobbik | 47 db | **CAP 20 Kormányzati struktúra** (24 db) | **CAP 1 Adó és költségvetés** (6 db) | **CAP 12 Jog** (5 db) |
+| **Toroczkai László** | Mi Hazánk | 43 db | **CAP 12 Közbiztonság / Bűnözés** (11 db) | **CAP 20 Kormányzat** (11 db) | **CAP 9 Migráció / Határ** (7 db) |
+| **Dr. Lamperth Mónika** | MSZP | 40 db | **CAP 20 Önkormányzatok** (27 db) | **CAP 12 Jog** (10 db) | **CAP 6 Közoktatás** (3 db) |
+| **Nacsa Lőrinc** | KDNP | 40 db | **CAP 20 Kormányzat** (13 db) | **CAP 12 Közbiztonság** (7 db) | **CAP 15 Fogyasztóvédelem** (4 db) |
+
+---
+
+## 📁 6. Elérhető Exportok és Fájlok
 
 - `cap_master_codebook.json`: A CAP Master Codebook teljes struktúrája gépileg feldolgozható JSON formátumban (21 téma, 209 altéma leírásokkal).
 - `exports/torvenyjavaslatok_kategorizalva.csv`: 127 db törvényjavaslat CAP kódokkal, benyújtóval, érintett törvénnyel és eredménnyel.
