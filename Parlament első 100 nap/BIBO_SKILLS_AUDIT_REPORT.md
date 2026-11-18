@@ -11,8 +11,8 @@ Készítette: Berczi Zoltán | ELTE Politikatudomány MA • Bibó István Szakk
 ================================================================================
 Adatbázis integritási alapállapot:
   • Összes beszédrekord: 3873
-  • Eljárási (procedural) zárt kizárás: 186
-  • Érdemi (substantive) elemzett beszéd: 3687
+  • Eljárási (procedural) zárt kizárás: 196
+  • Érdemi (substantive) elemzett beszéd: 3677
   • Összes törvényjavaslat (bill): 127
 
 --- 1.1 Törvényjavaslatok ellenőrzése (N = 127 db) ---
@@ -73,14 +73,14 @@ mismatches: 9
   2010_002_049: reference 14 · compared 20
   2010_002_058: reference 14 · compared 20
   2010_003_014: reference 14 · compared 20
-written: /var/folders/z6/9_zxw3r173v0c1ws5hwzt23w0000gn/T/agreement_audit_nlj5zv8e/mismatches.csv
+written: /var/folders/z6/9_zxw3r173v0c1ws5hwzt23w0000gn/T/agreement_audit__ayadwf5/mismatches.csv
 
 >> EREDMÉNY: PASS (Kódolói egyezés: 88,0%, Cohen-kappa: 0,820 -> erős megbízhatóság)
 
 ================================================================================
 3. SKILL: /vcalibrate — Rogan-Gladen prevalencia-korrekció és mérési hiba
 ================================================================================
-cells: 2   corpus items: 3687   sampled: 200
+cells: 2   corpus items: 3677   sampled: 200
 wrote sample.csv and coding_sheet.csv (give coders only the sheet, never the scores)
 coders: coder_1, coder_2, coder_3
 rows: 200   fully coded: 200   incomplete (dropped): 0
@@ -95,19 +95,19 @@ note: agreement on a binary label is high whenever one class is rare, so a flag 
 cells: 2   error units: 2   bootstrap replicates: 500   seed: 1
   unit 2010                 sensitivity 1.000  specificity 1.000  (Youden J 1.000)
   unit 2026                 sensitivity 1.000  specificity 1.000  (Youden J 1.000)
-wrote /var/folders/z6/9_zxw3r173v0c1ws5hwzt23w0000gn/T/calib_audit_xywp9xrx/corrected.csv (report raw_rate AND corrected, never raw alone)
+wrote /var/folders/z6/9_zxw3r173v0c1ws5hwzt23w0000gn/T/calib_audit_x8bmsm_1/corrected.csv (report raw_rate AND corrected, never raw alone)
 
 --- Rogan-Gladen Prevalencia-korrekciós Táblázat (CAP 20) ---
   period,n_corpus,n_pos_pred,raw_rate,n_ref,sens,spec,weighted_prev,corrected,lo,hi,flag
   2010,2200,421,0.19136,100,1.00000,1.00000,0.19136,0.19136,0.17546,0.20791,
-  2026,1487,311,0.20915,100,1.00000,1.00000,0.20915,0.20915,0.18859,0.23053,
+  2026,1477,310,0.20988,100,1.00000,1.00000,0.20988,0.20988,0.18923,0.23137,
 >> EREDMÉNY: PASS (Rogan-Gladen hiba-korrekció sikeres, bootstrap intervallumok stabilak)
 
 ================================================================================
 4. SKILL: /vdiscover — discover_lite.py (Feltáró témaklaszterezési ellenőrzés)
 ================================================================================
-discover_lite run 2026-11-18 14:56
-command: /Users/berczizoltan/Desktop/bibo_session3_skills/vdiscover/scripts/discover_lite.py /var/folders/z6/9_zxw3r173v0c1ws5hwzt23w0000gn/T/disc_audit_45ixqzgz/speeches_sample.csv --text-col text --id-col id --kmin 3 --kmax 6 --top-terms 6 --out /var/folders/z6/9_zxw3r173v0c1ws5hwzt23w0000gn/T/disc_audit_45ixqzgz
+discover_lite run 2026-11-18 15:00
+command: /Users/berczizoltan/Desktop/bibo_session3_skills/vdiscover/scripts/discover_lite.py /var/folders/z6/9_zxw3r173v0c1ws5hwzt23w0000gn/T/disc_audit_66xw6644/speeches_sample.csv --text-col text --id-col id --kmin 3 --kmax 6 --top-terms 6 --out /var/folders/z6/9_zxw3r173v0c1ws5hwzt23w0000gn/T/disc_audit_66xw6644
 documents: 120 total, 84 discovery, 36 held out (holdout 0.3, seed 1)
 vocabulary: 975 terms (min_df 2, max_df 0.5, 0 extra stop words)
 k rule: best silhouette over 3..6; chosen k = 3, silhouette 0.0085
@@ -117,7 +117,7 @@ k_scan: k=3: 0.009, k=4: 0.003, k=5: 0.002, k=6: 0.001
 topic 0: 22 docs · hogy az és tisztelt nem úr
 topic 1: 32 docs · az hogy nem és egy tisztelt
 topic 2: 30 docs · az hogy és tisztelt nem úr
-written to /var/folders/z6/9_zxw3r173v0c1ws5hwzt23w0000gn/T/disc_audit_45ixqzgz/: topics.csv doc_topics.csv k_scan.csv outliers.csv holdout_ids.csv run_log.txt
+written to /var/folders/z6/9_zxw3r173v0c1ws5hwzt23w0000gn/T/disc_audit_66xw6644/: topics.csv doc_topics.csv k_scan.csv outliers.csv holdout_ids.csv run_log.txt
 
 Feltárt természetes témaklaszterek:
   topic,size,share,outliers,top_terms,representative_ids,representative_first_words
@@ -132,12 +132,12 @@ Feltárt természetes témaklaszterek:
 1. MINTATÖLCSÉR (Sample funnel):
    • Hivatalos naplóbeli bruttó felszólalási tételek: 10 989
    • Kiszűrt, lementett beszédek az adatbázisban: 3873
-   • Azonosított eljárási beszédek: 186 (4.8%)
-   • Elemzett érdemi minta: 3687 (95.2%)
+   • Azonosított eljárási beszédek: 196 (5.1%)
+   • Elemzett érdemi minta: 3677 (94.9%)
 
 2. KIMENETI ELOSZLÁS KORSZAKONKÉNT:
    • 2010: N = 2200 beszéd | CAP 20 arány: 19.1% (421 db)
-   • 2026: N = 1487 beszéd | CAP 20 arány: 20.9% (311 db)
+   • 2026: N = 1477 beszéd | CAP 20 arány: 21.0% (310 db)
 
 3. KATEGÓRIÁK ÉS RITKA OSZTÁLYOK:
    • Aktív CAP témák: 21 db (1..23 skálán)
@@ -157,7 +157,7 @@ Feltárt természetes témaklaszterek:
    2010_LMP       260       61        35        35        
 
 6. LEÍRÓ STATISZTIKÁK:
-   • Szószám terjedelem: Min = 200, Átlag = 587.8, Max = 4962
+   • Szószám terjedelem: Min = 200, Átlag = 587.7, Max = 4962
 >> EREDMÉNY: PASS (Mind a 8 leíró komponens teljesült)
 
 ================================================================================

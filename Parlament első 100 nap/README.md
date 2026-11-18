@@ -26,7 +26,7 @@ Ez a projekt a **2010-es** és a **2026-os** magyar kormányváltást (az Orszá
 | Kategória | 2010 (Orbán-kormány) | 2026 (Új kormányzat) | Összesen |
 | :--- | :---: | :---: | :---: |
 | **Ülésnapok száma** | 28 nap | 23 nap | **51 ülésnap** |
-| **Érdemi felszólalások (≥ 200 szó, procedurális nélkül)** | **2 200 db** | **1 487 db** | **3 687 felszólalás** (összesen 3 873 db) |
+| **Érdemi felszólalások (≥ 200 szó, procedurális nélkül)** | **2 200 db** | **1 477 db** | **3 677 felszólalás** (összesen 3 873 db) |
 | **Kérdések és interpellációk** | 659 db | 1 366 db | **2 025 kérdés** |
 | **Benyújtott törvényjavaslatok** | **66 db** | **61 db** | **127 törvényjavaslat** |
 | **Elfogadott törvények (kihirdetve)** | **56 db (84.8%)** | **15 db (24.6%)** | **71 elfogadott törvény** |

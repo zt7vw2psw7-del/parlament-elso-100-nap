@@ -52,8 +52,8 @@ txt_intro = (
     "Az SQLite adatbázis az Országgyűlés hivatalos plenáris naplóiból kinyert, normalizált relációs adatbázis. "
     "Időkerete a 2010-es (2010. május 14. – augusztus 22., Fidesz–KDNP) és a 2026-os (2026. május 9. – augusztus 17., TISZA) "
     "kormányváltás utáni első 100 naptári nap. "
-    "Korpusz-méretek: 4 826 nyers felszólalás; 3 873 db >= 200 szavas beszéd; 186 db eljárási, ügyrendi és mandátumigazolási tétel "
-    "(is_procedural = 1); 3 687 db érdemi szakpolitikai felszólalás (is_procedural = 0); 127 db törvényjavaslat; 492 politikus entitás."
+    "Korpusz-méretek: 4 826 nyers felszólalás; 3 873 db >= 200 szavas beszéd; 196 db eljárási, ügyrendi, mandátumigazolási és szószólói tétel "
+    "(is_procedural = 1); 3 677 db érdemi képviselői felszólalás (is_procedural = 0); 127 db törvényjavaslat; 492 politikus entitás."
 )
 pdf.multi_cell(0, 3.6, txt_intro)
 pdf.ln(1.5)
@@ -69,7 +69,7 @@ tables_desc = [
     ("speech (Felszólalások)", 
      "id (PK, pl. 2010_001_005); period_id (FK: 2010, 2026); sitting_day_id (FK); speaker_name; politician_id (FK); "
      "group_id (FK); speech_type_code (NAPIREND_ELOTTI, HOZZASZOLAS, UGYRENDI, stb.); agenda_item; bill_id (FK); "
-     "word_count; full_text; is_procedural (1 = levezető elnöki, ügyrendi vagy mandátumigazolási tétel [n=186], 0 = érdemi vita [n=3 687])."),
+     "word_count; full_text; is_procedural (1 = levezető elnöki, ügyrendi, mandátumigazolási vagy szószólói tétel [n=196], 0 = érdemi vita [n=3 677])."),
     ("speech_classification (CAP besorolás)",
      "speech_id (PK, FK); primary_topic_code (1-23); subtopic_code (alkód, pl. 105, 1202); confidence (0.00-1.00); "
      "cap_classification_method (content_bill_aligned, content_speech_dominant, general_debate, keyword_match); summary."),
@@ -178,12 +178,13 @@ rules_text = (
     "1. Elemzési egység és szűrési küszöb: A vizsgálat a ParlLawSpeech nemzetközi standard szerint a legalább 200 szavas "
     "felszólalásokra terjed ki (tisztítva a zárójeles tapsoktól, közbeszólásoktól és teremreakcióktól). "
     "A 200 szó alatti tételek (1 745 db mikro-megszólalás) törlésre kerültek.\n"
-    "2. Procedurális kizárás (is_procedural = 1): A 200 szót elérő, de funkciójukban tisztán eljárásrendi felszólalásokat "
-    "(levezető elnöki szavaztatás és napirend-lezárás, házszabályi eltérés, bejelentések, eskütétel, mandátumigazolási viták; "
-    "összesen n = 186 db) a kutató procedurális kategóriaként különítette el. Az érdemi politikatudományi elemzés bázisa: N = 3 687.\n"
+    "2. Procedurális és nem-képviselői kizárás (is_procedural = 1): A 200 szót elérő, de funkciójukban tisztán eljárásrendi felszólalásokat "
+    "(levezető elnöki szavaztatás és napirend-lezárás, házszabályi eltérés, bejelentések, eskütétel, mandátumigazolási viták, "
+    "valamint a nemzetiségi szószólók nem képviselői beszédei; összesen n = 196 db) a kutató procedurális kategóriaként különítette el. "
+    "Az érdemi képviselői elemzés bázisa: N = 3 677.\n"
     "3. Tartalmi szövegalapú finomhangolás: A jogszabályok és beszédek besorolása a teljes szöveg tartalomelemzésén alapul. "
     "Az önkormányzati hatáskörök a CAP 14, a gazdasági salátatörvények a CAP 1 és CAP 15 alá kerültek, amivel a CAP 20 aránya "
-    "a kezdeti 43,8%-ról 19,9%-ra normalizálódott (732 db az érdemi korpuszban).\n"
+    "a kezdeti 43,8%-ról 19,9%-ra normalizálódott (731 db az érdemi korpuszban).\n"
     "4. Múltbírálat operacionalizálása: A speech_retrospective_critique tábla azonosítja a korábbi kormányzatok (2002-2010 MSZP-SZDSZ, "
     "illetve 2010-2026 NER) politikai hibáztatását célzó retorikai mintázatokat (n = 806 db)."
 )
@@ -193,7 +194,7 @@ pdf.ln(1.5)
 # 5. SQL mintalekérdezés
 pdf.set_font("Arial", "B", 8.8)
 pdf.set_text_color(26, 58, 92)
-pdf.cell(0, 4.5, "5. Ajánlott reprodukciós SQL lekérdezés (Érdemi korpusz, N = 3 687)", new_x="LMARGIN", new_y="NEXT")
+pdf.cell(0, 4.5, "5. Ajánlott reprodukciós SQL lekérdezés (Érdemi képviselői korpusz, N = 3 677)", new_x="LMARGIN", new_y="NEXT")
 
 sql_code = (
     "SELECT s.id, s.period_id, s.speaker_name, p.party_code, s.speech_type_code,\n"

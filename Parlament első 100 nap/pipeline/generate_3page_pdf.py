@@ -73,9 +73,9 @@ data_text = (
     "Az adatbázis a nemzetközi ParlLawSpeech adatmodellnek megfelelően kapcsolja össze a képviselőket (n=492), parlamenti pártokat, "
     "üléseket, felszólalásokat és törvényjavaslatokat (n=127). A korpusz két 100 napos szakaszt ölel fel: a 2010-es ciklust "
     "(2010. május 14. – augusztus 22.) és a 2026-os ciklust (2026. május 9. – augusztus 17.). "
-    "Az érdemi szakpolitikai viták tisztaságának biztosítására kiszűrtük a technikai elnöki levezetéseket, szavaztatásokat, ügyrendi "
-    "hozzászólásokat és mandátumigazolási vitákat (összesen n=186 procedurális eset), így az érdemi elemzési minta 3 687 felszólalást "
-    "tartalmaz (2010: 2 200 db, 2026: 1 487 db; átlagosan 4 350 karakter/beszéd)."
+    "Az érdemi szakpolitikai viták tisztaságának biztosítására kiszűrtük a technikai elnöki levezetéseket, ügyrendi felszólalásokat, "
+    "mandátumigazolási vitákat, valamint a nemzetiségi szószólók nem képviselői felszólalásait (összesen n=196 procedurális eset), "
+    "így az érdemi képviselői minta 3 677 felszólalást tartalmaz (2010: 2 200 db, 2026: 1 477 db; átlagosan 4 355 karakter/beszéd)."
 )
 pdf.multi_cell(0, 3.8, data_text)
 pdf.ln(1.5)
@@ -90,8 +90,8 @@ method_text = (
     "A felszólalások tematikus besorolása a Comparative Agendas Project (CAP) 21 főkategóriáján alapul. "
     "A besorolás során a törvényeket és felszólalásokat a teljes szövegük (full_text) tartalomelemzése alapján osztályoztuk. "
     "Az önkormányzati feladatokat a CAP standardnak megfelelően a CAP 14 (Településfejlesztés) alá rendeltük, a gazdasági "
-    "akcióterveket a CAP 1-hez, míg a technikai eljárási és mandátumigazolási megnyilvánulásokat procedurálisan félretettük. "
-    "Ennek eredményeként a korábbi mesterségesen magas CAP 20 arány 19,9%-ra (732 db) normalizálódott, valós szakpolitikai egyensúlyt teremtve."
+    "akcióterveket a CAP 1-hez, míg a technikai eljárási megnyilvánulásokat és szószólói beszédeket procedurálisan félretettük. "
+    "Ennek eredményeként a korábbi mesterségesen magas CAP 20 arány 19,9%-ra (731 db) normalizálódott, valós szakpolitikai egyensúlyt teremtve."
 )
 pdf.multi_cell(0, 3.8, method_text)
 pdf.ln(2)
@@ -99,7 +99,7 @@ pdf.ln(2)
 # 1. TÁBLÁZAT
 pdf.set_font("Arial", "B", 8.2)
 pdf.set_text_color(26, 58, 92)
-pdf.cell(0, 4.2, "1. táblázat: A legfőbb CAP témakategóriák megoszlása tartalmi szövegelemzés alapján (N = 3 687)", new_x="LMARGIN", new_y="NEXT")
+pdf.cell(0, 4.2, "1. táblázat: A legfőbb CAP témakategóriák megoszlása tartalmi szövegelemzés alapján (N = 3 677)", new_x="LMARGIN", new_y="NEXT")
 
 col_widths = [14, 55, 20, 18, 23, 23, 21]
 headers = ["CAP", "Szakpolitikai témakör", "Összes (db)", "Arány (%)", "2010 (db)", "2026 (db)", "Prioritás"]
@@ -111,16 +111,16 @@ for w, h in zip(col_widths, headers):
 pdf.ln()
 
 table_data = [
-    ("20", "Alkotmányosság, kormányzati szerkezet", "732", "19,9%", "421", "311", "Mindkettő"),
+    ("20", "Alkotmányosság, kormányzati szerkezet", "731", "19,9%", "421", "310", "Mindkettő"),
     ("12", "Jog, igazságszolgáltatás, közbiztonság", "419", "11,4%", "250", "169", "2010 > 2026"),
     ("1", "Makrogazdaság, költségvetés, adóügyek", "412", "11,2%", "297", "115", "2010 fókusz (2,6x)"),
     ("15", "Belkereskedelem, pénzügy, bankok", "271", "7,4%", "207", "64", "2010 fókusz (3,2x)"),
-    ("14", "Településfejlesztés, önkormányzatok", "267", "7,2%", "174", "93", "2010 > 2026"),
-    ("6", "Oktatás és felsőoktatás", "267", "7,2%", "152", "115", "Kiegyensúlyozott"),
+    ("14", "Településfejlesztés, önkormányzatok", "267", "7,3%", "174", "93", "2010 > 2026"),
+    ("6", "Oktatás és felsőoktatás", "265", "7,2%", "152", "113", "Kiegyensúlyozott"),
     ("4", "Mezőgazdaság és agrárpolitika", "190", "5,2%", "86", "104", "2026 fókusz"),
     ("3", "Egészségügy és betegellátás", "172", "4,7%", "56", "116", "2026 fókusz (2,1x)"),
-    ("17", "Technológia, média, távközlés", "143", "3,9%", "104", "39", "2010 fókusz (2,7x)"),
     ("13", "Szociálpolitika és jólét", "142", "3,9%", "95", "47", "2010 fókusz (2,0x)"),
+    ("17", "Technológia, média, távközlés", "141", "3,8%", "104", "37", "2010 fókusz (2,8x)"),
     ("19", "Nemzetközi kapcsolatok, külügyek / EU", "106", "2,9%", "25", "81", "2026 fókusz (3,2x)"),
     ("10", "Közlekedés és infrastruktúra", "97", "2,6%", "34", "63", "2026 fókusz (1,9x)"),
 ]
@@ -151,10 +151,10 @@ pdf.set_font("Arial", "", 8.2)
 pdf.set_text_color(20, 20, 20)
 res_text = (
     "A tartalmi szövegelemzés és az eljárási szűrés eredményeként a parlamenti viták valós szakpolitikai súlypontjai rajzolódnak ki. "
-    "A korábbi technikai és ügyrendi torzítások feloldása után a CAP 20 (kormányzati struktúra, alkotmányozás) 19,9%-ra állt be (732 db), "
+    "A korábbi technikai és szószólói torzítások feloldása után a CAP 20 (kormányzati struktúra, alkotmányozás) 19,9%-ra állt be (731 db), "
     "míg a szakpolitikai területek összesített aránya eléri a 80,1%-ot. "
     "A törvényhozási agenda gerincét a jogi elszámoltatás és igazságszolgáltatás (CAP 12, 11,4%), a makrogazdasági adó- és költségvetési ügyek "
-    "(CAP 1, 11,2%), a pénzügyi szektor szabályozása (CAP 15, 7,4%), valamint az önkormányzati reformok (CAP 14, 7,2%) adják."
+    "(CAP 1, 11,2%), a pénzügyi szektor szabályozása (CAP 15, 7,4%), valamint az önkormányzati reformok (CAP 14, 7,3%) adják."
 )
 pdf.multi_cell(0, 3.8, res_text)
 pdf.ln(1.5)
@@ -166,7 +166,7 @@ if os.path.exists(img1):
 
 pdf.set_font("Arial", "I", 7.5)
 pdf.set_text_color(80, 80, 80)
-pdf.cell(0, 3.5, "1. ábra: A parlamenti felszólalások CAP témák szerinti megoszlása a tartalmi kódolás alapján (N = 3 687)", new_x="LMARGIN", new_y="NEXT", align="C")
+pdf.cell(0, 3.5, "1. ábra: A parlamenti felszólalások CAP témák szerinti megoszlása a tartalmi kódolás alapján (N = 3 677)", new_x="LMARGIN", new_y="NEXT", align="C")
 pdf.ln(2.5)
 
 img2 = os.path.join(IMG_DIR, "abra2_2010vs2026.png")
@@ -247,10 +247,10 @@ pdf.set_text_color(20, 20, 20)
 limit_text = (
     "A vizsgálat során a tanári visszajelzések alapján a formális címalapú osztályozást felváltotta "
     "a teljes szöveges tartalomelemzés (full-text content scoring). "
-    "A 3. ábra szemlélteti, hogy a korrekció és az eljárási szűrés révén a CAP 20 aránya 19,9%-ra (732 db) mérséklődött, "
+    "A 3. ábra szemlélteti, hogy a korrekció és az eljárási szűrés révén a CAP 20 aránya 19,9%-ra (731 db) mérséklődött, "
     "míg a szakpolitikai sokféleség nőtt (21 aktív CAP téma). "
     "A mesterséges intelligencia (Gemini 2.5 Flash / Pro) alkalmazása a kódolási szabályok szisztematikus betartását szolgálta, "
-    "míg az eljárási szűrés és a döntési határok felügyelete teljes egészében kutatói kontroll alatt állt (Human-in-the-Loop)."
+    "míg az eljárási és nemzetiségi szószólói szűrés teljes egészében kutatói kontroll alatt állt (Human-in-the-Loop)."
 )
 # Leave space for side image
 pdf.set_x(18)
@@ -275,8 +275,7 @@ concl_text = (
     "központosított gazdasági és intézményi törvényhozási rohammal (CAP 1, CAP 12, CAP 15) oldotta meg, "
     "addig a 2026-os TISZA-kormány a társadalmi szolgáltatások megerősítésére (egészségügy, oktatás, közlekedés) "
     "és a nemzetközi/európai kapcsolatok (CAP 19) helyreállítására helyezte a hangsúlyt. "
-    "Az eljárásrendi felszólalások szűrése és a tartalmi kódolás révén mindkét időszakban tiszta, empirikusan megalapozott "
-    "szakpolitikai preferenciarangsor mutatható ki."
+    "A tisztán képviselői korpuszra szűrt és tartalmilag kódolt vizsgálat empirikusan tiszta preferenciarangsort mutat."
 )
 pdf.multi_cell(0, 3.8, concl_text)
 

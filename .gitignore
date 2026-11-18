@@ -19,3 +19,8 @@ __pycache__/
 *$py.class
 venv/
 .venv/
+
+# Korábbi, különálló feladatok (helyi lemezen megőrizve, gitből kizárva)
+Draghi jelentés/
+Orbán kormány 2/
+EU/
