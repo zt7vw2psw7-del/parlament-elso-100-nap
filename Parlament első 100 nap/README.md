@@ -26,7 +26,7 @@ Ez a projekt a **2010-es** és a **2026-os** magyar kormányváltást (az Orszá
 | Kategória | 2010 (Orbán-kormány) | 2026 (Új kormányzat) | Összesen |
 | :--- | :---: | :---: | :---: |
 | **Ülésnapok száma** | 28 nap | 23 nap | **51 ülésnap** |
-| **Érdemi felszólalások (≥ 200 szó, procedurális nélkül)** | **2 279 db** | **1 534 db** | **3 813 felszólalás** (összesen 3 873 db) |
+| **Érdemi felszólalások (≥ 200 szó, procedurális nélkül)** | **2 200 db** | **1 487 db** | **3 687 felszólalás** (összesen 3 873 db) |
 | **Kérdések és interpellációk** | 659 db | 1 366 db | **2 025 kérdés** |
 | **Benyújtott törvényjavaslatok** | **66 db** | **61 db** | **127 törvényjavaslat** |
 | **Elfogadott törvények (kihirdetve)** | **56 db (84.8%)** | **15 db (24.6%)** | **71 elfogadott törvény** |
@@ -125,14 +125,14 @@ A legaktívabb vezető politikusok felszólalásai a következő témakategóri�
 
 | Képviselő / Szónok | Frakció | Össz. beszéd | 1. Fő téma | 2. Fő téma | 3. Fő téma |
 |:---|:---:|:---:|:---|:---|:---|
-| **Magyar Péter** | TISZA | 97 db | **CAP 20 Kormányzat** (30 db) | **CAP 12 Jogállamiság / Btk.** (11 db) | **CAP 13 Szociálpolitika** (8 db) |
+| **Magyar Péter** | TISZA | 95 db | **CAP 20 Kormányzat** (28 db) | **CAP 12 Jogállamiság / Btk.** (11 db) | **CAP 13 Szociálpolitika** (8 db) |
 | **Dr. Gaudi-Nagy Tamás** | Jobbik | 95 db | **CAP 20 Alkotmányosság** (41 db) | **CAP 12 Jog / Elszámoltatás** (28 db) | **CAP 15 Pénzügyi garanciák** (7 db) |
 | **Rétvári Bence** | KDNP | 72 db | **CAP 20 Kormányzati működés** (32 db) | **CAP 12 Jog és bíróságok** (11 db) | **CAP 6 Oktatás** (9 db) |
 | **Dr. Schiffer András** | LMP | 70 db | **CAP 20 Házszabály / Alkotmány** (36 db) | **CAP 12 Jogállamiság** (17 db) | **CAP 1 Makrogazdaság** (5 db) |
-| **Novák Előd** | Jobbik / Mi Hazánk | 59 db | **CAP 20 Kormányzat** (33 db) | **CAP 12 Rendvédelem** (18 db) | **CAP 17 Médiatörvény** (17 db) |
+| **Novák Előd** | Jobbik / Mi Hazánk | 99 db | **CAP 20 Kormányzat** (31 db) | **CAP 12 Rendvédelem** (18 db) | **CAP 17 Médiatörvény** (17 db) |
 | **Volner János** | Jobbik | 47 db | **CAP 1 Makrogazdaság / Adó** (19 db) | **CAP 15 Bankok / Hitelek** (10 db) | **CAP 12 Jog** (5 db) |
-| **Toroczkai László** | Mi Hazánk | 43 db | **CAP 20 Kormányzat** (17 db) | **CAP 12 Közbiztonság / Bűnözés** (10 db) | **CAP 9 Migráció / Határ** (5 db) |
-| **Dr. Lamperth Mónika** | MSZP | 40 db | **CAP 20 Államszervezet** (29 db) | **CAP 14 Önkormányzatok** (4 db) | **CAP 5 Munkaügy** (4 db) |
+| **Toroczkai László** | Mi Hazánk | 42 db | **CAP 20 Kormányzat** (16 db) | **CAP 12 Közbiztonság / Bűnözés** (10 db) | **CAP 9 Migráció / Határ** (5 db) |
+| **Dr. Lamperth Mónika** | MSZP | 39 db | **CAP 20 Államszervezet** (28 db) | **CAP 14 Önkormányzatok** (4 db) | **CAP 5 Munkaügy** (4 db) |
 | **Nacsa Lőrinc** | KDNP | 40 db | **CAP 20 Kormányzat** (7 db) | **CAP 12 Közbiztonság** (5 db) | **CAP 19 Külügyek / EU** (5 db) |
 
 ---

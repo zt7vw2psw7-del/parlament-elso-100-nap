@@ -1,29 +1,31 @@
+#!/usr/bin/env python3
+"""
+3 oldalas tudományos parlamenti elemzés PDF generálása (fpdf2 alapon).
+Szigorúan 3 oldal:
+1. oldal: Cím, Bevezetés, Korpusz, Módszertan, 1. táblázat (CAP eloszlás)
+2. oldal: Eredmények, 1. ábra (CAP főkategóriák), 2. ábra (2010 vs 2026 összehasonlítás)
+3. oldal: Viták és agendaváltások, 2. táblázat (Agendaváltások), Értelmezés, 3. ábra (CAP 20 összetétele)
+"""
+
 import os
+import sys
 from fpdf import FPDF
 
-OUT_LEADANDO = "/Users/berczizoltan/Desktop/Berczi_Zoltan_Bibo_4blokk_leadando"
-OUT_REPO = "/Users/berczizoltan/Documents/Egyetem/Politikatudomány MA - ELTE/Bibó/Sebők Miklós AI óra/Sebők Miklós AI kalandok/Parlament első 100 nap"
-IMG_DIR = os.path.join(OUT_LEADANDO, "abrak")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+IMG_DIR = os.path.join(BASE_DIR, "abrak")
+OUT_PDF = os.path.join(BASE_DIR, "parlament_100nap_elemzes_3oldal.pdf")
 
-PDF_PATH_LEADANDO = os.path.join(OUT_LEADANDO, "parlament_100nap_elemzes_3oldal.pdf")
-PDF_PATH_REPO = os.path.join(OUT_REPO, "parlament_100nap_elemzes_3oldal.pdf")
+pdf = FPDF(orientation="P", unit="mm", format="A4")
+pdf.set_auto_page_break(auto=False)
+pdf.set_margins(left=18, top=14, right=18)
 
-class PaperPDF(FPDF):
-    def __init__(self):
-        super().__init__(orientation="P", unit="mm", format="A4")
-        self.set_margins(18, 14, 18)
-        self.set_auto_page_break(auto=False)
-        self.add_font("Arial", "", "/System/Library/Fonts/Supplemental/Arial.ttf")
-        self.add_font("Arial", "B", "/System/Library/Fonts/Supplemental/Arial Bold.ttf")
-        self.add_font("Arial", "I", "/System/Library/Fonts/Supplemental/Arial Italic.ttf")
+FONT_PATH = "/System/Library/Fonts/Supplemental/Arial.ttf"
+FONT_B_PATH = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
+FONT_I_PATH = "/System/Library/Fonts/Supplemental/Arial Italic.ttf"
 
-    def footer(self):
-        self.set_y(-11)
-        self.set_font("Arial", "I", 7.5)
-        self.set_text_color(120, 120, 120)
-        self.cell(0, 6, f"Bérczi Zoltán | ELTE Bibó István Szakkollégium – AI kurzus (2026) | {self.page_no()}. oldal", align="C")
-
-pdf = PaperPDF()
+pdf.add_font("Arial", "", FONT_PATH)
+pdf.add_font("Arial", "B", FONT_B_PATH)
+pdf.add_font("Arial", "I", FONT_I_PATH)
 
 # ==========================================
 # 1. OLDAL
@@ -71,8 +73,9 @@ data_text = (
     "Az adatbázis a nemzetközi ParlLawSpeech adatmodellnek megfelelően kapcsolja össze a képviselőket (n=492), parlamenti pártokat, "
     "üléseket, felszólalásokat és törvényjavaslatokat (n=127). A korpusz két 100 napos szakaszt ölel fel: a 2010-es ciklust "
     "(2010. május 14. – augusztus 22.) és a 2026-os ciklust (2026. május 9. – augusztus 17.). "
-    "Az érdemi viták vizsgálatához kiszűrtük a technikai elnöki szavaztatásokat és számszerű eredményhirdetéseket (n=60 procedurális eset), "
-    "így a tiszta elemzési minta 3 813 érdemi felszólalást tartalmaz (átlagosan 4 321 karakter/beszéd)."
+    "Az érdemi szakpolitikai viták tisztaságának biztosítására kiszűrtük a technikai elnöki levezetéseket, szavaztatásokat, ügyrendi "
+    "hozzászólásokat és mandátumigazolási vitákat (összesen n=186 procedurális eset), így az érdemi elemzési minta 3 687 felszólalást "
+    "tartalmaz (2010: 2 200 db, 2026: 1 487 db; átlagosan 4 350 karakter/beszéd)."
 )
 pdf.multi_cell(0, 3.8, data_text)
 pdf.ln(1.5)
@@ -80,16 +83,15 @@ pdf.ln(1.5)
 # 3. Módszertan
 pdf.set_font("Arial", "B", 9.5)
 pdf.set_text_color(26, 58, 92)
-pdf.cell(0, 4.8, "3. Módszertan: Tartalmi szövegalapú CAP kódolás", new_x="LMARGIN", new_y="NEXT")
+pdf.cell(0, 4.8, "3. Módszertan: Tartalmi szövegalapú CAP kódolás és eljárási szűrés", new_x="LMARGIN", new_y="NEXT")
 pdf.set_font("Arial", "", 8.2)
 pdf.set_text_color(20, 20, 20)
 method_text = (
     "A felszólalások tematikus besorolása a Comparative Agendas Project (CAP) 21 főkategóriáján alapul. "
-    "A besorolás módszertani finomhangolása során a törvényeket és felszólalásokat nem csupán címük, hanem a teljes szövegük "
-    "(full_text) tartalomelemzése alapján osztályoztuk. Az önkormányzati feladatokat a CAP standardnak megfelelően a CAP 14 "
-    "(Településfejlesztés és helyi közösségek) alá rendeltük, a gazdasági salátatörvényeket (pl. T/581 29 pontos akcióterv) a CAP 1-hez, "
-    "míg a napirend előtti vitákat domináns témájuk szerint soroltuk szét. Ennek eredményeként a korábbi 43,8%-os mesterségesen magas "
-    "CAP 20 arány 21,0%-ra (802 db) normalizálódott, valós szakpolitikai egyensúlyt teremtve a korpuszban."
+    "A besorolás során a törvényeket és felszólalásokat a teljes szövegük (full_text) tartalomelemzése alapján osztályoztuk. "
+    "Az önkormányzati feladatokat a CAP standardnak megfelelően a CAP 14 (Településfejlesztés) alá rendeltük, a gazdasági "
+    "akcióterveket a CAP 1-hez, míg a technikai eljárási és mandátumigazolási megnyilvánulásokat procedurálisan félretettük. "
+    "Ennek eredményeként a korábbi mesterségesen magas CAP 20 arány 19,9%-ra (732 db) normalizálódott, valós szakpolitikai egyensúlyt teremtve."
 )
 pdf.multi_cell(0, 3.8, method_text)
 pdf.ln(2)
@@ -97,7 +99,7 @@ pdf.ln(2)
 # 1. TÁBLÁZAT
 pdf.set_font("Arial", "B", 8.2)
 pdf.set_text_color(26, 58, 92)
-pdf.cell(0, 4.2, "1. táblázat: A legfőbb CAP témakategóriák megoszlása tartalmi szövegelemzés alapján (N = 3 813)", new_x="LMARGIN", new_y="NEXT")
+pdf.cell(0, 4.2, "1. táblázat: A legfőbb CAP témakategóriák megoszlása tartalmi szövegelemzés alapján (N = 3 687)", new_x="LMARGIN", new_y="NEXT")
 
 col_widths = [14, 55, 20, 18, 23, 23, 21]
 headers = ["CAP", "Szakpolitikai témakör", "Összes (db)", "Arány (%)", "2010 (db)", "2026 (db)", "Prioritás"]
@@ -109,18 +111,18 @@ for w, h in zip(col_widths, headers):
 pdf.ln()
 
 table_data = [
-    ("20", "Alkotmányosság, kormányzati szerkezet", "802", "21,0%", "459", "343", "Mindkettő"),
-    ("12", "Jog, igazságszolgáltatás, közbiztonság", "424", "11,1%", "252", "172", "2010 > 2026"),
-    ("1", "Makrogazdaság, költségvetés, adóügyek", "420", "11,0%", "304", "116", "2010 fókusz (2,6x)"),
-    ("14", "Településfejlesztés, önkormányzatok", "276", "7,2%", "182", "94", "2010 > 2026"),
-    ("15", "Belkereskedelem, pénzügy, bankok", "275", "7,2%", "210", "65", "2010 fókusz (3,2x)"),
-    ("6", "Oktatás és felsőoktatás", "271", "7,1%", "155", "116", "Kiegyensúlyozott"),
-    ("4", "Mezőgazdaság és agrárpolitika", "194", "5,1%", "88", "106", "2026 fókusz"),
-    ("3", "Egészségügy és betegellátás", "173", "4,5%", "57", "116", "2026 fókusz (2,0x)"),
-    ("17", "Technológia, média, távközlés", "147", "3,9%", "106", "41", "2010 fókusz (2,6x)"),
-    ("13", "Szociálpolitika és jólét", "145", "3,8%", "97", "48", "2010 fókusz (2,0x)"),
-    ("19", "Nemzetközi kapcsolatok, külügyek / EU", "107", "2,8%", "26", "81", "2026 fókusz (3,1x)"),
-    ("10", "Közlekedés és infrastruktúra", "100", "2,6%", "36", "64", "2026 fókusz (1,8x)"),
+    ("20", "Alkotmányosság, kormányzati szerkezet", "732", "19,9%", "421", "311", "Mindkettő"),
+    ("12", "Jog, igazságszolgáltatás, közbiztonság", "419", "11,4%", "250", "169", "2010 > 2026"),
+    ("1", "Makrogazdaság, költségvetés, adóügyek", "412", "11,2%", "297", "115", "2010 fókusz (2,6x)"),
+    ("15", "Belkereskedelem, pénzügy, bankok", "271", "7,4%", "207", "64", "2010 fókusz (3,2x)"),
+    ("14", "Településfejlesztés, önkormányzatok", "267", "7,2%", "174", "93", "2010 > 2026"),
+    ("6", "Oktatás és felsőoktatás", "267", "7,2%", "152", "115", "Kiegyensúlyozott"),
+    ("4", "Mezőgazdaság és agrárpolitika", "190", "5,2%", "86", "104", "2026 fókusz"),
+    ("3", "Egészségügy és betegellátás", "172", "4,7%", "56", "116", "2026 fókusz (2,1x)"),
+    ("17", "Technológia, média, távközlés", "143", "3,9%", "104", "39", "2010 fókusz (2,7x)"),
+    ("13", "Szociálpolitika és jólét", "142", "3,9%", "95", "47", "2010 fókusz (2,0x)"),
+    ("19", "Nemzetközi kapcsolatok, külügyek / EU", "106", "2,9%", "25", "81", "2026 fókusz (3,2x)"),
+    ("10", "Közlekedés és infrastruktúra", "97", "2,6%", "34", "63", "2026 fókusz (1,9x)"),
 ]
 
 pdf.set_font("Arial", "", 7.3)
@@ -148,11 +150,11 @@ pdf.cell(0, 4.8, "4. Eredmények és összehasonlító agendavizsgálat", new_x=
 pdf.set_font("Arial", "", 8.2)
 pdf.set_text_color(20, 20, 20)
 res_text = (
-    "A tartalmi szövegelemzés eredményeként a parlamenti viták valós szakpolitikai súlypontjai rajzolódnak ki. "
-    "A korábbi eljárási torzítások feloldása után a CAP 20 (kormányzati struktúra, alkotmányozás) 21,0%-ra állt be, "
-    "míg a szakpolitikai területek összesített aránya eléri a 79,0%-ot. "
-    "A törvényhozási agenda gerincét a makrogazdasági válságkezelés (CAP 1, 11,0%), a jogi elszámoltatás és igazságszolgáltatás (CAP 12, 11,1%), "
-    "valamint az önkormányzati reformok (CAP 14, 7,2%) és a pénzügyi szektor szabályozása (CAP 15, 7,2%) adják."
+    "A tartalmi szövegelemzés és az eljárási szűrés eredményeként a parlamenti viták valós szakpolitikai súlypontjai rajzolódnak ki. "
+    "A korábbi technikai és ügyrendi torzítások feloldása után a CAP 20 (kormányzati struktúra, alkotmányozás) 19,9%-ra állt be (732 db), "
+    "míg a szakpolitikai területek összesített aránya eléri a 80,1%-ot. "
+    "A törvényhozási agenda gerincét a jogi elszámoltatás és igazságszolgáltatás (CAP 12, 11,4%), a makrogazdasági adó- és költségvetési ügyek "
+    "(CAP 1, 11,2%), a pénzügyi szektor szabályozása (CAP 15, 7,4%), valamint az önkormányzati reformok (CAP 14, 7,2%) adják."
 )
 pdf.multi_cell(0, 3.8, res_text)
 pdf.ln(1.5)
@@ -160,24 +162,12 @@ pdf.ln(1.5)
 img1 = os.path.join(IMG_DIR, "abra1_cap_eloszlas.png")
 if os.path.exists(img1):
     pdf.image(img1, x=22, y=pdf.get_y(), w=150)
-    pdf.set_y(pdf.get_y() + 84)
+    pdf.set_y(pdf.get_y() + 82)
 
 pdf.set_font("Arial", "I", 7.5)
 pdf.set_text_color(80, 80, 80)
-pdf.cell(0, 3.5, "1. ábra: A CAP szakpolitikai kategóriák megoszlása a teljes szövegelemzés alapján (N = 3 813)", new_x="LMARGIN", new_y="NEXT", align="C")
-pdf.ln(2)
-
-pdf.set_font("Arial", "", 8.2)
-pdf.set_text_color(20, 20, 20)
-comp_text = (
-    "A 2. ábra tanúsága szerint a két kormányváltás között markáns szerkezeti prioritáskülönbség azonosítható: "
-    "A 2010-es Fidesz–KDNP kormányzat az államháztartási hiány lefaragására, adócsökkentésre (CAP 1: 304 beszéd), "
-    "a bankadóra és devizahitelekre (CAP 15: 210), az önkormányzati rendszer átalakítására (CAP 14: 182) és a médiatörvényre összpontosított. "
-    "Ezzel szemben a 2026-os TISZA-kormány napirendjén az egészségügy rekonstrukciója (CAP 3: 116 vs. 57), a nemzetközi források feloldása (CAP 19: 81 vs. 26), "
-    "az energiaügyi vállalások (CAP 8: 56 vs. 25) és a közlekedési válság kezelése (CAP 10: 64 vs. 36) dominál."
-)
-pdf.multi_cell(0, 3.8, comp_text)
-pdf.ln(1.5)
+pdf.cell(0, 3.5, "1. ábra: A parlamenti felszólalások CAP témák szerinti megoszlása a tartalmi kódolás alapján (N = 3 687)", new_x="LMARGIN", new_y="NEXT", align="C")
+pdf.ln(2.5)
 
 img2 = os.path.join(IMG_DIR, "abra2_2010vs2026.png")
 if os.path.exists(img2):
@@ -221,13 +211,13 @@ for w, h in zip(col_w2, headers2):
 pdf.ln()
 
 table_data2 = [
-    ("Külügyek és EU (CAP 19)", "26", "81", "+212% (3,1x)", "Uniós források, RRF jogállamisági feltételek"),
-    ("Egészségügy (CAP 3)", "57", "116", "+104% (2,0x)", "Kórházi állapotok, várólisták, orvosbérek"),
-    ("Energiaügy (CAP 8)", "25", "56", "+124% (2,2x)", "Helyreállítási Terv energetikai reformjai"),
-    ("Közlekedés (CAP 10)", "36", "64", "+78% (1,8x)", "MÁV infrastruktúra, vonatkésések"),
-    ("Makrogazdaság (CAP 1)", "304", "116", "-62%", "29 pontos gazdasági akcióterv (2010)"),
-    ("Pénzügy / kereskedelem (CAP 15)", "210", "65", "-69%", "Bankadó, devizahitelek korlátozása (2010)"),
-    ("Település / Önkorm. (CAP 14)", "182", "94", "-48%", "Önkormányzati rendszer átalakítása (2010)"),
+    ("Külügyek és EU (CAP 19)", "25", "81", "+224% (3,2x)", "Uniós források, RRF jogállamisági feltételek"),
+    ("Egészségügy (CAP 3)", "56", "116", "+107% (2,1x)", "Kórházi állapotok, várólisták, orvosbérek"),
+    ("Energiaügy (CAP 8)", "23", "56", "+143% (2,4x)", "Helyreállítási Terv energetikai reformjai"),
+    ("Közlekedés (CAP 10)", "34", "63", "+85% (1,9x)", "MÁV infrastruktúra, vonatkésések"),
+    ("Makrogazdaság (CAP 1)", "297", "115", "-61%", "29 pontos gazdasági akcióterv (2010)"),
+    ("Pénzügy / kereskedelem (CAP 15)", "207", "64", "-69%", "Bankadó, devizahitelek korlátozása (2010)"),
+    ("Település / Önkorm. (CAP 14)", "174", "93", "-47%", "Önkormányzati rendszer átalakítása (2010)"),
 ]
 
 pdf.set_font("Arial", "", 7.3)
@@ -257,48 +247,38 @@ pdf.set_text_color(20, 20, 20)
 limit_text = (
     "A vizsgálat során a tanári visszajelzések alapján a formális címalapú osztályozást felváltotta "
     "a teljes szöveges tartalomelemzés (full-text content scoring). "
-    "A 3. ábra szemlélteti, hogy a korrekció révén a CAP 20 aránya 21,0%-ra (802 db) mérséklődött, "
-    "amely kizárólag a tényleges alkotmányozási és választási vitákat tartalmazza. "
-    "Az önkormányzati kérdések a nemzetközi standard szerint a CAP 14 kategóriába kerültek (276 db), "
-    "a gazdasági törvények pedig a CAP 1 és CAP 15 alá.\n\n"
-    "A kézi kódolási validáció (Cohen-féle kappa = 0,611) alátámasztja a szövegalapú szűrés robusztusságát. "
-    "A technikai elnöki határozathirdetések leválasztása révén a korpusz kizárólag érdemi politikai "
-    "diskurzust reprezentál mindkét kormányváltás első 100 napjában."
+    "A 3. ábra szemlélteti, hogy a korrekció és az eljárási szűrés révén a CAP 20 aránya 19,9%-ra (732 db) mérséklődött, "
+    "míg a szakpolitikai sokféleség nőtt (21 aktív CAP téma). "
+    "A mesterséges intelligencia (Gemini 2.5 Flash / Pro) alkalmazása a kódolási szabályok szisztematikus betartását szolgálta, "
+    "míg az eljárási szűrés és a döntési határok felügyelete teljes egészében kutatói kontroll alatt állt (Human-in-the-Loop)."
 )
-pdf.multi_cell(114, 3.7, limit_text)
-pdf.set_y(max(pdf.get_y(), curr_y + 44))
-pdf.ln(2)
+# Leave space for side image
+pdf.set_x(18)
+for line in pdf.multi_cell(115, 3.8, limit_text, dry_run=True, output="LINES"):
+    pdf.set_x(18)
+    pdf.cell(115, 3.8, line, new_x="LMARGIN", new_y="NEXT")
 
-pdf.set_font("Arial", "B", 8.5)
-pdf.set_text_color(26, 58, 92)
-pdf.cell(0, 4.2, "7. Összegzés és reprodukálhatóság", new_x="LMARGIN", new_y="NEXT")
-pdf.set_font("Arial", "", 8.0)
-pdf.set_text_color(20, 20, 20)
-summary_text = (
-    "A tartalmi szövegelemzés igazolja, hogy az első 100 nap nem pusztán intézményi térfoglalásról szól: "
-    "2010-ben a fiskális konszolidáció és a munkaalapú gazdaság megteremtése volt a hajtóerő, míg 2026-ban "
-    "a közszolgáltatások (egészségügy, közlekedés) válságkezelése és az európai integráció helyreállítása vezette az agendát. "
-    "A teljes elemzés (adatbázis, pipeline scriptek, kódkönyv és MI nyilatkozat) elérhető a kutatási repóban."
-)
-pdf.multi_cell(0, 3.7, summary_text)
-pdf.ln(1)
-
-pdf.set_draw_color(26, 58, 92)
-pdf.set_line_width(0.3)
-pdf.line(18, pdf.get_y()+1, 192, pdf.get_y()+1)
-pdf.ln(2)
+pdf.set_y(curr_y + 44)
 pdf.set_font("Arial", "I", 7.2)
-pdf.set_text_color(90, 90, 90)
-repo_info = (
-    "Kutatási repó és reprodukciós csomag: Berczi_Zoltan_Bibo_4blokk_leadando.zip  |  "
-    "Adattár: parlament_100nap.db (SQLite, 41 MB), CODEBOOK.pdf, MI_NYILATKOZAT.pdf  |  "
-    "Eszközök: Python 3.9, sqlite3, fpdf2, matplotlib."
-)
-pdf.multi_cell(0, 3.2, repo_info, align="C")
+pdf.set_text_color(80, 80, 80)
+pdf.cell(0, 3.2, "3. ábra: A CAP 20 konszolidációja a tartalmi és eljárási finomhangolás után", new_x="LMARGIN", new_y="NEXT", align="R")
+pdf.ln(1.5)
 
-pdf.output(PDF_PATH_LEADANDO)
-pdf.output(PDF_PATH_REPO)
-print(f"✅ Siker! PDF elkészült:")
-print(f"   Leadandó: {PDF_PATH_LEADANDO}")
-print(f"   Repó:     {PDF_PATH_REPO}")
-print(f"Oldalszám: {pdf.page_no()}")
+# 7. Összegzés
+pdf.set_font("Arial", "B", 9.5)
+pdf.set_text_color(26, 58, 92)
+pdf.cell(0, 4.8, "7. Összegzés", new_x="LMARGIN", new_y="NEXT")
+pdf.set_font("Arial", "", 8.2)
+pdf.set_text_color(20, 20, 20)
+concl_text = (
+    "A két kormányváltás első 100 napjának agendavizsgálata rámutat: míg a 2010-es Fidesz–KDNP kormányzat a válságkezelést "
+    "központosított gazdasági és intézményi törvényhozási rohammal (CAP 1, CAP 12, CAP 15) oldotta meg, "
+    "addig a 2026-os TISZA-kormány a társadalmi szolgáltatások megerősítésére (egészségügy, oktatás, közlekedés) "
+    "és a nemzetközi/európai kapcsolatok (CAP 19) helyreállítására helyezte a hangsúlyt. "
+    "Az eljárásrendi felszólalások szűrése és a tartalmi kódolás révén mindkét időszakban tiszta, empirikusan megalapozott "
+    "szakpolitikai preferenciarangsor mutatható ki."
+)
+pdf.multi_cell(0, 3.8, concl_text)
+
+pdf.output(OUT_PDF)
+print(f"✅ SIKER: 3 oldalas PDF legenerálva ide: {OUT_PDF}")

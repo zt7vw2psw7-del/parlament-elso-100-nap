@@ -1,6 +1,6 @@
 # KÓDKÖNYV (CODEBOOK)
 ## Parlamenti Első 100 Nap Összehasonlító Adatbázis (2010 vs. 2026)
-**Verzió:** 2.1 (Javított, Roll-down és Procedurális korrekcióval)  
+**Verzió:** 2.2 (Procedurális és Mandátumigazolási szűréssel)  
 **Standard:** Nemzetközi ParlLawSpeech adatmodell & Comparative Agendas Project (CAP)  
 **Készítő:** Bérczi Zoltán | ELTE Bibó István Szakkollégium  
 **Kurzusvezető:** Sebők Miklós | 2026. november
