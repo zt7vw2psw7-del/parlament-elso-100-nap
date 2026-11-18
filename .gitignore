@@ -20,7 +20,7 @@ __pycache__/
 venv/
 .venv/
 
-# Korábbi, különálló feladatok (helyi lemezen megőrizve, gitből kizárva)
-Draghi jelentés/
-Orbán kormány 2/
+# Korábbi, különálló projektek (helyi lemezen megőrizve, gitből és GitHubról kizárva)
+*Draghi*
+*korm*ny*
 EU/
